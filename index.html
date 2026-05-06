@@ -1,954 +1,774 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Minorsoltech – Invest-Scale-Prosper</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
+<title>Planning Cell – Revenue & Estate Department | Khyber Pakhtunkhwa</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+  --teal:#006b5e;
+  --teal2:#008573;
+  --teal3:#00a68f;
+  --tealDark:#004d44;
+  --gold:#d4a017;
+  --gold2:#e8b830;
+  --navy:#0d1b2a;
+  --navyLight:#1a2e3f;
+  --light:#f0f4f2;
+  --white:#ffffff;
+  --text:#1e2d2b;
+  --muted:#556b66;
+  --border:#c8ddd9;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'IBM Plex Sans',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden;}
+h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
-:root {
-  --navy: #1a2b4a;
-  --navy-dark: #101c30;
-  --gold: #c8a951;
-  --gold-light: #e0c97a;
-  --gold-dim: rgba(200,169,81,0.12);
-  --white: #ffffff;
-  --light-bg: #f7f8fc;
-  --light-bg2: #eef1f7;
-  --text: #2d3748;
-  --muted: #718096;
-  --muted2: #a0aec0;
-  --border: #e2e8f0;
-  --font-head: 'Playfair Display', serif;
-  --font-body: 'Nunito Sans', sans-serif;
-  --radius: 10px;
-  --radius-sm: 6px;
-  --shadow: 0 4px 24px rgba(26,43,74,0.10);
-  --shadow-md: 0 8px 40px rgba(26,43,74,0.14);
-}
+/* ═══ TOP UTILITY BAR ═══ */
+#topbar{background:var(--tealDark);color:rgba(255,255,255,0.75);font-size:0.72rem;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.1);}
+.topbar-inner{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;}
+.topbar-inner a{color:rgba(255,255,255,0.7);text-decoration:none;transition:color .2s;}
+.topbar-inner a:hover{color:var(--gold2);}
+.tb-links{display:flex;gap:0;flex-wrap:wrap;}
+.tb-links a{padding:0 12px;border-right:1px solid rgba(255,255,255,0.15);font-size:0.7rem;font-weight:500;}
+.tb-links a:last-child{border-right:none;}
+.tb-right{display:flex;align-items:center;gap:16px;font-size:0.7rem;}
 
-html { scroll-behavior: smooth; }
-body { font-family: var(--font-body); color: var(--text); background: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+/* ═══ NAVBAR ═══ */
+#navbar{background:#fff;border-bottom:4px solid var(--teal);position:sticky;top:0;z-index:1000;box-shadow:0 2px 16px rgba(0,107,94,0.1);}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.nav-logo{display:flex;align-items:center;gap:14px;padding:10px 0;text-decoration:none;}
+.logo-emblem{width:58px;height:58px;flex-shrink:0;}
+.nav-logo-text h2{font-size:0.92rem;font-weight:700;color:var(--tealDark);line-height:1.25;font-family:'Playfair Display',serif;}
+.nav-logo-text p{font-size:0.62rem;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;margin-top:1px;}
+.nav-menu{display:flex;align-items:center;gap:0;list-style:none;}
+.nav-menu>li{position:relative;}
+.nav-menu>li>a{display:block;padding:22px 16px;font-size:0.8rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:0.02em;transition:color .2s;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-4px;}
+.nav-menu>li>a:hover,.nav-menu>li.active>a{color:var(--teal);border-bottom-color:var(--teal);}
+.dropdown{display:none;position:absolute;top:calc(100% + 4px);left:0;background:#fff;min-width:230px;box-shadow:0 8px 32px rgba(0,77,68,0.16);border-top:3px solid var(--teal);z-index:500;border-radius:0 0 6px 6px;}
+.nav-menu>li:hover .dropdown{display:block;}
+.dropdown a{display:block;padding:10px 20px;font-size:0.79rem;color:var(--text);text-decoration:none;border-bottom:1px solid #f0f0f0;transition:all .15s;font-weight:500;}
+.dropdown a:hover{background:var(--light);color:var(--teal);padding-left:26px;}
+.nav-apply{background:var(--gold);color:var(--navy)!important;border-radius:4px;padding:8px 20px!important;font-weight:700!important;margin-left:8px;border-bottom:none!important;margin-bottom:0!important;font-size:0.78rem!important;transition:background .2s!important;}
+.nav-apply:hover{background:var(--gold2);color:var(--navy)!important;border-bottom:none!important;}
+.hamburger{display:none;cursor:pointer;padding:8px;background:none;border:none;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--navy);margin:5px 0;transition:all .3s;}
 
-a { text-decoration: none; color: inherit; }
-img { max-width: 100%; display: block; }
+/* ═══ HERO SLIDER ═══ */
+#hero{position:relative;overflow:hidden;height:520px;}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;}
+.slide.active{opacity:1;}
+.slide img{width:100%;height:100%;object-fit:cover;}
+.slide-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,77,68,0.9) 0%,rgba(0,107,94,0.7) 45%,rgba(0,77,68,0.25) 100%);}
+.slide-content{position:absolute;bottom:100px;left:64px;max-width:620px;color:#fff;}
+.slide-tag{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.64rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:5px 14px;border-radius:3px;margin-bottom:14px;font-family:'IBM Plex Sans',sans-serif;}
+.slide-content h2{font-size:clamp(1.4rem,2.8vw,2.3rem);font-weight:900;line-height:1.3;margin-bottom:14px;text-shadow:0 2px 16px rgba(0,0,0,0.35);}
+.slide-content p{font-size:0.9rem;color:rgba(255,255,255,0.88);line-height:1.75;font-family:'IBM Plex Sans',sans-serif;}
+.slide-actions{display:flex;gap:12px;margin-top:20px;}
+.slide-btn{padding:10px 26px;font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:all .2s;cursor:pointer;border:none;font-family:'IBM Plex Sans',sans-serif;}
+.slide-btn-primary{background:var(--gold);color:var(--navy);}
+.slide-btn-primary:hover{background:var(--gold2);}
+.slide-btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.6);}
+.slide-btn-outline:hover{background:rgba(255,255,255,0.1);border-color:#fff;}
+.slide-dots{position:absolute;bottom:40px;left:64px;display:flex;gap:8px;}
+.dot{width:30px;height:4px;background:rgba(255,255,255,0.3);border-radius:2px;cursor:pointer;transition:all .3s;}
+.dot.active{background:var(--gold);width:48px;}
+.slide-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#fff;width:46px;height:46px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;backdrop-filter:blur(6px);border-radius:50%;}
+.slide-nav:hover{background:var(--teal);border-color:var(--teal);}
+#prev-btn{left:18px;}
+#next-btn{right:18px;}
 
-/* ── TOPBAR ── */
-.topbar {
-  background: var(--navy-dark);
-  color: #aab4c4;
-  font-size: 0.8rem;
-  padding: 8px 5%;
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 6px;
-}
-.topbar span { display: flex; align-items: center; gap: 6px; }
-.topbar .socials { display: flex; gap: 10px; }
-.topbar .socials a {
-  width: 24px; height: 24px; border-radius: 50%;
-  background: rgba(255,255,255,0.08);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.7rem; color: #aab4c4;
-  transition: background 0.2s;
-}
-.topbar .socials a:hover { background: var(--gold); color: #fff; }
+/* ═══ STATS BAR ═══ */
+#statsbar{background:var(--teal);padding:0;}
+.stats-inner{max-width:1280px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);}
+.stat-item{padding:22px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.2);position:relative;}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#fff;line-height:1;}
+.stat-label{font-size:0.72rem;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;font-weight:500;}
+.stat-gold{color:var(--gold2);}
 
-/* ── NAV ── */
-nav {
-  position: sticky; top: 0; z-index: 999;
-  background: var(--white);
-  box-shadow: 0 2px 16px rgba(26,43,74,0.08);
-  padding: 0 5%;
-  display: flex; align-items: center; justify-content: space-between;
-  height: 76px; gap: 2rem;
-}
-.nav-logo-text {
-  font-family: var(--font-head); font-size: 1.6rem;
-  font-weight: 800; color: var(--navy);
-  letter-spacing: -0.01em; white-space: nowrap;
-}
-.nav-logo-text span { color: var(--gold); }
-.nav-center { display: flex; align-items: center; flex: 1; justify-content: center; }
-.nav-links { display: flex; gap: 0; list-style: none; }
-.nav-links li a {
-  display: block; padding: 0 15px; line-height: 76px;
-  font-size: 0.82rem; font-weight: 600; color: var(--navy);
-  letter-spacing: 0.03em; text-transform: uppercase;
-  transition: color 0.2s; position: relative; white-space: nowrap;
-}
-.nav-links li a::after {
-  content: ''; position: absolute; bottom: 0; left: 15px; right: 15px;
-  height: 3px; background: var(--gold);
-  transform: scaleX(0); transform-origin: center; transition: transform 0.25s;
-}
-.nav-links li a:hover { color: var(--gold); }
-.nav-links li a:hover::after { transform: scaleX(1); }
-.nav-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-.nav-phone { font-size: 0.78rem; font-weight: 600; color: var(--muted); display: flex; align-items: center; gap: 6px; white-space: nowrap; }
-.nav-phone span { color: var(--gold); font-size: 0.9rem; }
-.nav-cta {
-  background: var(--gold); color: var(--white);
-  padding: 10px 20px; border-radius: 4px;
-  font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.04em; transition: background 0.2s, transform 0.2s; white-space: nowrap;
-}
-.nav-cta:hover { background: var(--navy); transform: translateY(-1px); }
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-.hamburger span { width: 24px; height: 2px; background: var(--navy); border-radius: 2px; }
+/* ═══ QUICK LINKS BAR ═══ */
+#quicklinks{background:#fff;border-bottom:1px solid var(--border);}
+.ql-inner{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;}
+.ql-item{display:flex;align-items:center;gap:10px;padding:16px 22px;font-size:0.78rem;font-weight:600;color:var(--text);text-decoration:none;border-right:1px solid var(--border);transition:all .2s;letter-spacing:0.02em;}
+.ql-item:last-child{border-right:none;}
+.ql-item:hover{background:var(--light);color:var(--teal);}
+.ql-icon{width:32px;height:32px;border-radius:6px;background:var(--light);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;}
+.ql-item:hover .ql-icon{background:var(--teal);color:#fff;}
+.ql-icon svg{color:var(--teal);transition:color .2s;}
+.ql-item:hover .ql-icon svg{color:#fff;}
 
-/* ── HERO SLIDER ── */
-.hero { position: relative; overflow: hidden; height: 620px; min-height: 520px; }
-.slide { position: absolute; inset: 0; display: flex; align-items: center; opacity: 0; transition: opacity 0.8s ease; }
-.slide.active { opacity: 1; }
-.slide-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #0d1f38 0%, #1a3560 40%, #243b6e 100%); }
-.slide-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,20,50,0.85) 0%, rgba(10,20,50,0.45) 60%, transparent 100%); }
-.slide-pattern { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(200,169,81,0.06) 1px, transparent 1px); background-size: 40px 40px; }
-.slide-content { position: relative; z-index: 2; padding: 0 8%; max-width: 720px; }
-.slide-tag {
-  display: inline-block; background: var(--gold); color: #fff;
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
-  text-transform: uppercase; padding: 5px 14px; border-radius: 3px; margin-bottom: 1.2rem;
-}
-.slide-content h1 {
-  font-family: var(--font-head); font-size: clamp(2.4rem, 5vw, 3.8rem);
-  font-weight: 800; color: var(--white); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.25rem;
-}
-.slide-content h1 em { color: var(--gold-light); font-style: normal; }
-.slide-content p { color: rgba(255,255,255,0.78); font-size: 1.05rem; font-weight: 300; line-height: 1.7; margin-bottom: 2rem; max-width: 520px; }
-.slide-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-.btn-gold {
-  background: var(--gold); color: #fff; padding: 13px 28px; border-radius: 4px;
-  font-weight: 700; font-size: 0.9rem; text-transform: uppercase;
-  letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 8px;
-  transition: background 0.2s, transform 0.2s;
-}
-.btn-gold:hover { background: #b8942e; transform: translateY(-2px); }
-.btn-outline-white {
-  background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.45);
-  padding: 13px 28px; border-radius: 4px; font-weight: 700; font-size: 0.9rem;
-  text-transform: uppercase; letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 8px;
-  transition: border-color 0.2s, background 0.2s;
-}
-.btn-outline-white:hover { border-color: var(--gold); background: rgba(200,169,81,0.12); }
-.hero-dots { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
-.hero-dots span { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.35); cursor: pointer; transition: background 0.2s, transform 0.2s; }
-.hero-dots span.active { background: var(--gold); transform: scale(1.2); }
-.hero-arrows { position: absolute; top: 50%; transform: translateY(-50%); width: 100%; display: flex; justify-content: space-between; padding: 0 2%; z-index: 10; }
-.hero-arrows button {
-  width: 44px; height: 44px; border-radius: 50%;
-  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
-  color: #fff; cursor: pointer; font-size: 1.1rem;
-  transition: background 0.2s; display: flex; align-items: center; justify-content: center;
-}
-.hero-arrows button:hover { background: var(--gold); border-color: var(--gold); }
+/* ═══ TICKER ═══ */
+#ticker{background:var(--navy);padding:9px 0;overflow:hidden;}
+.ticker-inner{display:flex;align-items:center;max-width:100%;padding:0;}
+.ticker-label{background:var(--teal);color:#fff;font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:4px 18px;white-space:nowrap;flex-shrink:0;min-width:110px;text-align:center;}
+.ticker-track{overflow:hidden;flex:1;padding:0 16px;}
+.ticker-items{display:flex;gap:60px;animation:ticker 45s linear infinite;white-space:nowrap;}
+.ticker-items span{font-size:0.76rem;color:rgba(255,255,255,0.82);font-family:'IBM Plex Sans',sans-serif;}
+.ticker-items span::before{content:'▸  ';color:var(--gold2);}
+@keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 
-/* ══════════════════════════════════════════
-   HERO TEAM SLIDER — SLIDE 2 RIGHT PANEL
-   All classes prefixed hts- to avoid conflicts
-   ══════════════════════════════════════════ */
-.slide-split {
-  position: absolute; inset: 0;
-  display: flex; align-items: center;
-}
-.slide-split-left {
-  position: relative; z-index: 2;
-  padding: 0 0 0 8%;
-  flex: 0 0 52%;
-  max-width: 52%;
-}
-.slide-split-right {
-  flex: 0 0 48%;
-  max-width: 48%;
-  display: flex; align-items: center; justify-content: center;
-  position: relative; z-index: 2; padding-right: 5%;
-}
+/* ═══ SECTION COMMON ═══ */
+.section-wrap{max-width:1280px;margin:0 auto;padding:0 24px;}
+.sec-label{font-size:0.7rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.16em;margin-bottom:6px;font-family:'IBM Plex Sans',sans-serif;}
+.sec-heading{font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:900;color:var(--navy);margin-bottom:10px;}
+.sec-rule{width:44px;height:3px;background:var(--gold);margin-bottom:24px;border-radius:2px;}
+.sec-rule-center{margin-left:auto;margin-right:auto;}
 
-/* Team slider track */
-.hts-slider {
-  width: 100%;
-  max-width: 320px;
-  position: relative;
-  overflow: hidden;
-}
-.hts-track {
-  display: flex;
-  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
-  will-change: transform;
-}
-.hts-card {
-  flex: 0 0 100%;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(200,169,81,0.35);
-  border-radius: 14px;
-  overflow: hidden;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.08);
-  position: relative;
-}
-.hts-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
-  border-radius: 14px 14px 0 0;
-}
-.hts-img-wrap {
-  height: 200px;
-  overflow: hidden;
-  position: relative;
-  background: linear-gradient(135deg, #1a3560, #0d1f38);
-}
-.hts-img-wrap img {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: top center;
-  display: block;
-  transition: transform 0.5s ease;
-}
-.hts-card:hover .hts-img-wrap img { transform: scale(1.04); }
-.hts-img-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(13,31,56,0.75) 0%, transparent 55%);
-}
-.hts-avatar-fallback {
-  width: 100%; height: 100%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-head); font-size: 3.5rem; font-weight: 800;
-  color: rgba(200,169,81,0.5);
-}
-.hts-body {
-  padding: 1.1rem 1.4rem 1.3rem;
-}
-.hts-role-badge {
-  display: inline-block;
-  background: var(--gold-dim);
-  border: 1px solid rgba(200,169,81,0.35);
-  color: var(--gold-light);
-  font-size: 0.65rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.1em;
-  padding: 3px 10px; border-radius: 20px;
-  margin-bottom: 0.5rem;
-}
-.hts-name {
-  font-family: var(--font-head);
-  font-size: 1.15rem; font-weight: 700;
-  color: #fff; margin-bottom: 0.35rem; line-height: 1.2;
-}
-.hts-desc {
-  font-size: 0.78rem; color: rgba(255,255,255,0.6);
-  font-weight: 300; line-height: 1.55;
-}
-.hts-footer {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-top: 0.9rem; padding-top: 0.75rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
-}
-.hts-socials { display: flex; gap: 7px; }
-.hts-socials a {
-  width: 28px; height: 28px; border-radius: 50%;
-  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
-  display: flex; align-items: center; justify-content: center;
-  color: rgba(255,255,255,0.6); font-size: 0.65rem;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-}
-.hts-socials a:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
-.hts-counter {
-  font-size: 0.72rem; color: rgba(255,255,255,0.4);
-  font-weight: 600; letter-spacing: 0.05em;
-}
-/* Slider nav dots */
-.hts-dots {
-  display: flex; gap: 6px; justify-content: center;
-  margin-top: 14px;
-}
-.hts-dots span {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: rgba(255,255,255,0.25);
-  cursor: pointer; transition: background 0.25s, transform 0.25s, width 0.25s;
-  border-radius: 3px;
-}
-.hts-dots span.active {
-  background: var(--gold); width: 20px; transform: none;
-}
-/* Label above slider */
-.hts-label {
-  text-align: center; margin-bottom: 14px;
-}
-.hts-label span {
-  font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--gold-light); font-weight: 700;
-  display: inline-flex; align-items: center; gap: 8px;
-}
-.hts-label span::before,
-.hts-label span::after {
-  content: ''; display: block; width: 28px; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(200,169,81,0.5));
-}
-.hts-label span::after { background: linear-gradient(90deg, rgba(200,169,81,0.5), transparent); }
+/* ═══ ABOUT SECTION ═══ */
+#about-row{padding:72px 0;background:#fff;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.about-text p{color:#3d5a55;line-height:1.9;margin-bottom:14px;font-size:0.93rem;}
+.about-img{position:relative;}
+.about-img-main{width:100%;height:370px;object-fit:cover;border-radius:4px;position:relative;z-index:1;box-shadow:0 16px 48px rgba(0,77,68,0.18);}
+.about-img::before{content:'';position:absolute;top:-12px;left:-12px;width:100%;height:100%;border:3px solid var(--gold);border-radius:4px;z-index:0;}
+.about-badge{position:absolute;bottom:-20px;right:-20px;background:var(--teal);color:#fff;padding:18px 22px;border-radius:6px;z-index:2;text-align:center;box-shadow:0 8px 24px rgba(0,107,94,0.35);}
+.about-badge strong{display:block;font-size:1.6rem;font-family:'Playfair Display',serif;font-weight:900;}
+.about-badge span{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;opacity:0.85;}
+.read-more{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:11px 28px;background:var(--teal);color:#fff;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:all .2s;cursor:pointer;border:none;font-family:'IBM Plex Sans',sans-serif;}
+.read-more:hover{background:var(--tealDark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,107,94,0.3);}
+.read-more-outline{background:transparent;border:2px solid var(--teal);color:var(--teal);}
+.read-more-outline:hover{background:var(--teal);color:#fff;}
 
-/* ── VALUES ── */
-.values-strip { background: var(--navy); padding: 3.5rem 5%; display: flex; gap: 0; }
-.value-item { flex: 1; padding: 0 2rem; border-right: 1px solid rgba(255,255,255,0.08); }
-.value-item:last-child { border-right: none; }
-.value-item h4 { font-family: var(--font-head); font-size: 1.15rem; color: var(--gold-light); margin-bottom: 0.6rem; }
-.value-item p { color: rgba(255,255,255,0.65); font-size: 0.875rem; line-height: 1.65; font-weight: 300; }
+/* ═══ FEATURES ROW ═══ */
+#features{background:var(--light);padding:64px 0;}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;}
+.feature-card{background:#fff;border-radius:8px;padding:30px 26px;border:1px solid var(--border);border-top:4px solid var(--teal);transition:all .3s;}
+.feature-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,77,68,0.12);}
+.feature-icon{width:54px;height:54px;background:linear-gradient(135deg,var(--teal),var(--teal3));border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+.feature-card h4{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:10px;}
+.feature-card p{font-size:0.83rem;color:var(--muted);line-height:1.75;}
 
-/* ── SECTION SHARED ── */
-section { padding: 90px 5%; }
-.inner { max-width: 1200px; margin: 0 auto; }
-.section-label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 0.6rem; display: block; }
-.section-h { font-family: var(--font-head); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: var(--navy); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 1rem; }
-.section-h em { color: var(--gold); font-style: normal; }
-.section-p { color: var(--muted); font-size: 1rem; font-weight: 300; line-height: 1.75; max-width: 560px; }
-.divider { width: 50px; height: 3px; background: var(--gold); border-radius: 2px; margin: 1rem 0 1.5rem; }
-.btn-navy {
-  background: var(--navy); color: #fff; padding: 13px 28px; border-radius: 4px;
-  font-weight: 700; font-size: 0.875rem; text-transform: uppercase;
-  letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 8px;
-  transition: background 0.2s, transform 0.2s;
+/* ═══ LEADERSHIP ═══ */
+#leadership{padding:72px 0;background:#fff;}
+.leadership-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px;}
+.leader-card{background:#fff;border-radius:8px;overflow:hidden;border:1px solid var(--border);text-align:center;transition:all .3s;}
+.leader-card:hover{transform:translateY(-8px);box-shadow:0 20px 48px rgba(0,77,68,0.14);}
+.leader-photo{width:100%;height:230px;object-fit:cover;object-position:top;}
+.leader-info{padding:18px 14px 22px;}
+.leader-name{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.leader-title{font-size:0.68rem;color:var(--teal);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;}
+.leader-card.featured{border-top:4px solid var(--gold);}
+/* SPO featured card */
+.spo-card{grid-column:1 / -1;border:none;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,var(--tealDark) 0%,var(--navyLight) 100%);box-shadow:0 16px 48px rgba(0,77,68,0.25);}
+.spo-card-inner{display:grid;grid-template-columns:260px 1fr;}
+.spo-photo-side{background:rgba(0,0,0,0.2);display:flex;align-items:center;justify-content:center;min-height:260px;position:relative;}
+.spo-avatar{width:100px;height:100px;border-radius:50%;border:3px solid var(--gold);background:rgba(212,160,23,0.1);display:flex;align-items:center;justify-content:center;}
+.spo-content{padding:36px 36px;display:flex;flex-direction:column;justify-content:center;}
+.spo-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.63rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:12px;font-family:'IBM Plex Sans',sans-serif;}
+.spo-card .leader-name{color:#fff;font-size:1.4rem;text-align:left;margin-bottom:4px;}
+.spo-card .leader-title{color:var(--gold2);text-align:left;margin-bottom:16px;font-size:0.72rem;}
+.spo-desc{color:rgba(255,255,255,0.72);font-size:0.86rem;line-height:1.8;margin-bottom:20px;}
+
+/* ═══ DISTRICTS - KEY SECTION ═══ */
+#districts{padding:72px 0;background:var(--tealDark);}
+#districts .sec-label{color:var(--gold2);}
+#districts .sec-heading{color:#fff;}
+.districts-intro{color:rgba(255,255,255,0.7);max-width:680px;font-size:0.9rem;line-height:1.8;margin-bottom:40px;}
+.districts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.district-card{position:relative;overflow:hidden;border-radius:8px;cursor:pointer;border:1px solid rgba(255,255,255,0.1);}
+.district-img{width:100%;height:200px;object-fit:cover;transition:transform .5s;}
+.district-card:hover .district-img{transform:scale(1.08);}
+.district-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,55,48,0.95) 0%,rgba(0,55,48,0.1) 55%);}
+.district-badge{position:absolute;top:12px;right:12px;background:var(--teal);color:#fff;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;}
+.district-badge.commissioner{background:var(--gold);color:var(--navy);}
+.district-label{position:absolute;bottom:0;left:0;right:0;padding:14px 14px 16px;}
+.district-label strong{display:block;color:#fff;font-size:0.88rem;font-weight:700;font-family:'Playfair Display',serif;}
+.district-label span{display:block;font-size:0.67rem;color:var(--gold2);letter-spacing:0.08em;margin-top:2px;text-transform:uppercase;font-family:'IBM Plex Sans',sans-serif;}
+
+/* ═══ SECTORS ═══ */
+#sectors{padding:72px 0;background:var(--light);}
+.sectors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px;}
+.sector-card{background:#fff;border-radius:8px;overflow:hidden;border:1px solid var(--border);transition:all .3s;}
+.sector-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,77,68,0.12);}
+.sector-img{width:100%;height:160px;object-fit:cover;}
+.sector-info{padding:18px 18px 22px;border-top:3px solid var(--teal);}
+.sector-info h4{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.sector-info .sector-tag{font-size:0.67rem;color:var(--teal);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;display:block;}
+.sector-info p{font-size:0.8rem;color:var(--muted);line-height:1.7;}
+
+/* ═══ SDCs ═══ */
+#sdcs{padding:72px 0;background:#fff;}
+.sdc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px;}
+.sdc-card{border:1px solid var(--border);border-top:3px solid var(--teal);border-radius:8px;overflow:hidden;transition:all .3s;}
+.sdc-card:hover{transform:translateY(-5px);box-shadow:0 14px 36px rgba(0,77,68,0.1);}
+.sdc-img{width:100%;height:155px;object-fit:cover;}
+.sdc-info{padding:14px 16px 18px;}
+.sdc-info h4{font-size:0.87rem;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.sdc-info p{font-size:0.74rem;color:var(--muted);}
+.sdc-status{display:inline-block;margin-top:6px;font-size:0.63rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:2px 8px;border-radius:20px;background:#e6f4f1;color:var(--teal);}
+
+/* ═══ ADP / POLICY ═══ */
+#adp{padding:72px 0;background:var(--navy);}
+.adp-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+.adp-img{position:relative;}
+.adp-img img{width:100%;height:380px;object-fit:cover;border-radius:8px;box-shadow:0 20px 56px rgba(0,0,0,0.4);}
+.adp-text .sec-label{color:var(--gold2);}
+.adp-text .sec-heading{color:#fff;}
+.adp-text p{color:rgba(255,255,255,0.72);line-height:1.9;font-size:0.92rem;margin-bottom:16px;}
+.adp-text blockquote{border-left:4px solid var(--gold);padding:14px 20px;font-style:italic;color:rgba(255,255,255,0.8);font-size:0.93rem;line-height:1.85;margin:22px 0;background:rgba(255,255,255,0.05);border-radius:0 4px 4px 0;}
+.adp-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;}
+.adp-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:16px 18px;}
+.adp-card h5{color:#fff;font-size:0.85rem;font-weight:700;margin-bottom:4px;}
+.adp-card p{color:rgba(255,255,255,0.6);font-size:0.75rem;line-height:1.65;}
+
+/* ═══ NEWS ═══ */
+#news{padding:72px 0;background:var(--light);}
+.news-header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:36px;}
+.news-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.news-card{background:#fff;border-radius:8px;overflow:hidden;border:1px solid var(--border);transition:all .3s;}
+.news-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,77,68,0.12);}
+.news-card.featured{grid-column:span 2;}
+.news-img{width:100%;height:175px;object-fit:cover;}
+.news-card.featured .news-img{height:230px;}
+.news-body{padding:18px;}
+.news-tag{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--teal);margin-bottom:8px;font-family:'IBM Plex Sans',sans-serif;}
+.news-body h4{font-family:'Playfair Display',serif;font-size:0.93rem;font-weight:700;color:var(--navy);line-height:1.45;margin-bottom:8px;}
+.news-card.featured .news-body h4{font-size:1.05rem;}
+.news-body .date{font-size:0.68rem;color:var(--muted);}
+.news-body a{text-decoration:none;color:inherit;}
+.news-body a:hover h4{color:var(--teal);}
+.view-all{display:inline-flex;align-items:center;gap:8px;padding:10px 26px;border:2px solid var(--teal);color:var(--teal);font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:all .2s;font-family:'IBM Plex Sans',sans-serif;}
+.view-all:hover{background:var(--teal);color:#fff;}
+
+/* ═══ PARTNERS ═══ */
+#partners{padding:44px 0;background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.partners-label{text-align:center;font-size:0.68rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:28px;font-family:'IBM Plex Sans',sans-serif;}
+.partners-row{display:flex;justify-content:center;flex-wrap:wrap;gap:48px;align-items:center;opacity:.55;filter:grayscale(100%);}
+.partners-row img{height:38px;object-fit:contain;}
+
+/* ═══ CONTACT ═══ */
+#contact-section{padding:72px 0;background:var(--navyLight);}
+.contact-grid{display:grid;grid-template-columns:2fr 1.2fr 1.2fr;gap:48px;}
+.contact-col h4{font-family:'Playfair Display',serif;color:#fff;font-size:0.95rem;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid var(--gold);}
+.contact-col p,.contact-col a{color:#8a9eb8;font-size:0.83rem;line-height:1.85;text-decoration:none;display:block;transition:color .2s;}
+.contact-col a:hover{color:var(--gold2);}
+.map-frame{width:100%;height:185px;border:0;margin-top:14px;border-radius:6px;opacity:.85;}
+.contact-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;}
+.contact-icon{color:var(--gold2);flex-shrink:0;margin-top:2px;}
+.quicklinks-list{list-style:none;}
+.quicklinks-list li{margin-bottom:8px;}
+.quicklinks-list a{color:#8a9eb8;font-size:0.82rem;text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:6px;font-family:'IBM Plex Sans',sans-serif;}
+.quicklinks-list a::before{content:'▸';color:var(--gold2);font-size:0.65rem;}
+.quicklinks-list a:hover{color:var(--gold2);}
+.qa-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.qa-item{display:flex;flex-direction:column;align-items:center;gap:7px;padding:14px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:6px;text-decoration:none;color:#8a9eb8;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;text-align:center;transition:all .2s;font-family:'IBM Plex Sans',sans-serif;}
+.qa-item:hover{background:var(--teal);color:#fff;border-color:var(--teal);}
+.qa-item svg{color:var(--gold2);transition:color .2s;}
+.qa-item:hover svg{color:#fff;}
+
+/* ═══ FOOTER BAR ═══ */
+#footerbar{background:var(--navy);padding:16px 0;text-align:center;border-top:2px solid var(--teal);}
+#footerbar p{color:#556b7a;font-size:0.73rem;font-family:'IBM Plex Sans',sans-serif;}
+#footerbar strong{color:var(--gold2);}
+#footerbar a{color:var(--gold2);text-decoration:none;}
+
+/* ═══ MODALS ═══ */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,30,26,0.88);z-index:9000;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:#fff;border-radius:8px;max-width:740px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 32px 80px rgba(0,0,0,0.5);}
+.modal-header{background:linear-gradient(135deg,var(--tealDark),var(--navyLight));padding:30px 34px 24px;border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:2;}
+.modal-header h3{font-family:'Playfair Display',serif;color:#fff;font-size:1.2rem;font-weight:700;margin-bottom:4px;}
+.modal-header p{color:var(--gold2);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+.modal-close{position:absolute;top:18px;right:20px;background:rgba(255,255,255,0.12);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.modal-close:hover{background:rgba(255,255,255,0.28);}
+.modal-body{padding:30px 34px;}
+.modal-body p{color:#3d5a55;font-size:0.9rem;line-height:1.95;margin-bottom:16px;}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1100px){
+  .districts-grid{grid-template-columns:repeat(3,1fr);}
+  .leadership-grid{grid-template-columns:repeat(2,1fr);}
+  .news-grid{grid-template-columns:repeat(2,1fr);}
+  .news-card.featured{grid-column:span 1;}
+  .sdc-grid{grid-template-columns:repeat(3,1fr);}
+  .contact-grid{grid-template-columns:1fr 1fr;}
 }
-.btn-navy:hover { background: var(--navy-dark); transform: translateY(-2px); }
-
-/* ══════════════════════════════════════════════
-   ABOUT + TEAM — COMBINED HERO SECTION (TOP)
-   ══════════════════════════════════════════════ */
-#about-team-hero {
-  background: var(--white);
-  padding: 90px 5%;
+@media(max-width:900px){
+  .about-grid,.adp-grid,.sectors-grid,.features-grid{grid-template-columns:1fr;}
+  .stats-inner{grid-template-columns:repeat(2,1fr);}
+  .stat-item:nth-child(2){border-right:none;}
+  .districts-grid{grid-template-columns:repeat(2,1fr);}
+  .spo-card-inner{grid-template-columns:1fr;}
+  .spo-photo-side{min-height:160px;}
 }
-.ath-inner { max-width: 1200px; margin: 0 auto; }
-
-/* About grid */
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-bottom: 80px; }
-.about-img { position: relative; }
-.about-img-main { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 4/5; }
-.about-img-main img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
-.about-badge {
-  position: absolute; bottom: -20px; right: -20px;
-  background: var(--gold); color: var(--white);
-  padding: 1.5rem; border-radius: var(--radius);
-  text-align: center; box-shadow: var(--shadow-md); min-width: 130px;
+@media(max-width:680px){
+  .nav-menu{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#fff;padding:12px 0;box-shadow:0 8px 24px rgba(0,107,94,.12);border-top:2px solid var(--teal);}
+  .nav-menu.open{display:flex;}
+  .nav-menu>li>a{padding:12px 22px;border-bottom:none;margin-bottom:0;}
+  .dropdown{position:static;box-shadow:none;border-top:none;}
+  .hamburger{display:block;}
+  .slide-content{left:20px;bottom:80px;max-width:calc(100% - 40px);}
+  .slide-dots{left:20px;}
+  #hero{height:380px;}
+  .leadership-grid{grid-template-columns:1fr;}
+  .districts-grid{grid-template-columns:1fr 1fr;}
+  .news-grid{grid-template-columns:1fr;}
+  .sdc-grid{grid-template-columns:1fr 1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .modal-body,.modal-header{padding:20px;}
+  .slide-content h2{font-size:1.2rem;}
 }
-.about-badge .num { font-family: var(--font-head); font-size: 2.5rem; font-weight: 800; line-height: 1; display: block; }
-.about-badge .lbl { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.9; }
-.about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 2rem; }
-.about-val { display: flex; align-items: flex-start; gap: 10px; background: var(--light-bg); border-radius: var(--radius-sm); padding: 0.8rem 1rem; border-left: 3px solid var(--gold); }
-.about-val-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
-.about-val-text strong { display: block; font-size: 0.85rem; color: var(--navy); font-weight: 700; }
-.about-val-text span { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
-
-/* Team sub-section inside about-team-hero — ORIGINAL, untouched */
-.team-sub-header { text-align: center; margin-bottom: 3rem; }
-.team-sub-header .divider { margin: 1rem auto; }
-.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
-.team-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: transform 0.25s, box-shadow 0.25s; }
-.team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-.team-card-img {
-  height: 280px; overflow: hidden;
-  background: linear-gradient(135deg, #c0cce8, #98aed4); position: relative;
-}
-.team-card-img img {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: top center;
-  display: block;
-}
-.team-card-img .placeholder-avatar {
-  width: 100%; height: 100%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-head); font-size: 4rem; font-weight: 800;
-  color: rgba(26,43,74,0.35);
-}
-.team-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,43,74,0.6) 0%, transparent 50%); opacity: 0; transition: opacity 0.3s; }
-.team-card:hover .team-overlay { opacity: 1; }
-.team-card-body { padding: 1.25rem 1.5rem; border-top: 3px solid var(--gold); }
-.team-card-body h4 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
-.team-card-body .role { font-size: 0.8rem; color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
-.team-card-body p { font-size: 0.82rem; color: var(--muted); line-height: 1.55; font-weight: 300; }
-.team-socials { display: flex; gap: 8px; margin-top: 10px; }
-.team-socials a {
-  width: 30px; height: 30px; border-radius: 50%;
-  background: var(--light-bg); border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.7rem; color: var(--muted); transition: background 0.2s, color 0.2s;
-}
-.team-socials a:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
-
-/* ── SERVICES SECTION ── */
-#services { background: var(--light-bg); }
-.services-header { text-align: center; margin-bottom: 3.5rem; }
-.services-header .divider { margin: 1rem auto 0; }
-.services-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 4rem; }
-.services-intro-img { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 4/3; position: relative; }
-.services-intro-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.services-intro-img .tech-badge {
-  position: absolute; bottom: 20px; left: 20px;
-  background: rgba(26,43,74,0.92); border: 1px solid rgba(200,169,81,0.4);
-  border-radius: 8px; padding: 12px 18px; display: flex; align-items: center; gap: 10px; backdrop-filter: blur(8px);
-}
-.services-intro-img .tech-badge .dot {
-  width: 10px; height: 10px; border-radius: 50%; background: var(--gold); flex-shrink: 0;
-  box-shadow: 0 0 8px rgba(200,169,81,0.6); animation: pulse 2s infinite;
-}
-@keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.3); } }
-.services-intro-img .tech-badge span { font-size: 0.78rem; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.06em; }
-.services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
-.service-card {
-  background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 2rem 1.75rem; box-shadow: var(--shadow);
-  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s; position: relative; overflow: hidden;
-}
-.service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
-.service-card:hover::before { transform: scaleX(1); }
-.service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: transparent; }
-.service-icon { width: 52px; height: 52px; border-radius: 50%; background: var(--gold-dim); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1.2rem; border: 2px solid rgba(200,169,81,0.2); }
-.service-card h3 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; }
-.service-card p { color: var(--muted); font-size: 0.875rem; line-height: 1.65; font-weight: 300; }
-
-/* ── MARKETPLACES GLOBE SECTION ── */
-#marketplaces { background: var(--light-bg); padding: 90px 5%; }
-.mp-header { text-align: center; margin-bottom: 3rem; }
-.mp-header .divider { margin: 1rem auto; }
-.mp-tagline { color: var(--muted); font-size: 0.95rem; font-weight: 300; line-height: 1.75; max-width: 580px; margin: 0 auto; }
-.globe-layout { position: relative; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 0; max-width: 1060px; margin: 0 auto; min-height: 460px; }
-.cards-left { display: flex; flex-direction: column; gap: 20px; align-items: flex-end; padding-right: 24px; }
-.cards-right { display: flex; flex-direction: column; gap: 20px; align-items: flex-start; padding-left: 24px; }
-.globe-center { display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 3; position: relative; flex-shrink: 0; }
-.globe-svg-wrap { position: relative; filter: drop-shadow(0 12px 36px rgba(200,169,81,0.35)); }
-.globe-label { margin-top: 14px; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
-.conn-lines-wrap { position: absolute; inset: 0; pointer-events: none; z-index: 1; overflow: visible; }
-.mp-card {
-  background: var(--white); border: 1px solid var(--border); border-radius: 16px;
-  padding: 20px 18px 16px; width: 200px; text-align: center; position: relative;
-  transition: transform 0.25s, box-shadow 0.25s; box-shadow: 0 4px 20px rgba(26,43,74,0.09); z-index: 2;
-}
-.mp-card:hover { transform: translateY(-6px); box-shadow: 0 14px 38px rgba(26,43,74,0.16); }
-.mp-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); border-radius: 16px 16px 0 0; transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
-.mp-card:hover::before { transform: scaleX(1); }
-.flag-wrap { width: 54px; height: 54px; border-radius: 50%; background: rgba(200,169,81,0.1); border: 1.5px solid rgba(200,169,81,0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 24px; }
-.mp-card h3 { font-family: var(--font-head); font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
-.mp-card .mp-sub { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 8px; }
-.mp-card p { color: var(--muted); font-size: 0.75rem; line-height: 1.55; font-weight: 300; margin-bottom: 10px; }
-.mp-badge { display: inline-flex; align-items: center; gap: 5px; background: #f0faf4; border: 1px solid #bbf0cf; border-radius: 20px; padding: 4px 10px; font-size: 0.63rem; font-weight: 700; color: #166534; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
-.live-dot { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; animation: livepulse 2s infinite; flex-shrink: 0; }
-@keyframes livepulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
-.mp-stats { display: flex; gap: 12px; justify-content: center; padding-top: 10px; border-top: 1px solid var(--border); }
-.mp-stat-val { font-family: var(--font-head); font-size: 0.95rem; font-weight: 700; color: var(--navy); display: block; line-height: 1; }
-.mp-stat-lbl { font-size: 0.58rem; color: var(--muted2); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; display: block; }
-
-/* ── STEPS ── */
-#steps { background: var(--navy); padding: 90px 5%; }
-#steps .section-label { color: var(--gold-light); }
-#steps .section-h { color: var(--white); }
-.steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; }
-.step-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 2.5rem 2rem; position: relative; transition: background 0.2s; }
-.step-card:hover { background: rgba(255,255,255,0.08); }
-.step-num { font-family: var(--font-head); font-size: 4rem; font-weight: 800; color: rgba(200,169,81,0.15); line-height: 1; position: absolute; top: 1.5rem; right: 1.5rem; }
-.step-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--gold-dim); border: 2px solid rgba(200,169,81,0.3); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem; }
-.step-card h4 { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.6rem; }
-.step-card p { color: rgba(255,255,255,0.55); font-size: 0.875rem; line-height: 1.65; font-weight: 300; }
-
-/* ── FAQ ── */
-#faq { background: var(--light-bg); }
-.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-.faq-list { display: flex; flex-direction: column; gap: 0; }
-.faq-item { border-bottom: 1px solid var(--border); }
-.faq-q { width: 100%; background: none; border: none; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 0; cursor: pointer; font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: var(--navy); text-align: left; gap: 12px; }
-.faq-q .icon { width: 24px; height: 24px; border-radius: 50%; background: var(--gold-dim); border: 1px solid rgba(200,169,81,0.3); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: var(--gold); flex-shrink: 0; transition: background 0.2s, transform 0.3s; }
-.faq-q.open .icon { background: var(--gold); color: #fff; transform: rotate(45deg); }
-.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s; }
-.faq-a.open { max-height: 300px; padding-bottom: 1rem; }
-.faq-a p { color: var(--muted); font-size: 0.875rem; line-height: 1.7; font-weight: 300; }
-.faq-side { background: var(--navy); border-radius: var(--radius); padding: 3rem 2.5rem; color: var(--white); }
-.faq-side h3 { font-family: var(--font-head); font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
-.faq-side p { color: rgba(255,255,255,0.65); font-size: 0.9rem; line-height: 1.7; font-weight: 300; margin-bottom: 2rem; }
-.faq-contact-list { display: flex; flex-direction: column; gap: 1rem; }
-.faq-contact-item { display: flex; align-items: center; gap: 12px; }
-.faq-contact-item .ic { width: 38px; height: 38px; border-radius: 50%; background: var(--gold-dim); border: 1px solid rgba(200,169,81,0.3); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-.faq-contact-item .lbl { font-size: 0.72rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.06em; }
-.faq-contact-item .val { font-size: 0.9rem; color: var(--white); font-weight: 600; }
-
-/* ── TESTIMONIALS ── */
-#testimonials { background: var(--white); }
-.testimonials-header { text-align: center; margin-bottom: 3rem; }
-.testimonials-header .divider { margin: 1rem auto; }
-.testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
-.testimonial { background: var(--light-bg); border-radius: var(--radius); padding: 2rem; border: 1px solid var(--border); position: relative; transition: box-shadow 0.2s; }
-.testimonial:hover { box-shadow: var(--shadow-md); }
-.testimonial::before { content: '\201C'; font-family: var(--font-head); font-size: 5rem; line-height: 1; color: var(--gold); opacity: 0.2; position: absolute; top: 10px; left: 20px; }
-.stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 1rem; }
-.testimonial p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; font-weight: 300; font-style: italic; margin-bottom: 1.5rem; position: relative; z-index: 1; }
-.t-author { display: flex; align-items: center; gap: 12px; }
-.t-avatar { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; border: 2px solid var(--gold); background: var(--navy); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-weight: 700; color: var(--gold-light); font-size: 0.85rem; flex-shrink: 0; }
-.t-name { font-weight: 700; font-size: 0.9rem; color: var(--navy); }
-.t-role { font-size: 0.75rem; color: var(--muted); }
-
-/* ── BLOG ── */
-#blog { background: var(--light-bg); }
-.blog-header { margin-bottom: 3rem; }
-.blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
-.blog-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: transform 0.25s, box-shadow 0.25s; }
-.blog-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
-.blog-card-img { height: 200px; overflow: hidden; background: linear-gradient(135deg, #c8d8f0, #a0bade); position: relative; }
-.blog-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
-.blog-card:hover .blog-card-img img { transform: scale(1.05); }
-.blog-cat { position: absolute; top: 12px; left: 12px; background: var(--gold); color: #fff; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 3px; }
-.blog-card-body { padding: 1.5rem; }
-.blog-date { font-size: 0.75rem; color: var(--muted2); margin-bottom: 0.5rem; }
-.blog-card-body h4 { font-family: var(--font-head); font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; line-height: 1.3; }
-.blog-card-body p { font-size: 0.825rem; color: var(--muted); line-height: 1.6; font-weight: 300; margin-bottom: 1rem; }
-.read-more { font-size: 0.8rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 5px; }
-.read-more:hover { color: var(--navy); }
-
-/* ── NEWSLETTER ── */
-.newsletter { background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%); padding: 70px 5%; text-align: center; }
-.newsletter h2 { font-family: var(--font-head); font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 800; color: var(--white); margin-bottom: 0.6rem; }
-.newsletter p { color: rgba(255,255,255,0.6); font-size: 0.95rem; font-weight: 300; margin-bottom: 2rem; }
-.newsletter-form { display: flex; gap: 0; max-width: 480px; margin: 0 auto; }
-.newsletter-form input { flex: 1; padding: 13px 18px; border: 2px solid rgba(255,255,255,0.15); border-right: none; background: rgba(255,255,255,0.07); color: #fff; font-family: var(--font-body); font-size: 0.9rem; border-radius: 4px 0 0 4px; outline: none; }
-.newsletter-form input::placeholder { color: rgba(255,255,255,0.4); }
-.newsletter-form input:focus { border-color: var(--gold); }
-.newsletter-form button { background: var(--gold); color: #fff; border: none; padding: 13px 24px; font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer; border-radius: 0 4px 4px 0; transition: background 0.2s; }
-.newsletter-form button:hover { background: #b8942e; }
-
-/* ── MAP + FOOTER ── */
-.map-section { height: 360px; overflow: hidden; }
-.map-section iframe { width: 100%; height: 100%; border: none; }
-footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60px 5% 0; }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-.footer-logo-text { font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; color: var(--white); margin-bottom: 1rem; }
-.footer-logo-text span { color: var(--gold); }
-.footer-brand-col p { font-size: 0.875rem; line-height: 1.7; font-weight: 300; margin-bottom: 1.5rem; color: rgba(255,255,255,0.55); }
-.footer-contact-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-.footer-contact-list li { display: flex; align-items: center; gap: 10px; font-size: 0.82rem; color: rgba(255,255,255,0.55); }
-.footer-contact-list li .ic { color: var(--gold); font-size: 0.9rem; flex-shrink: 0; }
-.footer-col h5 { font-family: var(--font-head); font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 1.25rem; padding-bottom: 0.6rem; border-bottom: 2px solid var(--gold); display: inline-block; }
-.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-.footer-links li a { font-size: 0.85rem; color: rgba(255,255,255,0.55); transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
-.footer-links li a::before { content: '›'; color: var(--gold); }
-.footer-links li a:hover { color: var(--gold); }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 1.25rem 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
-.footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
-.footer-bottom .socials { display: flex; gap: 8px; }
-.footer-bottom .socials a { width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-size: 0.7rem; transition: background 0.2s, color 0.2s; }
-.footer-bottom .socials a:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
-
-/* ── WHATSAPP FLOAT ── */
-.wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 999; width: 54px; height: 54px; border-radius: 50%; background: #25D366; box-shadow: 0 4px 20px rgba(37,211,102,0.4); display: flex; align-items: center; justify-content: center; transition: transform 0.2s, box-shadow 0.2s; }
-.wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
-.wa-float svg { width: 28px; height: 28px; fill: white; }
-
-/* ── BACK TO TOP ── */
-.back-to-top { position: fixed; bottom: 88px; right: 24px; z-index: 999; width: 40px; height: 40px; border-radius: 50%; background: var(--navy); border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.1rem; cursor: pointer; opacity: 0; transition: opacity 0.3s, transform 0.2s; pointer-events: none; }
-.back-to-top.visible { opacity: 1; pointer-events: all; }
-.back-to-top:hover { transform: translateY(-3px); }
-
-/* ── REVEAL ── */
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
-.reveal.visible { opacity: 1; transform: none; }
-
-/* ── MOBILE ── */
-@media (max-width: 1000px) {
-  .globe-layout { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 24px; }
-  .globe-center { grid-column: 1 / -1; grid-row: 1; }
-  .cards-left { grid-column: 1; flex-direction: row; flex-wrap: wrap; align-items: flex-start; padding-right: 0; justify-content: center; }
-  .cards-right { grid-column: 2; flex-direction: row; flex-wrap: wrap; align-items: flex-start; padding-left: 0; justify-content: center; }
-  .conn-lines-wrap { display: none; }
-
-  /* Hero team slider: stack on medium screens */
-  .slide-split { flex-direction: column; justify-content: center; }
-  .slide-split-left { flex: none; max-width: 100%; padding: 0 6%; margin-bottom: 1.5rem; }
-  .slide-split-right { flex: none; max-width: 100%; padding: 0 6% 2rem; justify-content: flex-start; }
-  .hts-slider { max-width: 280px; }
-}
-@media (max-width: 900px) {
-  .nav-links { display: none; }
-  .nav-phone { display: none; }
-  .hamburger { display: flex; }
-  nav { padding: 0 4%; }
-  .nav-mobile-open .nav-links { display: flex; flex-direction: column; position: absolute; top: 76px; left: 0; right: 0; background: var(--white); box-shadow: var(--shadow-md); padding: 1rem 0; z-index: 998; }
-  .nav-mobile-open .nav-links li a { line-height: 1; padding: 12px 5%; }
-  .nav-mobile-open .nav-links li a::after { display: none; }
-  .values-strip { flex-direction: column; gap: 1.5rem; }
-  .value-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0 0 1.5rem; }
-  .value-item:last-child { border-bottom: none; }
-  .hero { height: auto; min-height: 480px; padding: 80px 0 60px; }
-  .slide-content { max-width: 100%; padding: 0 6%; }
-  .services-intro { grid-template-columns: 1fr; gap: 2rem; }
-  .services-grid { grid-template-columns: 1fr 1fr; }
-  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .about-badge { right: 10px; bottom: -15px; }
-  .team-grid { grid-template-columns: 1fr 1fr; }
-  .steps-grid { grid-template-columns: 1fr; }
-  .faq-grid { grid-template-columns: 1fr; }
-  .testimonials-grid { grid-template-columns: 1fr 1fr; }
-  .blog-grid { grid-template-columns: 1fr 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-  section { padding: 70px 4%; }
-  #about-team-hero { padding: 70px 4%; }
-  #marketplaces { padding: 70px 4%; }
-}
-@media (max-width: 700px) {
-  .globe-layout { grid-template-columns: 1fr; }
-  .cards-left, .cards-right { grid-column: 1; flex-direction: column; align-items: center; }
-  .mp-card { width: 100%; max-width: 320px; }
-
-  /* Full-width slider on mobile */
-  .slide-split { flex-direction: column; }
-  .slide-split-left { flex: none; max-width: 100%; padding: 60px 6% 0; }
-  .slide-split-right { flex: none; max-width: 100%; padding: 1.5rem 6% 3rem; justify-content: center; }
-  .hts-slider { max-width: 100%; }
-  .hts-card { border-radius: 10px; }
-  .hts-img-wrap { height: 160px; }
-}
-@media (max-width: 600px) {
-  .services-grid { grid-template-columns: 1fr; }
-  .team-grid { grid-template-columns: 1fr; }
-  .testimonials-grid { grid-template-columns: 1fr; }
-  .blog-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr; }
-  .newsletter-form { flex-direction: column; }
-  .newsletter-form input { border-right: 2px solid rgba(255,255,255,0.15); border-bottom: none; border-radius: 4px 4px 0 0; }
-  .newsletter-form button { border-radius: 0 0 4px 4px; }
-  .topbar { justify-content: center; }
-  .topbar .left-info { display: none; }
-  .about-values { grid-template-columns: 1fr; }
-}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.fade-up{animation:fadeUp .7s ease both;}
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar">
-  <div class="left-info" style="display:flex;gap:1.5rem;flex-wrap:wrap;">
-    <span>📞 +92 333 673 0540</span>
-    <span>✉️ info@minorsoltech.com</span>
-  </div>
-  <div class="socials">
-    <a href="#" title="Facebook">f</a>
-    <a href="#" title="Twitter">𝕏</a>
-    <a href="#" title="LinkedIn">in</a>
-    <a href="#" title="Instagram">ig</a>
+<!-- ══ MODALS ══ -->
+<div class="modal-overlay" id="modal-smbr">
+  <div class="modal-box">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-smbr')">✕</button>
+      <h3>Mr. Zahir Shah</h3>
+      <p>Senior Member Board of Revenue — Khyber Pakhtunkhwa</p>
+    </div>
+    <div class="modal-body">
+      <p>The Revenue &amp; Estate Department, Khyber Pakhtunkhwa has undertaken a transformative initiative for the computerization of land records across the province, aimed at improving service delivery and enhancing public convenience. Under this initiative, modern technologies are being incorporated into the land record management system to ensure efficiency, transparency, and accuracy.</p>
+      <p>The integration of digitized land records into a centralized database will enable real-time updates from a single platform and allow seamless connectivity with various service gateways. At the same time, manual settlement of land records continues in several districts to ensure completeness and reliability of data.</p>
+      <p>In addition, a GIS-based land settlement approach has recently been introduced in seven sub-divisions of the newly merged districts to develop fully digitized and spatially accurate records. A similar settlement initiative is also underway in the districts of Lower Dir, Upper Dir, and Sub-Tehsil Kalam in District Swat.</p>
+    </div>
   </div>
 </div>
 
-<!-- NAV -->
-<nav id="main-nav">
-  <a href="#" class="nav-logo-text">Minor<span>soltech</span></a>
-  <div class="nav-center">
-    <ul class="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#about-team-hero">About Us</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about-team-hero">Team</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contact">Contact Us</a></li>
+<div class="modal-overlay" id="modal-minister">
+  <div class="modal-box">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-minister')">✕</button>
+      <h3>Nazir Ahmed Abbasi</h3>
+      <p>Minister for Revenue — Government of Khyber Pakhtunkhwa</p>
+    </div>
+    <div class="modal-body">
+      <p>It is a matter of great responsibility and commitment to serve the people of Khyber Pakhtunkhwa through the Revenue &amp; Estate Department. Our foremost priority is to ensure transparent, efficient, and accessible revenue administration across the province.</p>
+      <p>The Government of Khyber Pakhtunkhwa is actively pursuing reforms aimed at modernizing land records, strengthening institutional capacity, and improving service delivery mechanisms. Initiatives such as digitization of land records, GIS-based settlement, and the establishment of Service Delivery Centers are significant steps towards enhancing transparency and public convenience.</p>
+      <p>We remain dedicated to addressing public concerns, minimizing disputes, and ensuring that land ownership records are accurate, secure, and easily accessible. Through continuous innovation and coordinated efforts, the department strives to build public trust and contribute to sustainable development in the province.</p>
+      <p>I appreciate the efforts of all officers and staff working with diligence and integrity, and I assure the citizens of our unwavering commitment to good governance and public service.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-dlr">
+  <div class="modal-box">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-dlr')">✕</button>
+      <h3>Mr. Basharat Ahmad</h3>
+      <p>Director Land Record — Khyber Pakhtunkhwa</p>
+    </div>
+    <div class="modal-body">
+      <p>At the Directorate of Land Records, our core objective is to establish a modern, secure, and fully digitized land administration system that promotes transparency, efficiency, and citizen-focused service delivery across the province.</p>
+      <p>We are implementing advanced solutions such as end-to-end e-registration, GIS-based cadastral mapping, and integrated Service Delivery Centers (SDCs) to ensure timely and reliable access to land-related services. The integration of all SDCs into a centralized monitoring system has significantly improved oversight, performance tracking, and service efficiency.</p>
+      <p>Under Phase-I of the Land Record Computerization Project, all seven districts at divisional headquarters have been successfully digitized. Building on this progress, Phase-II aims to complete digitization in thirteen additional districts by 30th June 2025.</p>
+      <p>Our commitment extends to strengthening governance frameworks, ensuring data integrity, minimizing discretionary practices, and deploying real-time monitoring dashboards for effective field management.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-spo">
+  <div class="modal-box">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-spo')">✕</button>
+      <h3>Muhammad Hamid Khan</h3>
+      <p>Senior Planning Officer — Head of Planning Cell</p>
+    </div>
+    <div class="modal-body">
+      <p>The Planning Cell, Revenue &amp; Estate Department is committed to ensuring that every developmental scheme of District Administrations across Khyber Pakhtunkhwa is planned, executed, and monitored with the highest standards of accountability and transparency.</p>
+      <p>As the Head of the Planning Cell under the Board of Revenue, our mandate is to bridge the gap between district-level development needs and provincial resource allocation — ensuring that public investment reaches citizens effectively and equitably.</p>
+      <p>We are actively working to strengthen institutional frameworks, improve project appraisal processes, and establish robust monitoring and evaluation systems that hold all schemes to measurable outcomes. The Planning Cell remains dedicated to serving the people of Khyber Pakhtunkhwa through good governance and evidence-based planning.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TOP UTILITY BAR ══ -->
+<div id="topbar">
+  <div class="topbar-inner">
+    <div class="tb-links">
+      <a href="#">Downloads</a>
+      <a href="#">Public Complaints</a>
+      <a href="#">Newsletter</a>
+      <a href="#">Employees Welfare</a>
+      <a href="#">Public Notice</a>
+      <a href="#">Trainings</a>
+      <a href="#">Publications</a>
+      <a href="#">Tenders</a>
+      <a href="#">Right to Information</a>
+    </div>
+    <div class="tb-right">
+      <span>📞 +92-91-9210328</span>
+      <span>✉ planningcell@revenue.kp.gov.pk</span>
+      <span>⏰ Mon–Fri 9am–5pm</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ NAVBAR ══ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <!-- KP Government emblem-style SVG -->
+      <svg class="logo-emblem" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="29" cy="29" r="27" fill="#006b5e" stroke="#d4a017" stroke-width="1.5"/>
+        <circle cx="29" cy="29" r="21" fill="none" stroke="rgba(212,160,23,0.4)" stroke-width="0.8" stroke-dasharray="2 3"/>
+        <!-- crescent -->
+        <path d="M25 18 a8 8 0 0 0 0 22 a6 6 0 0 1 0-22z" fill="#d4a017"/>
+        <!-- star -->
+        <polygon points="35,19 36.2,22.6 40,22.6 37,24.8 38.2,28.4 35,26.2 31.8,28.4 33,24.8 30,22.6 33.8,22.6" fill="#d4a017"/>
+        <text x="29" y="40" text-anchor="middle" fill="rgba(212,160,23,0.9)" font-size="4.5" font-family="serif" letter-spacing="0.5">KHYBER PAKHTUNKHWA</text>
+      </svg>
+      <div class="nav-logo-text">
+        <h2>Planning Cell</h2>
+        <p>Revenue &amp; Estate Department, KP</p>
+      </div>
+    </a>
+    <button class="hamburger" id="ham-btn" aria-label="Toggle Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="nav-menu">
+      <li class="active"><a href="#home">Home</a></li>
+      <li>
+        <a href="#about-row">About ▾</a>
+        <div class="dropdown">
+          <a href="#" onclick="openModal('modal-spo');return false;">SPO Message</a>
+          <a href="#" onclick="openModal('modal-smbr');return false;">Senior Member BOR Message</a>
+          <a href="#" onclick="openModal('modal-minister');return false;">Minister Message</a>
+          <a href="#">Sections</a>
+          <a href="#">Organogram</a>
+          <a href="#leadership">Our Team</a>
+          <a href="#about-row">About Planning Cell</a>
+          <a href="#contact-section">Contact Us</a>
+        </div>
+      </li>
+      <li>
+        <a href="#adp">ADP ▾</a>
+        <div class="dropdown">
+          <a href="#">Annual Development Programme</a>
+          <a href="#">ADP Guidelines</a>
+          <a href="#">ADP Policy</a>
+          <a href="#">Scheme Appraisal</a>
+          <a href="#">PSDP Projects</a>
+        </div>
+      </li>
+      <li>
+        <a href="#news">Media ▾</a>
+        <div class="dropdown">
+          <a href="#">Focal Persons</a>
+          <a href="#news">News &amp; Events</a>
+          <a href="#">Notifications</a>
+          <a href="#">Publications</a>
+          <a href="#">Foreign Trainings</a>
+          <a href="#">Right to Information</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">Downloads ▾</a>
+        <div class="dropdown">
+          <a href="#">Documents &amp; Forms</a>
+          <a href="#">Policy Documents</a>
+          <a href="#">Archives</a>
+          <a href="#">Annual Reports</a>
+        </div>
+      </li>
+      <li><a href="#">Jobs</a></li>
+      <li><a href="#">Tenders</a></li>
+      <li><a href="#" class="nav-apply">Apply for Job</a></li>
     </ul>
-  </div>
-  <div class="nav-right">
-    <div class="nav-phone"><span>📞</span> +92 333 673 0540</div>
-    <a href="#contact" class="nav-cta">Book Consultation</a>
-  </div>
-  <div class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
-    <span></span><span></span><span></span>
   </div>
 </nav>
 
-<!-- ══════════════════════════════════════════
-     HERO SLIDER
-     Slide 1: original full-width layout
-     Slide 2: split layout with team slider on right
-     ══════════════════════════════════════════ -->
-<div class="hero" id="hero-slider">
+<!-- ══ TICKER ══ -->
+<div id="ticker">
+  <div class="ticker-inner">
+    <div class="ticker-label">Latest Updates</div>
+    <div class="ticker-track">
+      <div class="ticker-items">
+        <span>AIT (Agriculture Income Tax) Mobile App Now Available for Download</span>
+        <span>E-Registration System launched in District Peshawar — First in KP's History</span>
+        <span>E-Vendor Module for E-Stamp Papers launched in Bannu, D.I.Khan, Kohat</span>
+        <span>ADP 2026-27 Consultative Meeting held under Chairmanship of Senior Member BOR</span>
+        <span>GIS-based Land Settlement introduced in Seven Sub-Divisions of Merged Districts</span>
+        <span>Final Merit List of Computer Operators &amp; Junior Clerks released on BOR website</span>
+        <span>Phase-II Land Record Digitization targets 13 additional districts by June 2026</span>
+        <span>AIT (Agriculture Income Tax) Mobile App Now Available for Download</span>
+        <span>E-Registration System launched in District Peshawar — First in KP's History</span>
+        <span>E-Vendor Module for E-Stamp Papers launched in Bannu, D.I.Khan, Kohat</span>
+        <span>ADP 2026-27 Consultative Meeting held under Chairmanship of Senior Member BOR</span>
+        <span>GIS-based Land Settlement introduced in Seven Sub-Divisions of Merged Districts</span>
+        <span>Final Merit List of Computer Operators &amp; Junior Clerks released on BOR website</span>
+        <span>Phase-II Land Record Digitization targets 13 additional districts by June 2026</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <!-- SLIDE 1: original -->
+<!-- ══ HERO SLIDER ══ -->
+<section id="home">
+<div id="hero">
+
+  <!-- Slide 1: Civil Secretariat KP — Actual building on University Road Peshawar -->
   <div class="slide active">
-    <div class="slide-bg"></div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/1600px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg"
+         alt="Civil Secretariat Khyber Pakhtunkhwa Peshawar"
+         onerror="this.src='https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1600&q=85'"/>
     <div class="slide-overlay"></div>
-    <div class="slide-pattern"></div>
-    <div class="slide-content">
-      <span class="slide-tag">Amazon FBA Experts</span>
-      <h1>Business<br><em>Planning</em> &amp;<br>Growth Strategy</h1>
-      <p>We will build your own business. Where you put your money matters — open a path to financial freedom through smart Amazon Wholesale FBA.</p>
+    <div class="slide-content fade-up">
+      <span class="slide-tag">Civil Secretariat — Peshawar, KP</span>
+      <h2>Revenue &amp; Estate Department — Board of Revenue, Khyber Pakhtunkhwa</h2>
+      <p>Planning Cell is the front line institutional unit mandated to plan, coordinate and monitor all developmental schemes of District Administrations across KP.</p>
       <div class="slide-actions">
-        <a href="#services" class="btn-gold">View Services ›</a>
-        <a href="#about-team-hero" class="btn-outline-white">Our Story</a>
+        <a href="#about-row" class="slide-btn slide-btn-primary">Learn More</a>
+        <a href="#contact-section" class="slide-btn slide-btn-outline">Contact Us</a>
       </div>
     </div>
   </div>
 
-  <!-- SLIDE 2: split — left text + right team slider -->
+  <!-- Slide 2: Peshawar High Court / Commissioner Office -->
   <div class="slide">
-    <div class="slide-bg" style="background: linear-gradient(135deg, #0b1e35 0%, #152e52 40%, #1c3d6b 100%);"></div>
-    <div class="slide-overlay" style="background: linear-gradient(90deg, rgba(10,20,50,0.9) 0%, rgba(10,20,50,0.5) 55%, rgba(10,20,50,0.2) 100%);"></div>
-    <div class="slide-pattern"></div>
-
-    <!-- Split layout wrapper -->
-    <div class="slide-split">
-
-      <!-- LEFT: original text -->
-      <div class="slide-split-left">
-        <span class="slide-tag">Invest · Scale · Prosper</span>
-        <h1>Build <em>Passive Income</em><br>That Lasts</h1>
-        <p>Helping investors worldwide build passive income through Amazon Wholesale FBA — creating freedom, security, and peace of mind.</p>
-        <div class="slide-actions">
-          <a href="#contact" class="btn-gold">Book Free Call ›</a>
-          <a href="#steps" class="btn-outline-white">How It Works</a>
-        </div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Peshawar_High_Court.jpg/1600px-Peshawar_High_Court.jpg"
+         alt="Peshawar High Court"
+         onerror="this.src='https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&w=1600&q=85'"/>
+    <div class="slide-overlay"></div>
+    <div class="slide-content fade-up">
+      <span class="slide-tag">Government of Khyber Pakhtunkhwa</span>
+      <h2>Planning Cell Oversees Developmental Schemes of All 26 District Administrations</h2>
+      <p>Ensuring transparent, efficient, and evidence-based public investment across every district of Khyber Pakhtunkhwa under the Board of Revenue framework.</p>
+      <div class="slide-actions">
+        <a href="#districts" class="slide-btn slide-btn-primary">View Districts</a>
+        <a href="#adp" class="slide-btn slide-btn-outline">ADP 2026-27</a>
       </div>
-
-      <!-- RIGHT: hero team slider (hts-*) -->
-      <div class="slide-split-right">
-        <div>
-          <div class="hts-label">
-            <span>The Team Behind Your Growth</span>
-          </div>
-          <div class="hts-slider" id="hts-slider" aria-label="Team members slideshow">
-            <div class="hts-track" id="hts-track">
-
-              <!-- Card 1: Muzzamil -->
-              <div class="hts-card" role="group" aria-label="Muzzamil Sana Khan – Founder &amp; CEO">
-                <div class="hts-img-wrap">
-                  <img
-                    src="192170777_1681746962009591_7091455462882851203_n.jpg"
-                    alt="Muzzamil Sana Khan"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-                  />
-                  <div class="hts-avatar-fallback" style="display:none;">MSK</div>
-                  <div class="hts-img-overlay"></div>
-                </div>
-                <div class="hts-body">
-                  <div class="hts-role-badge">Founder &amp; CEO</div>
-                  <div class="hts-name">Muzzamil Sana Khan</div>
-                  <div class="hts-desc">Visionary behind Minorsoltech's mission. Leads strategy, client partnerships, and Amazon wholesale operations.</div>
-                  <div class="hts-footer">
-                    <div class="hts-socials">
-                      <a href="https://www.linkedin.com/in/muzamil-sana-184225134/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="Muzzamil on LinkedIn">in</a>
-                      <a href="#" title="Twitter" aria-label="Muzzamil on Twitter">𝕏</a>
-                    </div>
-                    <div class="hts-counter" id="hts-counter">1 / 3</div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 2: Sadaf -->
-              <div class="hts-card" role="group" aria-label="Sadaf Fatima – Co-Founder">
-                <div class="hts-img-wrap">
-                  <img
-                    src="sadaf pic.jpeg"
-                    alt="Sadaf Fatima"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-                  />
-                  <div class="hts-avatar-fallback" style="display:none;">SF</div>
-                  <div class="hts-img-overlay"></div>
-                </div>
-                <div class="hts-body">
-                  <div class="hts-role-badge">Co-Founder</div>
-                  <div class="hts-name">Sadaf Fatima</div>
-                  <div class="hts-desc">Operations lead and Amazon FBA strategist. Drives the systems that scale client businesses efficiently and profitably.</div>
-                  <div class="hts-footer">
-                    <div class="hts-socials">
-                      <a href="https://www.linkedin.com/in/sadaf-fatima-2397b2336" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="Sadaf on LinkedIn">in</a>
-                      <a href="#" title="Twitter" aria-label="Sadaf on Twitter">𝕏</a>
-                    </div>
-                    <div class="hts-counter">2 / 3</div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 3: Hira -->
-              <div class="hts-card" role="group" aria-label="Hira Yousafzai – Senior Manager Operations">
-                <div class="hts-img-wrap">
-                  <img
-                    src="Hira Yousafzai.jpeg"
-                    alt="Hira Yousafzai"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-                  />
-                  <div class="hts-avatar-fallback" style="display:none;">HY</div>
-                  <div class="hts-img-overlay"></div>
-                </div>
-                <div class="hts-body">
-                  <div class="hts-role-badge">Senior Manager Operations</div>
-                  <div class="hts-name">Hira Yousafzai</div>
-                  <div class="hts-desc">Oversees day-to-day ops, manages Amazon seller accounts, monitors KPIs, and ensures listings stay optimized.</div>
-                  <div class="hts-footer">
-                    <div class="hts-socials">
-                      <a href="#" title="LinkedIn" aria-label="Hira on LinkedIn">in</a>
-                      <a href="#" title="Twitter" aria-label="Hira on Twitter">𝕏</a>
-                    </div>
-                    <div class="hts-counter">3 / 3</div>
-                  </div>
-                </div>
-              </div>
-
-            </div><!-- /hts-track -->
-          </div><!-- /hts-slider -->
-
-          <!-- Dot navigation -->
-          <div class="hts-dots" id="hts-dots" role="tablist" aria-label="Team member navigation">
-            <span class="active" role="tab" aria-selected="true" aria-label="Muzzamil Sana Khan" onclick="htsGoTo(0)"></span>
-            <span role="tab" aria-selected="false" aria-label="Sadaf Fatima" onclick="htsGoTo(1)"></span>
-            <span role="tab" aria-selected="false" aria-label="Hira Yousafzai" onclick="htsGoTo(2)"></span>
-          </div>
-        </div>
-      </div><!-- /slide-split-right -->
-
-    </div><!-- /slide-split -->
-  </div><!-- /slide 2 -->
-
-  <!-- Arrows & dots (main hero) -->
-  <div class="hero-arrows">
-    <button onclick="changeSlide(-1)" aria-label="Previous slide">&#8592;</button>
-    <button onclick="changeSlide(1)" aria-label="Next slide">&#8594;</button>
+    </div>
   </div>
-  <div class="hero-dots">
-    <span class="active" onclick="goToSlide(0)" aria-label="Slide 1"></span>
-    <span onclick="goToSlide(1)" aria-label="Slide 2"></span>
+
+  <!-- Slide 3: University of Peshawar / government architecture -->
+  <div class="slide">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/University_of_Peshawar_main_building.jpg/1600px-University_of_Peshawar_main_building.jpg"
+         alt="Government Architecture KP"
+         onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=85'"/>
+    <div class="slide-overlay"></div>
+    <div class="slide-content fade-up">
+      <span class="slide-tag">Infrastructure Development — Khyber Pakhtunkhwa</span>
+      <h2>Investment in Infrastructure — Creating Jobs &amp; Driving Sustainable Development</h2>
+      <p>Planning Cell coordinates developmental budgets across Agriculture, Education, Health, Energy, Buildings &amp; Works, and Water &amp; Sanitation sectors.</p>
+      <div class="slide-actions">
+        <a href="#sectors" class="slide-btn slide-btn-primary">Sectoral Focus</a>
+        <a href="#news" class="slide-btn slide-btn-outline">Latest News</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4: Islamia College Peshawar (iconic KP heritage building) -->
+  <div class="slide">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Islamia_College_Peshawar.jpg/1600px-Islamia_College_Peshawar.jpg"
+         alt="Islamia College Peshawar"
+         onerror="this.src='https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1600&q=85'"/>
+    <div class="slide-overlay"></div>
+    <div class="slide-content fade-up">
+      <span class="slide-tag">Khyber Pakhtunkhwa — Province of Opportunities</span>
+      <h2>Priority Focus: Basic Services &amp; Public Infrastructure for the People of KP</h2>
+      <p>Established under the Board of Revenue to serve all Districts, with a mandate for good governance, digital reform, and citizen-centric service delivery.</p>
+      <div class="slide-actions">
+        <a href="#sdcs" class="slide-btn slide-btn-primary">Service Centres</a>
+        <a href="#leadership" class="slide-btn slide-btn-outline">Our Team</a>
+      </div>
+    </div>
+  </div>
+
+  <button id="prev-btn" class="slide-nav"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+  <button id="next-btn" class="slide-nav"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+  <div class="slide-dots">
+    <div class="dot active" data-idx="0"></div>
+    <div class="dot" data-idx="1"></div>
+    <div class="dot" data-idx="2"></div>
+    <div class="dot" data-idx="3"></div>
   </div>
 </div>
-<!-- /HERO SLIDER -->
+</section>
 
-<!-- VALUES STRIP -->
-<div class="values-strip">
-  <div class="value-item">
-    <h4>Our Value</h4>
-    <p>We value transparency, honesty, discipline, humility, and a winner's mindset—driving productivity, resilience, and continuous growth.</p>
-  </div>
-  <div class="value-item">
-    <h4>Our Mission</h4>
-    <p>Helping clients build passive income through Amazon Wholesale FBA—creating freedom, security, and peace of mind.</p>
-  </div>
-  <div class="value-item">
-    <h4>Why Minorsoltech</h4>
-    <p>Born from personal struggle, built with purpose. We don't just run businesses—we build pathways to financial independence for you.</p>
+<!-- ══ STATS BAR ══ -->
+<div id="statsbar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num stat-gold">26</div>
+      <div class="stat-label">Districts Covered</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num stat-gold">7</div>
+      <div class="stat-label">Divisions Administered</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num stat-gold">100+</div>
+      <div class="stat-label">Active ADP Schemes</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num stat-gold">6</div>
+      <div class="stat-label">SDCs Operational</div>
+    </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════
-     ABOUT US + MEET THE TEAM — ORIGINAL, UNTOUCHED
-     ══════════════════════════════════════════════════ -->
-<section id="about-team-hero">
-  <div class="ath-inner">
+<!-- ══ QUICK LINKS ══ -->
+<div id="quicklinks">
+  <div class="ql-inner">
+    <a href="#" class="ql-item">
+      <div class="ql-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>Sections
+    </a>
+    <a href="#" class="ql-item">
+      <div class="ql-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>Organogram
+    </a>
+    <a href="#leadership" class="ql-item">
+      <div class="ql-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>Our Team
+    </a>
+    <a href="#adp" class="ql-item">
+      <div class="ql-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>ADP 2026-27
+    </a>
+    <a href="#" class="ql-item">
+      <div class="ql-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>Publications
+    </a>
+    <a href="#" class="ql-item">
+      <div class="ql-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>Downloads
+    </a>
+    <a href="#" class="ql-item">
+      <div class="ql-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>Jobs &amp; Tenders
+    </a>
+    <a href="#" class="ql-item">
+      <div class="ql-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>PSDP Portal
+    </a>
+  </div>
+</div>
 
-    <!-- ABOUT US -->
+<!-- ══ ABOUT SECTION ══ -->
+<section id="about-row">
+  <div class="section-wrap">
     <div class="about-grid">
-      <div class="about-img reveal">
-        <div class="about-img-main">
-          <img
-            src="192170777_1681746962009591_7091455462882851203_n.jpg"
-            alt="Muzzamil Sana Khan – Founder & CEO"
-          />
-        </div>
+      <div>
+        <p class="sec-label">About Planning Cell</p>
+        <h2 class="sec-heading">Planning Cell<br/>Revenue &amp; Estate Department, KP</h2>
+        <div class="sec-rule"></div>
+        <p>The <strong>Planning Cell, Revenue &amp; Estate Department</strong> is a dedicated institutional unit established under the <strong>Board of Revenue, Government of Khyber Pakhtunkhwa</strong>. Its core mandate is to oversee, plan, coordinate, and monitor all developmental schemes undertaken by the District Administrations across the 26 districts of Khyber Pakhtunkhwa.</p>
+        <p>In pursuance of the Rules of Business of the Government of Khyber Pakhtunkhwa, the Planning Cell operates as the principal planning authority within the Revenue &amp; Estate Department, interfacing with district-level administrations, the Board of Revenue, and other provincial departments to ensure aligned and effective public investment.</p>
+        <p>The Cell is responsible for the preparation, appraisal, approval, execution oversight, and evaluation of developmental schemes — ensuring transparency, fiscal discipline, and delivery of public services to citizens across KP. It also coordinates with the Planning Commission of Pakistan and development partners including ADB, World Bank, USAID, and UNDP.</p>
+        <a href="#" class="read-more">Read More →</a>
+      </div>
+      <div class="about-img">
+        <!-- Actual Civil Secretariat KP -->
+        <img class="about-img-main"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/800px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg"
+          alt="Civil Secretariat Khyber Pakhtunkhwa"
+          onerror="this.src='https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=80'"/>
         <div class="about-badge">
-          <span class="num">4+</span>
-          <span class="lbl">Years of<br>Experience</span>
-        </div>
-      </div>
-      <div class="reveal">
-        <span class="section-label">About Us</span>
-        <h2 class="section-h">Turning <em>Pain into Purpose</em>:<br>Our Journey</h2>
-        <div class="divider"></div>
-        <p style="color:var(--muted);font-size:0.95rem;line-height:1.8;font-weight:300;margin-bottom:1.5rem;">
-          Turning challenges into opportunities, our journey is built on resilience, growth, and a clear vision for the future. We are a dedicated team of professionals committed to delivering excellence in every project. Our strength lies in our people — driven, skilled, and passionate about creating real impact. Together, we strive to provide reliable solutions and build long-term success for our clients.
-        </p>
-        <div class="about-values">
-          <div class="about-val">
-            <div class="about-val-icon">🔍</div>
-            <div class="about-val-text"><strong>Transparency</strong><span>Open decisions &amp; progress</span></div>
-          </div>
-          <div class="about-val">
-            <div class="about-val-icon">🏆</div>
-            <div class="about-val-text"><strong>Winner Mindset</strong><span>Resilience &amp; ambition</span></div>
-          </div>
-          <div class="about-val">
-            <div class="about-val-icon">⚙️</div>
-            <div class="about-val-text"><strong>Discipline</strong><span>Standards without reminders</span></div>
-          </div>
-          <div class="about-val">
-            <div class="about-val-icon">🌱</div>
-            <div class="about-val-text"><strong>Humility</strong><span>Always learning &amp; growing</span></div>
-          </div>
-        </div>
-        <div style="margin-top:2rem;">
-          <a href="#contact" class="btn-navy">Book a Consultation ›</a>
+          <strong>26</strong>
+          <span>Districts</span>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- MEET THE TEAM — ORIGINAL STATIC SECTION, UNTOUCHED -->
-    <div class="team-sub-header reveal">
-      <span class="section-label">Our People</span>
-      <h2 class="section-h">Meet the <em>Team</em></h2>
-      <div class="divider"></div>
-      <p class="section-p" style="margin:0 auto;">The dedicated professionals behind Minorsoltech's success — passionate, experienced, and committed to your growth.</p>
+<!-- ══ FEATURES ══ -->
+<section id="features">
+  <div class="section-wrap">
+    <p class="sec-label">Our Mandate</p>
+    <h2 class="sec-heading">What Planning Cell Does</h2>
+    <div class="sec-rule"></div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="26" height="26" fill="none" stroke="#fff" stroke-width="1.8" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <h4>Scheme Appraisal &amp; Approval</h4>
+        <p>The Cell reviews, appraises, and recommends developmental schemes from all 26 District Administrations before forwarding to the Board of Revenue and P&amp;D Department for formal approval under PDWP/DDWP frameworks.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="26" height="26" fill="none" stroke="#fff" stroke-width="1.8" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <h4>ADP Coordination</h4>
+        <p>Planning Cell prepares and coordinates the Annual Development Programme (ADP) for Revenue &amp; Estate Department, ensuring district-level priorities are aligned with provincial development goals and resource allocations.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="26" height="26" fill="none" stroke="#fff" stroke-width="1.8" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h4>Monitoring &amp; Evaluation</h4>
+        <p>Regular monitoring visits to all districts to track physical and financial progress of developmental projects. The Cell ensures compliance with approved PC-I/PC-II documents and timely completion of schemes.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="26" height="26" fill="none" stroke="#fff" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h4>Project Reporting</h4>
+        <p>Timely compilation and submission of quarterly progress reports to Board of Revenue, P&amp;D Department, and other relevant authorities. Maintains institutional memory through comprehensive documentation.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="26" height="26" fill="none" stroke="#fff" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h4>Capacity Development</h4>
+        <p>Coordinating training programs for planning officers across District Administrations. Facilitating foreign trainings and knowledge-sharing sessions to enhance institutional capacity in project management.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="26" height="26" fill="none" stroke="#fff" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h4>Digital Reform Coordination</h4>
+        <p>Coordinating with Directorate of Land Records on digitization of land records, e-registration rollout, SDC expansion, and GIS-based land settlement across KP districts including newly merged districts.</p>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="team-grid">
+<!-- ══ LEADERSHIP ══ -->
+<section id="leadership">
+  <div class="section-wrap">
+    <p class="sec-label">Leadership</p>
+    <h2 class="sec-heading">Our Team</h2>
+    <div class="sec-rule"></div>
 
-      <!-- Muzzamil Sana Khan -->
-      <div class="team-card reveal">
-        <div class="team-card-img">
-          <img
-            src="192170777_1681746962009591_7091455462882851203_n.jpg"
-            alt="Muzzamil Sana Khan"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          />
-          <div class="placeholder-avatar" style="display:none;">MSK</div>
-          <div class="team-overlay"></div>
-        </div>
-        <div class="team-card-body">
-          <h4>Muzzamil Sana Khan</h4>
-          <div class="role">Founder &amp; CEO</div>
-          <p>Visionary behind Minorsoltech's mission. Leads strategy, client partnerships, and Amazon wholesale operations with a strong focus on growth and execution.</p>
-          <div class="team-socials">
-            <a href="https://www.linkedin.com/in/muzamil-sana-184225134/" target="_blank" rel="noopener noreferrer" title="LinkedIn">in</a>
-            <a href="#" title="Twitter">𝕏</a>
+    <div class="leadership-grid">
+
+      <!-- SPO Featured -->
+      <div class="leader-card spo-card" style="grid-column:1/-1;">
+        <div class="spo-card-inner">
+          <div class="spo-photo-side">
+            <div class="spo-avatar">
+              <svg width="50" height="50" fill="none" stroke="#d4a017" stroke-width="1.2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+          </div>
+          <div class="spo-content">
+            <span class="spo-badge">★ Head of Planning Cell</span>
+            <h3 class="leader-name">Muhammad Hamid Khan</h3>
+            <p class="leader-title">Senior Planning Officer</p>
+            <p class="spo-desc">Leads the Planning Cell with extensive expertise in developmental planning, public finance, and inter-departmental coordination. Responsible for overseeing all schemes of District Administrations across Khyber Pakhtunkhwa under the Board of Revenue framework. Coordinates with P&amp;D Department, development partners, and district-level administrations to ensure transparent and result-oriented public investment.</p>
+            <button class="read-more" onclick="openModal('modal-spo')" style="width:fit-content;">Read Full Message →</button>
           </div>
         </div>
       </div>
 
-      <!-- Sadaf Fatima -->
-      <div class="team-card reveal">
-        <div class="team-card-img">
-          <img
-            src="sadaf pic.jpeg"
-            alt="Sadaf Fatima"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          />
-          <div class="placeholder-avatar" style="display:none;">SF</div>
-          <div class="team-overlay"></div>
-        </div>
-        <div class="team-card-body">
-          <h4>Sadaf Fatima</h4>
-          <div class="role">Co-Founder</div>
-          <p>Operations lead and Amazon FBA strategist. Drives the systems that scale client businesses efficiently and profitably.</p>
-          <div class="team-socials">
-            <a href="https://www.linkedin.com/in/sadaf-fatima-2397b2336?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" title="LinkedIn">in</a>
-            <a href="#" title="Twitter">𝕏</a>
-          </div>
+      <!-- Revenue Minister -->
+      <div class="leader-card featured">
+        <img src="https://res.cloudinary.com/dvlhlvrzo/image/upload/v1710355729/Minister_BOR_2_cuk5ip.jpg" alt="Revenue Minister" class="leader-photo"/>
+        <div class="leader-info">
+          <h3 class="leader-name">Nazir Ahmed Abbasi</h3>
+          <p class="leader-title">Minister for Revenue</p>
+          <button class="read-more read-more-outline" onclick="openModal('modal-minister')" style="padding:7px 18px;font-size:0.72rem;margin-top:2px;">Read More</button>
         </div>
       </div>
 
-      <!-- Hira Yousafzai -->
-      <div class="team-card reveal">
-        <div class="team-card-img">
-          <img
-            src="Hira Yousafzai.jpeg"
-            alt="Hira Yousafzai"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          />
-          <div class="placeholder-avatar" style="display:none;">HY</div>
-          <div class="team-overlay"></div>
+      <!-- Senior Member BOR -->
+      <div class="leader-card featured">
+        <img src="https://res.cloudinary.com/dvlhlvrzo/image/upload/v1777961734/SMBR_oirmwz.jpg" alt="Senior Member BOR" class="leader-photo"/>
+        <div class="leader-info">
+          <h3 class="leader-name">Mr. Zahir Shah</h3>
+          <p class="leader-title">Senior Member BOR</p>
+          <button class="read-more read-more-outline" onclick="openModal('modal-smbr')" style="padding:7px 18px;font-size:0.72rem;margin-top:2px;">Read More</button>
         </div>
-        <div class="team-card-body">
-          <h4>Hira Yousafzai</h4>
-          <div class="role">Senior Manager Operations</div>
-          <p>Oversees day-to-day operations, manages Amazon seller accounts, monitors KPIs, and ensures listings stay optimized and competitive.</p>
-          <div class="team-socials">
-            <a href="#" title="LinkedIn">in</a>
-            <a href="#" title="Twitter">𝕏</a>
-          </div>
+      </div>
+
+      <!-- DLR -->
+      <div class="leader-card featured">
+        <img src="https://res.cloudinary.com/dvlhlvrzo/image/upload/v1765819938/DLR_js7lms.jpg" alt="Director Land Record" class="leader-photo"/>
+        <div class="leader-info">
+          <h3 class="leader-name">Mr. Basharat Ahmad</h3>
+          <p class="leader-title">Director Land Record</p>
+          <button class="read-more read-more-outline" onclick="openModal('modal-dlr')" style="padding:7px 18px;font-size:0.72rem;margin-top:2px;">Read More</button>
+        </div>
+      </div>
+
+      <!-- Chief Minister -->
+      <div class="leader-card featured">
+        <img src="https://res.cloudinary.com/dvlhlvrzo/image/upload/v1760946414/PK-70-Muhammad-Sohail-Afridi-Jamrud-Khyber_r0j2m3.jpg" alt="Chief Minister KP" class="leader-photo"/>
+        <div class="leader-info">
+          <h3 class="leader-name">Mr. Muhammad Sohail Afridi</h3>
+          <p class="leader-title">Chief Minister, KP</p>
+          <a href="https://revenue.kp.gov.pk/" target="_blank" class="read-more read-more-outline" style="padding:7px 18px;font-size:0.72rem;margin-top:2px;display:inline-block;text-decoration:none;">Profile</a>
         </div>
       </div>
 
@@ -956,243 +776,526 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services">
-  <div class="inner">
-    <div class="services-header reveal">
-      <span class="section-label">Services</span>
-      <h2 class="section-h">We're ready to share our<br><em>advice and experience</em></h2>
-      <div class="divider"></div>
-      <p class="section-p" style="margin:0 auto;">We develop the relationships that underpin the next phase in your organisation's growth through proven platforms and strategies.</p>
+<!-- ══ DISTRICT ADMINISTRATIONS — ACTUAL KP BUILDINGS ══ -->
+<section id="districts">
+  <div class="section-wrap">
+    <p class="sec-label">Khyber Pakhtunkhwa</p>
+    <h2 class="sec-heading">Commissioner &amp; Deputy Commissioner Offices</h2>
+    <div class="sec-rule"></div>
+    <p class="districts-intro">The Planning Cell oversees developmental schemes for Commissioner and Deputy Commissioner offices — the administrative nerve centres — across all 26 districts of Khyber Pakhtunkhwa spanning 7 administrative divisions.</p>
+
+    <div class="districts-grid">
+
+      <!-- Peshawar — Commissioner Office (Civil Secretariat Block) -->
+      <div class="district-card">
+        <img class="district-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/600px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg"
+          alt="Commissioner Office Peshawar"
+          onerror="this.src='https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=600&q=75'"/>
+        <div class="district-overlay"></div>
+        <div class="district-badge commissioner">Commissioner</div>
+        <div class="district-label"><strong>Peshawar</strong><span>Commissioner Office — Peshawar Division</span></div>
+      </div>
+
+      <!-- Mardan — Commissioner Office -->
+      <div class="district-card">
+        <img class="district-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Mardan%2C_KP%2C_Pakistan.jpg/600px-Mardan%2C_KP%2C_Pakistan.jpg"
+          alt="Commissioner Office Mardan"
+          onerror="this.src='https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=600&q=75'"/>
+        <div class="district-overlay"></div>
+        <div class="district-badge commissioner">Commissioner</div>
+        <div class="district-label"><strong>Mardan</strong><span>Commissioner Office — Mardan Division</span></div>
+      </div>
+
+      <!-- Swat — DC Office -->
+      <div class="district-card">
+        <img class="district-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Swat_River_Valley.jpg/600px-Swat_River_Valley.jpg"
+          alt="DC Office Swat"
+          onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=75'"/>
+        <div class="district-overlay"></div>
+        <div class="district-badge">DC Office</div>
+        <div class="district-label"><strong>Swat</strong><span>DC Office — Malakand Division</span></div>
+      </div>
+
+      <!-- Abbottabad — Commissioner Office -->
+      <div class="district-card">
+        <img class="district-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Abbottabad_City_Pakistan.jpg/600px-Abbottabad_City_Pakistan.jpg"
+          alt="Commissioner Office Abbottabad"
+          onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=75'"/>
+        <div class="district-overlay"></div>
+        <div class="district-badge commissioner">Commissioner</div>
+        <div class="district-label"><strong>Abbottabad</strong><span>Commissioner Office — Hazara Division</span></div>
+      </div>
+
+      <!-- Chitral — DC Office -->
+      <div class="district-card">
+        <img class="district-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Chitral_fort.jpg/600px-Chitral_fort.jpg"
+          alt="DC Office Chitral"
+          onerror="this.src='https://images.unsplash.com/photo-1547036967-23d11aacaee0?auto=format&fit=crop&w=600&q=75'"/>
+        <div class="district-overlay"></div>
+        <div class="district-badge">DC Office</div>
+        <div class="district-label"><strong>Chitral</strong><span>DC Office — Chitral Division</span></div>
+      </div>
+
+      <!-- Dir — DC Office -->
+      <div class="district-card">
+        <img class="district-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Dir_valley_Pakistan.jpg/600px-Dir_valley_Pakistan.jpg"
+          alt="DC Office Dir"
+          onerror="this.src='https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=600&q=75'"/>
+        <div class="district-overlay"></div>
+        <div class="district-badge">DC Office</div>
+        <div class="district-label"><strong>Dir</strong><span>DC Office — Malakand Division</span></div>
+      </div>
+
+      <!-- Kohat — Commissioner Office -->
+      <div class="district-card">
+        <img class="district-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Kohat_city.jpg/600px-Kohat_city.jpg"
+          alt="Commissioner Office Kohat"
+          onerror="this.src='https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&w=600&q=75'"/>
+        <div class="district-overlay"></div>
+        <div class="district-badge commissioner">Commissioner</div>
+        <div class="district-label"><strong>Kohat</strong><span>Commissioner Office — Kohat Division</span></div>
+      </div>
+
+      <!-- Bannu — DC Office -->
+      <div class="district-card">
+        <img class="district-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Bannu_Fort.jpg/600px-Bannu_Fort.jpg"
+          alt="DC Office Bannu"
+          onerror="this.src='https://images.unsplash.com/photo-1562832135-14a35d25edef?auto=format&fit=crop&w=600&q=75'"/>
+        <div class="district-overlay"></div>
+        <div class="district-badge">DC Office</div>
+        <div class="district-label"><strong>Bannu</strong><span>DC Office — Bannu Division</span></div>
+      </div>
+
+      <!-- D.I. Khan — Commissioner Office -->
+      <div class="district-card">
+        <img class="district-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Dera_Ismail_Khan_City.jpg/600px-Dera_Ismail_Khan_City.jpg"
+          alt="Commissioner Office D.I.Khan"
+          onerror="this.src='https://images.unsplash.com/photo-1500622944204-b135684e99fd?auto=format&fit=crop&w=600&q=75'"/>
+        <div class="district-overlay"></div>
+        <div class="district-badge commissioner">Commissioner</div>
+        <div class="district-label"><strong>D.I. Khan</strong><span>Commissioner Office — D.I.Khan Division</span></div>
+      </div>
+
+      <!-- Haripur — DC Office -->
+      <div class="district-card">
+        <img class="district-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Khanpur_Dam.jpg/600px-Khanpur_Dam.jpg"
+          alt="DC Office Haripur"
+          onerror="this.src='https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=600&q=75'"/>
+        <div class="district-overlay"></div>
+        <div class="district-badge">DC Office</div>
+        <div class="district-label"><strong>Haripur</strong><span>DC Office — Hazara Division</span></div>
+      </div>
+
+      <!-- Charsadda — DC Office -->
+      <div class="district-card">
+        <img class="district-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Charsadda_city.jpg/600px-Charsadda_city.jpg"
+          alt="DC Office Charsadda"
+          onerror="this.src='https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=600&q=75'"/>
+        <div class="district-overlay"></div>
+        <div class="district-badge">DC Office</div>
+        <div class="district-label"><strong>Charsadda</strong><span>DC Office — Peshawar Division</span></div>
+      </div>
+
+      <!-- Nowshera — DC Office -->
+      <div class="district-card">
+        <img class="district-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Nowshera_city.jpg/600px-Nowshera_city.jpg"
+          alt="DC Office Nowshera"
+          onerror="this.src='https://images.unsplash.com/photo-1552083375-1447ce886485?auto=format&fit=crop&w=600&q=75'"/>
+        <div class="district-overlay"></div>
+        <div class="district-badge">DC Office</div>
+        <div class="district-label"><strong>Nowshera</strong><span>DC Office — Peshawar Division</span></div>
+      </div>
+
     </div>
-    <div class="services-intro reveal">
-      <div class="services-intro-img">
-        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="Amazon FBA Technology" onerror="this.src='https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80';" />
-        <div class="tech-badge">
-          <div class="dot"></div>
-          <span>AI-Powered FBA Growth</span>
+
+    <p style="color:rgba(255,255,255,0.5);font-size:0.78rem;margin-top:18px;text-align:center;">Showing 12 of 26 districts. Planning Cell covers all districts in Peshawar, Mardan, Malakand, Hazara, Kohat, Bannu &amp; D.I.Khan Divisions.</p>
+  </div>
+</section>
+
+<!-- ══ SECTORAL FOCUS ══ -->
+<section id="sectors">
+  <div class="section-wrap">
+    <p class="sec-label">Development Areas</p>
+    <h2 class="sec-heading">Sectoral Focus Areas</h2>
+    <div class="sec-rule"></div>
+    <div class="sectors-grid">
+
+      <div class="sector-card">
+        <img class="sector-img" src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&w=600&q=80" alt="Agriculture"/>
+        <div class="sector-info">
+          <span class="sector-tag">Agriculture Sector</span>
+          <h4>Agriculture</h4>
+          <p>Enabling KP to meet food security challenges through a vibrant agricultural sector that promotes productivity, value addition, and farm-to-market linkages across districts.</p>
         </div>
       </div>
+
+      <div class="sector-card">
+        <img class="sector-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/600px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg"
+          alt="Buildings and Works"
+          onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80'"/>
+        <div class="sector-info">
+          <span class="sector-tag">Buildings Sector</span>
+          <h4>Buildings &amp; Works</h4>
+          <p>Constructing and maintaining residential and office accommodation facilities for District Administration offices and government service centres across all 26 districts.</p>
+        </div>
+      </div>
+
+      <div class="sector-card">
+        <img class="sector-img" src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80" alt="Energy"/>
+        <div class="sector-info">
+          <span class="sector-tag">Energy Sector</span>
+          <h4>Energy &amp; Power</h4>
+          <p>Developing KP's potential in Hydel Power Generation and Alternate Energy to contribute significantly in mitigating the energy crisis and powering growth.</p>
+        </div>
+      </div>
+
+      <div class="sector-card">
+        <img class="sector-img" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Education"/>
+        <div class="sector-info">
+          <span class="sector-tag">Education Sector</span>
+          <h4>Education</h4>
+          <p>Improving educational infrastructure across districts with focus on primary and secondary schools in underserved and newly merged areas of Khyber Pakhtunkhwa.</p>
+        </div>
+      </div>
+
+      <div class="sector-card">
+        <img class="sector-img" src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=600&q=80" alt="Health"/>
+        <div class="sector-info">
+          <span class="sector-tag">Health Sector</span>
+          <h4>Health</h4>
+          <p>Providing adequate healthcare infrastructure and services through BHUs, RHCs, and District Headquarter Hospitals, with coordination for KP's Health Card programme.</p>
+        </div>
+      </div>
+
+      <div class="sector-card">
+        <img class="sector-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80" alt="Water"/>
+        <div class="sector-info">
+          <span class="sector-tag">DWSS Sector</span>
+          <h4>Water &amp; Sanitation</h4>
+          <p>Providing adequate and safe water supply and extending sanitation coverage to un-served and underserved communities across the province — including merged districts.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICE DELIVERY CENTRES ══ -->
+<section id="sdcs">
+  <div class="section-wrap">
+    <p class="sec-label">Revenue &amp; Estate Department</p>
+    <h2 class="sec-heading">Service Delivery Centres (SDCs)</h2>
+    <div class="sec-rule"></div>
+    <p style="color:var(--muted);max-width:740px;line-height:1.85;font-size:0.9rem;margin-bottom:10px;">SDCs established by the Revenue &amp; Estate Department across KP facilitate citizens with issuance of <strong>Fard, Mutation, and Correction of Records</strong>. The Planning Cell coordinates developmental budget for SDC infrastructure expansion, digitization, and e-registration rollout.</p>
+    <div class="sdc-grid">
+
+      <div class="sdc-card">
+        <img class="sdc-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/500px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg"
+          alt="SDC Peshawar"
+          onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=500&q=70'"/>
+        <div class="sdc-info">
+          <h4>SDC Peshawar</h4>
+          <p>Provincial Capital — Pilot e-Registration District 2025</p>
+          <span class="sdc-status">✓ E-Registration Live</span>
+        </div>
+      </div>
+
+      <div class="sdc-card">
+        <img class="sdc-img"
+          src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=500&q=70"
+          alt="SDC Mardan"/>
+        <div class="sdc-info">
+          <h4>SDC Mardan</h4>
+          <p>Serving Mardan Division — Phase I Digitized</p>
+          <span class="sdc-status">✓ Operational</span>
+        </div>
+      </div>
+
+      <div class="sdc-card">
+        <img class="sdc-img"
+          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=500&q=70"
+          alt="SDC Swat"/>
+        <div class="sdc-info">
+          <h4>SDC Swat</h4>
+          <p>Malakand Division — GIS Settlement Ongoing</p>
+          <span class="sdc-status">✓ Operational</span>
+        </div>
+      </div>
+
+      <div class="sdc-card">
+        <img class="sdc-img"
+          src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?auto=format&fit=crop&w=500&q=70"
+          alt="SDC Abbottabad"/>
+        <div class="sdc-info">
+          <h4>SDC Abbottabad</h4>
+          <p>Hazara Division — Phase I Digitized</p>
+          <span class="sdc-status">✓ Operational</span>
+        </div>
+      </div>
+
+      <div class="sdc-card">
+        <img class="sdc-img"
+          src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&w=500&q=70"
+          alt="SDC Kohat"/>
+        <div class="sdc-info">
+          <h4>SDC Kohat</h4>
+          <p>Kohat Division — E-Stamp Vendor Active</p>
+          <span class="sdc-status">✓ E-Stamp Live</span>
+        </div>
+      </div>
+
+      <div class="sdc-card">
+        <img class="sdc-img"
+          src="https://images.unsplash.com/photo-1562832135-14a35d25edef?auto=format&fit=crop&w=500&q=70"
+          alt="SDC Bannu"/>
+        <div class="sdc-info">
+          <h4>SDC Bannu</h4>
+          <p>Bannu Division — E-Stamp Vendor Active</p>
+          <span class="sdc-status">✓ E-Stamp Live</span>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:32px;">
+      <a href="https://revenue.kp.gov.pk/sdcs/" class="view-all" target="_blank">View All SDCs →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ADP / POLICY ══ -->
+<section id="adp">
+  <div class="section-wrap">
+    <div class="adp-grid">
+      <div class="adp-img">
+        <!-- Islamia College Peshawar — iconic KP heritage government building -->
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Islamia_College_Peshawar.jpg/800px-Islamia_College_Peshawar.jpg"
+          alt="Islamia College Peshawar Heritage Building KP"
+          onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80'"/>
+      </div>
+      <div class="adp-text">
+        <p class="sec-label">Planning &amp; Policy</p>
+        <h2 class="sec-heading">Annual Development Programme 2026-27</h2>
+        <div class="sec-rule"></div>
+        <p>In pursuance of the Rules of Business of the Government of Khyber Pakhtunkhwa, the Planning Cell is mandated to prepare, coordinate and oversee the Annual Development Programme (ADP) for the Revenue &amp; Estate Department — encompassing all developmental schemes of District Administrations across the province.</p>
+        <blockquote>"The Planning Cell serves as the institutional hub for developmental governance — bridging district-level administration with the provincial revenue framework to ensure accountable, transparent and result-oriented public investment across KP."</blockquote>
+        <p>ADP 2026-27 has been formulated following extensive consultative meetings with all Commissioners, Deputy Commissioners, and Line Departments under the chairmanship of the Senior Member BOR.</p>
+        <div class="adp-cards">
+          <div class="adp-card">
+            <h5>DDWP Approval</h5>
+            <p>Schemes up to Rs. 40 million approved at District Development Working Party level.</p>
+          </div>
+          <div class="adp-card">
+            <h5>PDWP Approval</h5>
+            <p>Larger schemes forwarded to Provincial Development Working Party with full PC-I documentation.</p>
+          </div>
+          <div class="adp-card">
+            <h5>PC-I / PC-II</h5>
+            <p>Full project appraisal documents prepared and reviewed by Planning Cell before submission.</p>
+          </div>
+          <div class="adp-card">
+            <h5>PSDP Projects</h5>
+            <p>Federal PSDP projects monitored and coordinated in liaison with NEC and Planning Commission.</p>
+          </div>
+        </div>
+        <a href="#" class="read-more" style="margin-top:28px;">View ADP Guidelines →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NEWS ══ -->
+<section id="news">
+  <div class="section-wrap">
+    <div class="news-header">
       <div>
-        <span class="section-label">What We Do</span>
-        <h3 class="section-h">End-to-end Amazon FBA management for <em>passive growth</em></h3>
-        <div class="divider"></div>
-        <p class="section-p">From product sourcing to logistics, PPC campaigns to performance reporting — our team handles every detail so you don't have to.</p>
-        <ul style="margin:1.5rem 0; padding-left:1.2rem; color:var(--muted); font-size:0.9rem; line-height:2; font-weight:300; list-style:none;">
-          <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);font-weight:700;">✓</span> Full Account Management</li>
-          <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);font-weight:700;">✓</span> Product Research &amp; Sourcing</li>
-          <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);font-weight:700;">✓</span> PPC Campaign Optimization</li>
-          <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);font-weight:700;">✓</span> Transparent Monthly Reporting</li>
+        <p class="sec-label">Media</p>
+        <h2 class="sec-heading">Latest News &amp; Events</h2>
+        <div class="sec-rule"></div>
+      </div>
+      <a href="#" class="view-all">View All →</a>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card featured">
+        <img class="news-img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=700&q=75" alt="ADP Consultative Meeting"/>
+        <div class="news-body">
+          <p class="news-tag">News</p>
+          <a href="#"><h4>Senior Member BOR Held Consultative Meeting on ADP 2026-27 with All Commissioners and DCs</h4></a>
+          <p class="date">March 19, 2026</p>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <img class="news-img" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=500&q=70" alt="CM Meeting"/>
+        <div class="news-body">
+          <p class="news-tag">News</p>
+          <a href="#"><h4>CM KP Reviewed New Schemes of ADP 2026-27 with Planning Cell Leadership</h4></a>
+          <p class="date">April 8, 2026</p>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <img class="news-img" src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?auto=format&fit=crop&w=500&q=70" alt="ADB Meeting"/>
+        <div class="news-body">
+          <p class="news-tag">News</p>
+          <a href="#"><h4>Meeting with ADB Country Director on Development Portfolio for KP Districts</h4></a>
+          <p class="date">April 2, 2026</p>
+        </div>
+      </div>
+
+      <div class="news-card featured">
+        <img class="news-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/700px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg"
+          alt="E-Registration Peshawar"
+          onerror="this.src='https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=700&q=75'"/>
+        <div class="news-body">
+          <p class="news-tag">Announcement</p>
+          <a href="#"><h4>E-Registration (E-Registry) System Launched in District Peshawar — First in KP's History</h4></a>
+          <p class="date">December 17, 2025</p>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <img class="news-img" src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=500&q=70" alt="AIT App"/>
+        <div class="news-body">
+          <p class="news-tag">Announcement</p>
+          <a href="#"><h4>Agriculture Income Tax (AIT) Mobile App Now Available for Download on Android &amp; iOS</h4></a>
+          <p class="date">April 7, 2026</p>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <img class="news-img" src="https://images.unsplash.com/photo-1562832135-14a35d25edef?auto=format&fit=crop&w=500&q=70" alt="E-Stamp"/>
+        <div class="news-body">
+          <p class="news-tag">Announcement</p>
+          <a href="#"><h4>E-Vendor Module for E-Stamp Papers on White Paper Launched in Bannu, D.I.Khan, Kohat</h4></a>
+          <p class="date">February 10, 2026</p>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <img class="news-img" src="https://images.unsplash.com/photo-1544984243-ec57ea16fe25?auto=format&fit=crop&w=500&q=70" alt="Review Meeting"/>
+        <div class="news-body">
+          <p class="news-tag">News</p>
+          <a href="#"><h4>Review Meeting on ADB Portfolio Held at Civil Secretariat Peshawar under SMBR</h4></a>
+          <p class="date">March 13, 2026</p>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <img class="news-img" src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?auto=format&fit=crop&w=500&q=70" alt="GIS Settlement"/>
+        <div class="news-body">
+          <p class="news-tag">News</p>
+          <a href="#"><h4>GIS-Based Land Settlement Introduced in Seven Sub-Divisions of Merged Districts</h4></a>
+          <p class="date">March 5, 2026</p>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:32px;">
+      <a href="#" class="view-all">View All News &amp; Events →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DEVELOPMENT PARTNERS ══ -->
+<div id="partners">
+  <div class="section-wrap">
+    <p class="partners-label">Development Partners &amp; Multilateral Agencies</p>
+    <div class="partners-row">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/USAID_logo.svg/200px-USAID_logo.svg.png" alt="USAID"/>
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/United_Nations_Development_Programme_logo.svg/200px-United_Nations_Development_Programme_logo.svg.png" alt="UNDP"/>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Logo_of_UNICEF.svg/200px-Logo_of_UNICEF.svg.png" alt="UNICEF"/>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/ADB_logo_2021.svg/200px-ADB_logo_2021.svg.png" alt="ADB"/>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/GIZ_logo_2022.svg/200px-GIZ_logo_2022.svg.png" alt="GIZ"/>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/World_Bank_logo.svg/200px-World_Bank_logo.svg.png" alt="World Bank"/>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONTACT + MAP ══ -->
+<section id="contact-section">
+  <div class="section-wrap">
+    <p class="sec-label" style="color:var(--gold2);">Get In Touch</p>
+    <h2 class="sec-heading" style="color:#fff;">Contact Planning Cell</h2>
+    <div class="sec-rule" style="margin-bottom:40px;"></div>
+    <div class="contact-grid">
+
+      <div class="contact-col">
+        <h4>Planning Cell — Revenue &amp; Estate Department</h4>
+        <div class="contact-item">
+          <svg class="contact-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <p>Board of Revenue, Block-C, Civil Secretariat<br/>Peshawar, Khyber Pakhtunkhwa, Pakistan</p>
+        </div>
+        <div class="contact-item">
+          <svg class="contact-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.58 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.18a16 16 0 0 0 6.29 6.29l1.46-1.46a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <p>+92-91-9210328</p>
+        </div>
+        <div class="contact-item">
+          <svg class="contact-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <p>planningcell@revenue.kp.gov.pk</p>
+        </div>
+        <div class="contact-item">
+          <svg class="contact-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <p>Mon – Fri: 9:00 am – 5:00 pm</p>
+        </div>
+        <iframe class="map-frame"
+          src="https://maps.google.com/maps?q=Board+of+Revenue+Civil+Secretariat+Peshawar&t=m&z=14&output=embed&iwloc=near"
+          allowfullscreen loading="lazy">
+        </iframe>
+      </div>
+
+      <div class="contact-col">
+        <h4>Quick Links</h4>
+        <ul class="quicklinks-list">
+          <li><a href="#about-row">About Planning Cell</a></li>
+          <li><a href="#adp">Annual Development Programme</a></li>
+          <li><a href="#">ADP Guidelines &amp; Policy</a></li>
+          <li><a href="#">Organogram</a></li>
+          <li><a href="#leadership">Our Team</a></li>
+          <li><a href="#">Publications &amp; Reports</a></li>
+          <li><a href="#">Jobs &amp; Tenders</a></li>
+          <li><a href="#">Foreign Trainings</a></li>
+          <li><a href="#">Right to Information</a></li>
+          <li><a href="https://revenue.kp.gov.pk/" target="_blank">Revenue &amp; Estate Department</a></li>
+          <li><a href="https://kp.gov.pk/" target="_blank">Government of KP Portal</a></li>
+          <li><a href="https://www.pc.gov.pk/" target="_blank">Planning Commission of Pakistan</a></li>
         </ul>
-        <a href="#contact" class="btn-navy">Get Started ›</a>
       </div>
-    </div>
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="service-icon">📦</div>
-        <h3>Amazon FBA Management</h3>
-        <p>Full-service account management including product sourcing, listing optimization, PPC, inventory, and logistics.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon">📈</div>
-        <h3>E-commerce Strategy</h3>
-        <p>Custom growth roadmaps, revenue scaling plans, and automation systems built for long-term sustainable success.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon">💡</div>
-        <h3>Business Consulting</h3>
-        <p>Expert guidance on market entry, brand positioning, and scaling your e-commerce venture from idea to income.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon">🔍</div>
-        <h3>Product Research</h3>
-        <p>Data-driven product discovery using advanced tools to find high-margin, low-competition opportunities on Amazon.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon">📊</div>
-        <h3>PPC Advertising</h3>
-        <p>Targeted Amazon ad campaigns designed to maximize visibility, reduce ACOS, and drive consistent profitable sales.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon">🤝</div>
-        <h3>Wholesale Partnerships</h3>
-        <p>We establish relationships with authorised distributors and suppliers to secure profitable wholesale accounts for you.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- MARKETPLACES WE MANAGE -->
-<section id="marketplaces">
-  <div class="inner">
-    <div class="mp-header reveal">
-      <span class="section-label">Global Reach</span>
-      <h2 class="section-h">Marketplaces We <em>Manage</em></h2>
-      <div class="divider"></div>
-      <p class="mp-tagline">We operate across the world's most lucrative Amazon markets — giving your business exposure to millions of buyers in established, high-purchasing-power economies.</p>
-    </div>
-
-    <div class="globe-layout" id="globe-wrap" style="position:relative;">
-      <svg class="conn-lines-wrap" id="conn-svg"
-        style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:visible;"
-        viewBox="0 0 1060 460" preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
-            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-        </defs>
-        <line x1="215" y1="130" x2="480" y2="210" stroke="#c8a951" stroke-width="1.2" stroke-dasharray="5 5" opacity="0.5" filter="url(#glow)">
-          <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="2s" repeatCount="indefinite"/>
-        </line>
-        <circle cx="215" cy="130" r="4" fill="#c8a951" opacity="0.7"/>
-        <line x1="215" y1="330" x2="480" y2="240" stroke="#c8a951" stroke-width="1.2" stroke-dasharray="5 5" opacity="0.5" filter="url(#glow)">
-          <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="2.4s" repeatCount="indefinite"/>
-        </line>
-        <circle cx="215" cy="330" r="4" fill="#c8a951" opacity="0.7"/>
-        <line x1="845" y1="130" x2="580" y2="210" stroke="#c8a951" stroke-width="1.2" stroke-dasharray="5 5" opacity="0.5" filter="url(#glow)">
-          <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1.8s" repeatCount="indefinite"/>
-        </line>
-        <circle cx="845" cy="130" r="4" fill="#c8a951" opacity="0.7"/>
-        <line x1="845" y1="330" x2="580" y2="240" stroke="#c8a951" stroke-width="1.2" stroke-dasharray="5 5" opacity="0.5" filter="url(#glow)">
-          <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="2.2s" repeatCount="indefinite"/>
-        </line>
-        <circle cx="845" cy="330" r="4" fill="#c8a951" opacity="0.7"/>
-        <ellipse cx="530" cy="225" rx="108" ry="32" stroke="#c8a951" stroke-width="0.8" fill="none" opacity="0.18" transform="rotate(-8,530,225)"/>
-        <ellipse cx="530" cy="225" rx="126" ry="20" stroke="#c8a951" stroke-width="0.7" fill="none" stroke-dasharray="4 7" opacity="0.12" transform="rotate(12,530,225)"/>
-      </svg>
-
-      <div class="cards-left">
-        <div class="mp-card reveal">
-          <div class="flag-wrap">🇺🇸</div>
-          <h3>United States</h3>
-          <div class="mp-sub">Amazon.com</div>
-          <p>The world's largest Amazon marketplace. End-to-end FBA management tapping the highest-spending consumer base on the planet.</p>
-          <div><span class="mp-badge"><span class="live-dot"></span>Actively Managed</span></div>
-          <div class="mp-stats">
-            <div><span class="mp-stat-val">$500B+</span><span class="mp-stat-lbl">Market Size</span></div>
-            <div><span class="mp-stat-val">#1</span><span class="mp-stat-lbl">Global Rank</span></div>
-          </div>
+      <div class="contact-col">
+        <h4>Quick Access</h4>
+        <div class="qa-grid">
+          <a href="#adp" class="qa-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>ADP</a>
+          <a href="#" class="qa-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Jobs</a>
+          <a href="#" class="qa-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Training</a>
+          <a href="#news" class="qa-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/></svg>News</a>
+          <a href="#" class="qa-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Pubs</a>
+          <a href="#" class="qa-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Sections</a>
+          <a href="#" class="qa-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Organo</a>
+          <a href="#" class="qa-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Tenders</a>
         </div>
-        <div class="mp-card reveal">
-          <div class="flag-wrap">🇬🇧</div>
-          <h3>United Kingdom</h3>
-          <div class="mp-sub">Amazon.co.uk</div>
-          <p>Europe's most profitable FBA market. We handle UK VAT, compliance, and full logistics to maximise your ROI.</p>
-          <div><span class="mp-badge"><span class="live-dot"></span>Actively Managed</span></div>
-          <div class="mp-stats">
-            <div><span class="mp-stat-val">£30B+</span><span class="mp-stat-lbl">Market Size</span></div>
-            <div><span class="mp-stat-val">Top 3</span><span class="mp-stat-lbl">Global Rank</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="globe-center reveal">
-        <div class="globe-svg-wrap">
-          <svg width="260" height="260" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="globeGrad" cx="36%" cy="32%" r="68%">
-                <stop offset="0%" stop-color="#f8efc8"/>
-                <stop offset="30%" stop-color="#e8c97a"/>
-                <stop offset="65%" stop-color="#c8a951"/>
-                <stop offset="100%" stop-color="#7a5c20"/>
-              </radialGradient>
-              <radialGradient id="globeSheen" cx="28%" cy="22%" r="55%">
-                <stop offset="0%" stop-color="rgba(255,255,255,0.65)"/>
-                <stop offset="55%" stop-color="rgba(255,255,255,0.08)"/>
-                <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
-              </radialGradient>
-              <radialGradient id="globeRim" cx="50%" cy="50%" r="50%">
-                <stop offset="55%" stop-color="rgba(0,0,0,0)"/>
-                <stop offset="100%" stop-color="rgba(0,0,0,0.28)"/>
-              </radialGradient>
-              <radialGradient id="standGrad" cx="50%" cy="30%" r="60%">
-                <stop offset="0%" stop-color="#e8c97a"/>
-                <stop offset="100%" stop-color="#7a5c20"/>
-              </radialGradient>
-              <radialGradient id="glowHalo" cx="50%" cy="50%" r="50%">
-                <stop offset="60%" stop-color="rgba(200,169,81,0)"/>
-                <stop offset="100%" stop-color="rgba(200,169,81,0.22)"/>
-              </radialGradient>
-              <clipPath id="globeClip">
-                <circle cx="130" cy="118" r="98"/>
-              </clipPath>
-              <filter id="globeShadow" x="-20%" y="-20%" width="140%" height="140%">
-                <feDropShadow dx="0" dy="8" stdDeviation="18" flood-color="#c8a951" flood-opacity="0.3"/>
-              </filter>
-            </defs>
-            <circle cx="130" cy="118" r="112" fill="url(#glowHalo)"/>
-            <ellipse cx="130" cy="240" rx="46" ry="9" fill="rgba(26,43,74,0.14)"/>
-            <ellipse cx="130" cy="236" rx="40" ry="8" fill="url(#standGrad)"/>
-            <rect x="117" y="214" width="26" height="24" rx="3" fill="url(#standGrad)"/>
-            <ellipse cx="130" cy="214" rx="13" ry="5" fill="#e8c97a"/>
-            <g filter="url(#globeShadow)">
-              <circle cx="130" cy="118" r="98" fill="url(#globeGrad)"/>
-            </g>
-            <g clip-path="url(#globeClip)" opacity="0.22" fill="#1a2b4a">
-              <path d="M58 72 Q50 80 54 96 Q58 112 70 118 Q84 122 90 108 Q96 94 86 78 Q76 66 58 72Z"/>
-              <path d="M70 126 Q63 142 66 160 Q70 172 80 168 Q92 162 90 144 Q88 128 78 122Z"/>
-              <path d="M116 66 Q122 60 130 63 Q138 67 136 78 Q130 86 122 84 Q114 80 116 66Z"/>
-              <path d="M116 88 Q124 83 132 89 Q140 104 138 128 Q132 144 124 146 Q116 142 114 126 Q112 108 116 88Z"/>
-              <path d="M138 62 Q154 56 170 64 Q180 74 176 88 Q168 98 154 96 Q140 92 136 78Z"/>
-              <path d="M162 130 Q172 126 180 134 Q186 144 180 154 Q172 160 164 154 Q156 146 162 130Z"/>
-            </g>
-            <g clip-path="url(#globeClip)" opacity="0.15" stroke="#1a2b4a" stroke-width="0.9" fill="none">
-              <ellipse cx="130" cy="95" rx="96" ry="24"/>
-              <ellipse cx="130" cy="118" rx="98" ry="13"/>
-              <ellipse cx="130" cy="141" rx="96" ry="24"/>
-            </g>
-            <g clip-path="url(#globeClip)" opacity="0.15" stroke="#1a2b4a" stroke-width="0.9" fill="none">
-              <path d="M130 20 Q166 118 130 216"/>
-              <path d="M130 20 Q94 118 130 216"/>
-              <path d="M96 30 Q166 118 162 206"/>
-              <path d="M164 30 Q94 118 98 206"/>
-            </g>
-            <circle cx="130" cy="118" r="98" fill="url(#globeSheen)"/>
-            <circle cx="130" cy="118" r="98" fill="url(#globeRim)"/>
-            <circle cx="130" cy="118" r="101" fill="none" stroke="#c8a951" stroke-width="1.8" opacity="0.4"/>
-            <circle cx="130" cy="118" r="106" fill="none" stroke="#c8a951" stroke-width="0.8" stroke-dasharray="5 7" opacity="0.22"/>
-            <circle cx="92" cy="100" r="5" fill="#c8a951" opacity="0.95"/>
-            <circle cx="92" cy="100" r="10" fill="#c8a951" opacity="0.2"/>
-            <circle cx="92" cy="100" r="16" fill="#c8a951" opacity="0.07"/>
-            <circle cx="124" cy="78" r="5" fill="#c8a951" opacity="0.95"/>
-            <circle cx="124" cy="78" r="10" fill="#c8a951" opacity="0.2"/>
-            <circle cx="160" cy="86" r="5" fill="#c8a951" opacity="0.95"/>
-            <circle cx="160" cy="86" r="10" fill="#c8a951" opacity="0.2"/>
-            <circle cx="168" cy="132" r="5" fill="#c8a951" opacity="0.95"/>
-            <circle cx="168" cy="132" r="10" fill="#c8a951" opacity="0.2"/>
-            <circle cx="92" cy="100" r="5" fill="none" stroke="#c8a951" stroke-width="1.5" opacity="0.8">
-              <animate attributeName="r" from="5" to="22" dur="2.5s" repeatCount="indefinite"/>
-              <animate attributeName="opacity" from="0.8" to="0" dur="2.5s" repeatCount="indefinite"/>
-            </circle>
-          </svg>
-        </div>
-        <div class="globe-label">Global Operations</div>
-      </div>
-
-      <div class="cards-right">
-        <div class="mp-card reveal">
-          <div class="flag-wrap">🇨🇦</div>
-          <h3>Canada</h3>
-          <div class="mp-sub">Amazon.ca</div>
-          <p>Rapidly growing market with strong purchasing power and lower competition. We capture this high-opportunity territory for your brand.</p>
-          <div><span class="mp-badge"><span class="live-dot"></span>Actively Managed</span></div>
-          <div class="mp-stats">
-            <div><span class="mp-stat-val">$40B+</span><span class="mp-stat-lbl">Market Size</span></div>
-            <div><span class="mp-stat-val">Top 5</span><span class="mp-stat-lbl">Global Rank</span></div>
-          </div>
-        </div>
-        <div class="mp-card reveal">
-          <div class="flag-wrap">🇩🇪</div>
-          <h3>Germany</h3>
-          <div class="mp-sub">Amazon.de</div>
-          <p>Europe's second-largest e-commerce economy. We navigate DE VAT, compliance, and fierce competition to boost your seller performance.</p>
-          <div><span class="mp-badge"><span class="live-dot"></span>Actively Managed</span></div>
-          <div class="mp-stats">
-            <div><span class="mp-stat-val">€35B+</span><span class="mp-stat-lbl">Market Size</span></div>
-            <div><span class="mp-stat-val">Top 4</span><span class="mp-stat-lbl">Global Rank</span></div>
-          </div>
+        <div style="margin-top:24px;padding:16px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;">
+          <p style="color:var(--gold2);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Useful Portals</p>
+          <a href="https://revenue.kp.gov.pk" target="_blank" style="color:#8a9eb8;font-size:0.78rem;display:block;margin-bottom:6px;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#e8b830'" onmouseout="this.style.color='#8a9eb8'">▸ Revenue KP — revenue.kp.gov.pk</a>
+          <a href="https://kp.gov.pk" target="_blank" style="color:#8a9eb8;font-size:0.78rem;display:block;margin-bottom:6px;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#e8b830'" onmouseout="this.style.color='#8a9eb8'">▸ KP Government — kp.gov.pk</a>
+          <a href="https://www.pc.gov.pk" target="_blank" style="color:#8a9eb8;font-size:0.78rem;display:block;margin-bottom:6px;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#e8b830'" onmouseout="this.style.color='#8a9eb8'">▸ Planning Commission — pc.gov.pk</a>
+          <a href="https://kpra.gov.pk" target="_blank" style="color:#8a9eb8;font-size:0.78rem;display:block;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#e8b830'" onmouseout="this.style.color='#8a9eb8'">▸ KP Revenue Authority — kpra.gov.pk</a>
         </div>
       </div>
 
@@ -1200,484 +1303,80 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section id="steps">
-  <div class="inner">
-    <div class="reveal" style="text-align:center;margin-bottom:3.5rem;">
-      <span class="section-label">Steps to Start</span>
-      <h2 class="section-h" style="color:var(--white);">Some easy steps to <em style="color:var(--gold-light);">get started!</em></h2>
-      <div class="divider" style="margin:1rem auto;"></div>
-      <p style="color:rgba(255,255,255,0.55);font-size:1rem;font-weight:300;max-width:500px;margin:0 auto;">From your first call to your first sale — here's how simple it is to get your Amazon business up and running with Minorsoltech.</p>
-    </div>
-    <div class="steps-grid">
-      <div class="step-card reveal">
-        <div class="step-num">01</div>
-        <div class="step-icon">📅</div>
-        <h4>Pick a Date &amp; Time</h4>
-        <p>Browse the calendar and select a time slot that suits your schedule for your free strategy consultation.</p>
-      </div>
-      <div class="step-card reveal">
-        <div class="step-num">02</div>
-        <div class="step-icon">📝</div>
-        <h4>Enter Your Details</h4>
-        <p>Fill in your basic information like name, email, and phone number to confirm your booking and goals.</p>
-      </div>
-      <div class="step-card reveal">
-        <div class="step-num">03</div>
-        <div class="step-icon">🎥</div>
-        <h4>Join the Session</h4>
-        <p>You'll receive an email with your video meeting link. Just click to join at the scheduled time — we handle the rest.</p>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:3rem;">
-      <a href="#contact" class="btn-gold">Book Your Free Call ›</a>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq">
-  <div class="inner">
-    <div class="faq-grid">
-      <div>
-        <div class="reveal">
-          <span class="section-label">FAQ</span>
-          <h2 class="section-h">Learn more from frequently<br>asked <em>questions</em></h2>
-          <div class="divider"></div>
-        </div>
-        <div class="faq-list">
-          <div class="faq-item reveal">
-            <button class="faq-q" onclick="toggleFaq(this)">
-              How does Minorsoltech ensure profitability and transparency?
-              <span class="icon">+</span>
-            </button>
-            <div class="faq-a">
-              <p>Every venture we build is guided by data, strategy, and performance metrics. We provide transparent reporting, regular progress updates, and financial tracking so investors can clearly see how their business is performing and growing over time.</p>
-            </div>
-          </div>
-          <div class="faq-item reveal">
-            <button class="faq-q" onclick="toggleFaq(this)">
-              What level of involvement is required from investors?
-              <span class="icon">+</span>
-            </button>
-            <div class="faq-a">
-              <p>Minorsoltech is designed for hands-free growth. Our team manages all day-to-day operations—including sourcing, pricing, logistics, and analytics—while keeping investors updated through transparent reports and strategy reviews.</p>
-            </div>
-          </div>
-          <div class="faq-item reveal">
-            <button class="faq-q" onclick="toggleFaq(this)">
-              How is the estimated profit calculated?
-              <span class="icon">+</span>
-            </button>
-            <div class="faq-a">
-              <p>The profit range is based on average market performance and internal analysis. These figures are estimates only—actual results may vary depending on market conditions, investment amount, and duration.</p>
-            </div>
-          </div>
-          <div class="faq-item reveal">
-            <button class="faq-q" onclick="toggleFaq(this)">
-              How long before I start seeing results?
-              <span class="icon">+</span>
-            </button>
-            <div class="faq-a">
-              <p>Most clients begin seeing meaningful traction within 60–90 days of account setup. Amazon wholesale FBA requires an initial ramp-up period for account health, product approvals, and inventory, after which growth accelerates steadily month over month.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="faq-side reveal">
-        <h3>Get Expert Help Right When You Need It</h3>
-        <p>Ready to book your free consultation? Our team is available to answer questions and map out your personalised growth plan.</p>
-        <div class="faq-contact-list">
-          <div class="faq-contact-item">
-            <div class="ic">📞</div>
-            <div>
-              <div class="lbl">Call Us</div>
-              <div class="val">+92 333 673 0540</div>
-            </div>
-          </div>
-          <div class="faq-contact-item">
-            <div class="ic">✉️</div>
-            <div>
-              <div class="lbl">Email</div>
-              <div class="val">info@minorsoltech.com</div>
-            </div>
-          </div>
-          <div class="faq-contact-item">
-            <div class="ic">📍</div>
-            <div>
-              <div class="lbl">Office</div>
-              <div class="val" style="font-size:0.8rem;">Office No. 05, 5th Floor, The Centaurus Mall, Jinnah Avenue, Islamabad, Pakistan</div>
-            </div>
-          </div>
-        </div>
-        <div style="margin-top:2rem;">
-          <a href="#contact" class="btn-gold" style="width:100%;justify-content:center;">Book Appointment ›</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <div class="inner">
-    <div class="testimonials-header reveal">
-      <span class="section-label">Testimonials</span>
-      <h2 class="section-h">It's always a joy to hear that the work<br>we do has <em>positively</em> impacted clients</h2>
-      <div class="divider"></div>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial reveal">
-        <div class="stars">★★★★★</div>
-        <p>I asked for an extra customization and the team made special amendments live on my account. Customer support is amazing — genuinely responsive and helpful.</p>
-        <div class="t-author">
-          <div class="t-avatar">MS</div>
-          <div>
-            <div class="t-name">Maria Silverii</div>
-            <div class="t-role">CEO of Blue Illusion</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial reveal">
-        <div class="stars">★★★★★</div>
-        <p>I love working with Minorsoltech! Support deserves 7 stars but unfortunately that's not an option. I really suggest everyone work with them.</p>
-        <div class="t-author">
-          <div class="t-avatar">PM</div>
-          <div>
-            <div class="t-name">Phillip Macintyre</div>
-            <div class="t-role">CEO of Blue Illusion</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial reveal">
-        <div class="stars">★★★★★</div>
-        <p>Great, versatile team with lots of customisability. Above all, the customer support is amazing, useful, and quick. I must recommend them.</p>
-        <div class="t-author">
-          <div class="t-avatar">AH</div>
-          <div>
-            <div class="t-name">Amy Harrison</div>
-            <div class="t-role">Contiki Holidays</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BLOG -->
-<section id="blog">
-  <div class="inner">
-    <div class="blog-header reveal">
-      <span class="section-label">Our Blog</span>
-      <h2 class="section-h">We're here to share story &amp;<br>more news from the <em>resource library</em></h2>
-      <div class="divider"></div>
-    </div>
-    <div class="blog-grid">
-      <div class="blog-card reveal">
-        <div class="blog-card-img">
-          <img src="https://mokhu.com/wp-content/uploads/2020/03/update-service-02-600x373.jpg" alt="Blog 1" onerror="this.style.display='none';" />
-          <span class="blog-cat">Business</span>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-date">November 5, 2019</div>
-          <h4>How Stay Calm from the First Time.</h4>
-          <p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p>
-          <a href="#" class="read-more">Read more ›</a>
-        </div>
-      </div>
-      <div class="blog-card reveal">
-        <div class="blog-card-img">
-          <img src="https://mokhu.com/wp-content/uploads/2019/11/u-blog-02-600x373.jpg" alt="Blog 2" onerror="this.style.display='none';" />
-          <span class="blog-cat">Strategy</span>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-date">November 5, 2019</div>
-          <h4>Why You'll Never Succeed at 7 Habits.</h4>
-          <p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p>
-          <a href="#" class="read-more">Read more ›</a>
-        </div>
-      </div>
-      <div class="blog-card reveal">
-        <div class="blog-card-img">
-          <img src="https://mokhu.com/wp-content/uploads/2019/11/update-blog3-600x373.jpg" alt="Blog 3" onerror="this.style.display='none';" />
-          <span class="blog-cat">Growth</span>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-date">November 5, 2019</div>
-          <h4>You can use it for any kind of website like.</h4>
-          <p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p>
-          <a href="#" class="read-more">Read more ›</a>
-        </div>
-      </div>
-      <div class="blog-card reveal">
-        <div class="blog-card-img">
-          <img src="https://mokhu.com/wp-content/uploads/2019/11/theme-13-600x373.jpg" alt="Blog 4" onerror="this.style.display='none';" />
-          <span class="blog-cat">Startup</span>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-date">November 5, 2019</div>
-          <h4>How to go about initiating a start-up.</h4>
-          <p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p>
-          <a href="#" class="read-more">Read more ›</a>
-        </div>
-      </div>
-      <div class="blog-card reveal">
-        <div class="blog-card-img">
-          <img src="https://mokhu.com/wp-content/uploads/2019/11/theme-09-600x373.jpg" alt="Blog 5" onerror="this.style.display='none';" />
-          <span class="blog-cat">Amazon</span>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-date">November 5, 2019</div>
-          <h4>Reasons to explain fast business builder.</h4>
-          <p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p>
-          <a href="#" class="read-more">Read more ›</a>
-        </div>
-      </div>
-      <div class="blog-card reveal">
-        <div class="blog-card-img">
-          <img src="https://mokhu.com/wp-content/uploads/2019/11/theme-05-600x373.jpg" alt="Blog 6" onerror="this.style.display='none';" />
-          <span class="blog-cat">Finance</span>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-date">November 4, 2018</div>
-          <h4>Blackpool polices hunt for David.</h4>
-          <p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p>
-          <a href="#" class="read-more">Read more ›</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- NEWSLETTER -->
-<div class="newsletter" id="contact">
-  <div style="max-width:700px;margin:0 auto;">
-    <span class="section-label" style="color:var(--gold-light);">Newsletter</span>
-    <h2>Build Wealth, Smarter.</h2>
-    <p>Subscribe to our newsletter and receive early alerts on market opportunities, Amazon FBA tips, and exclusive Minorsoltech insights.</p>
-    <form class="newsletter-form" onsubmit="handleNewsletter(event)">
-      <input type="email" placeholder="Enter your email address..." required />
-      <button type="submit">Subscribe</button>
-    </form>
-    <div style="margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,0.1);">
-      <p style="color:rgba(255,255,255,0.5);margin-bottom:1rem;font-size:0.9rem;">Ready to start your Amazon journey?</p>
-      <a href="https://wa.me/923336730540" class="btn-gold" style="display:inline-flex;">Chat on WhatsApp ›</a>
-    </div>
-  </div>
+<!-- ══ FOOTER BAR ══ -->
+<div id="footerbar">
+  <p>Copyright © 2026 <strong>Planning Cell, Revenue &amp; Estate Department, Government of Khyber Pakhtunkhwa</strong>. All Rights Reserved. &nbsp;|&nbsp; <a href="https://revenue.kp.gov.pk" target="_blank">Board of Revenue, KP</a> &nbsp;|&nbsp; <a href="https://kp.gov.pk" target="_blank">KP Government Portal</a></p>
 </div>
-
-<!-- MAP -->
-<div class="map-section">
-  <iframe
-    src="https://maps.google.com/maps?q=The+Centaurus+Mall+Jinnah+Avenue+Islamabad+Pakistan&t=m&z=15&output=embed&iwloc=near"
-    title="Minorsoltech Office Location"
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-    allowfullscreen>
-  </iframe>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-grid">
-    <div class="footer-brand-col">
-      <div class="footer-logo-text">Minor<span>soltech</span></div>
-      <p>Your trusted partner in building scalable e-commerce ventures that deliver passive income and long-term wealth.</p>
-      <ul class="footer-contact-list">
-        <li><span class="ic">📞</span> +92 333 673 0540</li>
-        <li><span class="ic">✉️</span> info@minorsoltech.com</li>
-        <li><span class="ic">📍</span> Office No. 05, 5th Floor, The Centaurus Mall, Jinnah Avenue, Islamabad, Pakistan</li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Links</h5>
-      <ul class="footer-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#about-team-hero">About Us</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Book Consultation</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Support</h5>
-      <ul class="footer-links">
-        <li><a href="#contact">Contact Us</a></li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>2025 © Minorsoltech — All rights reserved.</p>
-    <div class="socials">
-      <a href="#" title="Facebook">f</a>
-      <a href="#" title="Twitter">𝕏</a>
-      <a href="#" title="LinkedIn">in</a>
-      <a href="#" title="Instagram">ig</a>
-    </div>
-  </div>
-</footer>
-
-<!-- WHATSAPP -->
-<a href="https://wa.me/923336730540" class="wa-float" target="_blank" title="Chat on WhatsApp">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
-</a>
-
-<!-- BACK TO TOP -->
-<div class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</div>
 
 <script>
-/* ═══════════════════════════════════════════
-   MAIN HERO SLIDER (slide 1 / slide 2)
-   ═══════════════════════════════════════════ */
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.hero-dots span');
-let autoSlide = setInterval(() => changeSlide(1), 5000);
+/* Mobile nav */
+document.getElementById('ham-btn').addEventListener('click',function(){
+  document.getElementById('nav-menu').classList.toggle('open');
+});
 
-function goToSlide(n) {
-  slides[currentSlide].classList.remove('active');
-  dots[currentSlide].classList.remove('active');
-  currentSlide = n;
-  slides[currentSlide].classList.add('active');
-  dots[currentSlide].classList.add('active');
-  clearInterval(autoSlide);
-  autoSlide = setInterval(() => changeSlide(1), 5000);
+/* Slider */
+const slides=document.querySelectorAll('.slide');
+const dots=document.querySelectorAll('.dot');
+let cur=0,autoTimer;
+function goTo(n){
+  slides[cur].classList.remove('active');
+  dots[cur].classList.remove('active');
+  cur=(n+slides.length)%slides.length;
+  slides[cur].classList.add('active');
+  dots[cur].classList.add('active');
 }
-function changeSlide(dir) {
-  let next = (currentSlide + dir + slides.length) % slides.length;
-  goToSlide(next);
-}
+function next(){goTo(cur+1);}
+function prev(){goTo(cur-1);}
+function startAuto(){autoTimer=setInterval(next,6000);}
+function stopAuto(){clearInterval(autoTimer);}
+document.getElementById('next-btn').addEventListener('click',()=>{stopAuto();next();startAuto();});
+document.getElementById('prev-btn').addEventListener('click',()=>{stopAuto();prev();startAuto();});
+dots.forEach(d=>d.addEventListener('click',()=>{stopAuto();goTo(+d.dataset.idx);startAuto();}));
+startAuto();
 
-/* ═══════════════════════════════════════════
-   HERO TEAM SLIDER (hts-*)
-   Completely isolated from the bottom section
-   ═══════════════════════════════════════════ */
-(function() {
-  const TOTAL = 3;
-  let htsIndex = 0;
-  let htsTimer = null;
-  const track = document.getElementById('hts-track');
-  const dotEls = document.querySelectorAll('#hts-dots span');
+/* Navbar shadow on scroll */
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').style.boxShadow=
+    window.scrollY>10?'0 4px 24px rgba(0,107,94,0.15)':'0 2px 16px rgba(0,107,94,0.1)';
+});
 
-  function htsRender(idx) {
-    track.style.transform = 'translateX(-' + (idx * 100) + '%)';
-    dotEls.forEach(function(d, i) {
-      d.classList.toggle('active', i === idx);
-      d.setAttribute('aria-selected', i === idx ? 'true' : 'false');
-    });
-    htsIndex = idx;
-  }
-
-  function htsNext() {
-    htsRender((htsIndex + 1) % TOTAL);
-  }
-
-  function htsStartTimer() {
-    htsTimer = setInterval(htsNext, 3500);
-  }
-
-  function htsResetTimer() {
-    clearInterval(htsTimer);
-    htsStartTimer();
-  }
-
-  // Expose to inline onclick handlers
-  window.htsGoTo = function(idx) {
-    htsRender(idx);
-    htsResetTimer();
-  };
-
-  // Pause on hover
-  var sliderEl = document.getElementById('hts-slider');
-  if (sliderEl) {
-    sliderEl.addEventListener('mouseenter', function() { clearInterval(htsTimer); });
-    sliderEl.addEventListener('mouseleave', htsStartTimer);
-  }
-
-  // Touch swipe support
-  var touchStartX = 0;
-  if (track) {
-    track.addEventListener('touchstart', function(e) {
-      touchStartX = e.changedTouches[0].clientX;
-    }, { passive: true });
-    track.addEventListener('touchend', function(e) {
-      var diff = touchStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) {
-        htsRender(diff > 0 ? (htsIndex + 1) % TOTAL : (htsIndex - 1 + TOTAL) % TOTAL);
-        htsResetTimer();
-      }
-    }, { passive: true });
-  }
-
-  htsStartTimer();
-})();
-
-/* ═══════════════════════════════════════════
-   SCROLL REVEAL
-   ═══════════════════════════════════════════ */
-const reveals = document.querySelectorAll('.reveal');
-const revealObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e, i) {
-    if (e.isIntersecting) {
-      setTimeout(function() { e.target.classList.add('visible'); }, i * 90);
-      revealObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.1 });
-reveals.forEach(function(el) { revealObs.observe(el); });
-
-/* ═══════════════════════════════════════════
-   FAQ ACCORDION
-   ═══════════════════════════════════════════ */
-function toggleFaq(btn) {
-  var item = btn.parentElement;
-  var answer = item.querySelector('.faq-a');
-  var isOpen = btn.classList.contains('open');
-  document.querySelectorAll('.faq-q.open').forEach(function(q) {
-    q.classList.remove('open');
-    q.parentElement.querySelector('.faq-a').classList.remove('open');
-  });
-  if (!isOpen) {
-    btn.classList.add('open');
-    answer.classList.add('open');
-  }
-}
-
-/* ═══════════════════════════════════════════
-   MOBILE NAV
-   ═══════════════════════════════════════════ */
-function toggleMobileNav() {
-  document.getElementById('main-nav').classList.toggle('nav-mobile-open');
-}
-document.querySelectorAll('.nav-links a').forEach(function(a) {
-  a.addEventListener('click', function() {
-    document.getElementById('main-nav').classList.remove('nav-mobile-open');
+/* Smooth scroll */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    const h=this.getAttribute('href');
+    if(h==='#'||!h)return;
+    const tgt=document.querySelector(h);
+    if(tgt){e.preventDefault();window.scrollTo({top:tgt.offsetTop-80,behavior:'smooth'});}
   });
 });
 
-/* ═══════════════════════════════════════════
-   BACK TO TOP
-   ═══════════════════════════════════════════ */
-window.addEventListener('scroll', function() {
-  var btn = document.getElementById('back-to-top');
-  if (window.scrollY > 500) btn.classList.add('visible');
-  else btn.classList.remove('visible');
+/* Modals */
+function openModal(id){
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(id){
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow='';
+}
+document.querySelectorAll('.modal-overlay').forEach(m=>{
+  m.addEventListener('click',function(e){
+    if(e.target===this) closeModal(this.id);
+  });
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') document.querySelectorAll('.modal-overlay.open').forEach(m=>closeModal(m.id));
 });
 
-/* ═══════════════════════════════════════════
-   NEWSLETTER
-   ═══════════════════════════════════════════ */
-function handleNewsletter(e) {
-  e.preventDefault();
-  var btn = e.target.querySelector('button');
-  btn.textContent = 'Subscribed ✓';
-  btn.style.background = '#2e7d32';
-  setTimeout(function() { btn.textContent = 'Subscribe'; btn.style.background = ''; }, 3000);
-}
+/* Fade-up on scroll */
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(el=>{
+    if(el.isIntersecting) el.target.style.animation='fadeUp .7s ease both';
+  });
+},{threshold:0.1});
+document.querySelectorAll('.feature-card,.sector-card,.district-card,.sdc-card,.news-card,.leader-card').forEach(el=>{
+  observer.observe(el);
+});
 </script>
 </body>
 </html>
