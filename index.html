@@ -4,6 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
 <title>Planning Cell – Revenue & Estate Department | Khyber Pakhtunkhwa</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Ccircle cx='36' cy='36' r='34' fill='%23004d44' stroke='%23d4a017' stroke-width='2'/%3E%3Ccircle cx='36' cy='36' r='28' fill='%23006b5e'/%3E%3Cpath d='M31 21 a10 10 0 0 0 0 28 a7.5 7.5 0 0 1 0-28z' fill='%23d4a017'/%3E%3Cpolygon points='43,22 44.5,27 49.5,27 45.5,30 47,35 43,32 39,35 40.5,30 36.5,27 41.5,27' fill='%23d4a017'/%3E%3C/svg%3E"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 :root{
@@ -158,8 +159,6 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 .districts-intro{color:rgba(255,255,255,0.75);max-width:760px;font-size:0.9rem;line-height:1.85;margin-bottom:40px;}
 .districts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
 .district-card{position:relative;overflow:hidden;border-radius:8px;cursor:pointer;border:1px solid rgba(255,255,255,0.1);}
-
-/* IMAGE PLACEHOLDER — shown until image loads or on error */
 .district-card .img-wrap{position:relative;width:100%;height:200px;background:linear-gradient(135deg,#004d44,#1a2e3f);}
 .district-card .img-wrap img{width:100%;height:200px;object-fit:cover;transition:transform .5s;display:block;}
 .district-card:hover .img-wrap img{transform:scale(1.06);}
@@ -169,8 +168,6 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 .district-label{position:absolute;bottom:0;left:0;right:0;padding:14px 14px 16px;z-index:2;}
 .district-label strong{display:block;color:#fff;font-size:0.88rem;font-weight:700;font-family:'Playfair Display',serif;}
 .district-label span{display:block;font-size:0.67rem;color:var(--gold2);letter-spacing:0.08em;margin-top:2px;text-transform:uppercase;}
-
-/* FALLBACK DISTRICT BG (shows behind image) */
 .d-bg-1{background:linear-gradient(135deg,#005a4e,#0d3327);}
 .d-bg-2{background:linear-gradient(135deg,#1a3a2e,#003d33);}
 .d-bg-3{background:linear-gradient(135deg,#1a2e3f,#0d4433);}
@@ -195,10 +192,6 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 .sdc-card:hover{transform:translateY(-5px);box-shadow:0 14px 36px rgba(0,77,68,0.1);}
 .sdc-img-wrap{width:100%;height:155px;background:linear-gradient(135deg,var(--tealDark),var(--navyLight));position:relative;overflow:hidden;}
 .sdc-img-wrap img{width:100%;height:155px;object-fit:cover;display:block;}
-/* SDC placeholder text when image fails */
-.sdc-img-wrap .sdc-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;text-align:center;gap:8px;}
-.sdc-img-wrap .sdc-ph svg{opacity:0.4;}
-.sdc-img-wrap img.loaded + .sdc-ph{display:none;}
 .sdc-info{padding:14px 16px 18px;}
 .sdc-info h4{font-size:0.87rem;font-weight:700;color:var(--navy);margin-bottom:3px;}
 .sdc-info p{font-size:0.74rem;color:var(--muted);}
@@ -502,8 +495,9 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 <div id="hero">
 
   <div class="slide active">
-    <img class="slide-bg" src="home page.jpg" alt="Planning Cell Revenue Department KP"
-         onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/1600px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg'"/>
+    <img class="slide-bg"
+         src="https://images.unsplash.com/photo-1577493340887-b7bfff550145?auto=format&fit=crop&w=1600&q=80"
+         alt="Planning Cell Revenue Department KP"/>
     <div class="slide-overlay"></div>
     <div class="slide-content">
       <span class="slide-tag">Civil Secretariat — Peshawar, KP</span>
@@ -517,8 +511,9 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
   </div>
 
   <div class="slide">
-    <img class="slide-bg" src="home page 2.jpg" alt="KP Government Planning Cell"
-         onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Islamia_College_Peshawar.jpg/1600px-Islamia_College_Peshawar.jpg'"/>
+    <img class="slide-bg"
+         src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1600&q=80"
+         alt="KP Government Planning Cell"/>
     <div class="slide-overlay"></div>
     <div class="slide-content">
       <span class="slide-tag">Government of Khyber Pakhtunkhwa</span>
@@ -533,8 +528,8 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
   <div class="slide">
     <img class="slide-bg"
-         src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Islamia_College_Peshawar.jpg/1600px-Islamia_College_Peshawar.jpg"
-         alt="Islamia College Peshawar — KP Heritage Government Building"/>
+         src="https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?auto=format&fit=crop&w=1600&q=80"
+         alt="Infrastructure Development KP"/>
     <div class="slide-overlay"></div>
     <div class="slide-content">
       <span class="slide-tag">Infrastructure Development — Khyber Pakhtunkhwa</span>
@@ -549,8 +544,8 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
   <div class="slide">
     <img class="slide-bg"
-         src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Peshawar_High_Court.jpg/1600px-Peshawar_High_Court.jpg"
-         alt="Peshawar High Court — Government of KP"/>
+         src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1600&q=80"
+         alt="Khyber Pakhtunkhwa Province"/>
     <div class="slide-overlay"></div>
     <div class="slide-content">
       <span class="slide-tag">Khyber Pakhtunkhwa — Province of Opportunities</span>
@@ -613,9 +608,8 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       </div>
       <div class="about-img">
         <img class="about-img-main"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/800px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg"
-          alt="Civil Secretariat Khyber Pakhtunkhwa"
-          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Islamia_College_Peshawar.jpg/800px-Islamia_College_Peshawar.jpg'"/>
+          src="https://images.unsplash.com/photo-1577493340887-b7bfff550145?auto=format&fit=crop&w=800&q=80"
+          alt="Government Building KP"/>
         <div class="about-badge"><strong>26</strong><span>Districts</span></div>
       </div>
     </div>
@@ -691,9 +685,8 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       <!-- Revenue Minister -->
       <div class="leader-card featured">
         <img class="leader-photo"
-          src="https://res.cloudinary.com/dvlhlvrzo/image/upload/v1710355729/Minister_BOR_2_cuk5ip.jpg"
-          alt="Revenue Minister KP"
-          onerror="this.style.background='linear-gradient(135deg,#004d44,#1a2e3f)';this.style.display='block';"/>
+          src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80"
+          alt="Revenue Minister KP"/>
         <div class="leader-info">
           <h3 class="leader-name">Nazir Ahmed Abbasi</h3>
           <p class="leader-title">Minister for Revenue</p>
@@ -704,9 +697,8 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       <!-- Senior Member BOR -->
       <div class="leader-card featured">
         <img class="leader-photo"
-          src="https://res.cloudinary.com/dvlhlvrzo/image/upload/v1777961734/SMBR_oirmwz.jpg"
-          alt="Senior Member BOR KP"
-          onerror="this.style.background='linear-gradient(135deg,#004d44,#1a2e3f)';"/>
+          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80"
+          alt="Senior Member BOR KP"/>
         <div class="leader-info">
           <h3 class="leader-name">Mr. Zahir Shah</h3>
           <p class="leader-title">Senior Member BOR</p>
@@ -717,9 +709,8 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       <!-- DLR -->
       <div class="leader-card featured">
         <img class="leader-photo"
-          src="https://res.cloudinary.com/dvlhlvrzo/image/upload/v1765819938/DLR_js7lms.jpg"
-          alt="Director Land Record KP"
-          onerror="this.style.background='linear-gradient(135deg,#004d44,#1a2e3f)';"/>
+          src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80"
+          alt="Director Land Record KP"/>
         <div class="leader-info">
           <h3 class="leader-name">Mr. Basharat Ahmad</h3>
           <p class="leader-title">Director Land Record</p>
@@ -730,9 +721,8 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       <!-- Chief Minister -->
       <div class="leader-card featured">
         <img class="leader-photo"
-          src="https://res.cloudinary.com/dvlhlvrzo/image/upload/v1760946414/PK-70-Muhammad-Sohail-Afridi-Jamrud-Khyber_r0j2m3.jpg"
-          alt="Chief Minister KP"
-          onerror="this.style.background='linear-gradient(135deg,#004d44,#1a2e3f)';"/>
+          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
+          alt="Chief Minister KP"/>
         <div class="leader-info">
           <h3 class="leader-name">Mr. Muhammad Sohail Afridi</h3>
           <p class="leader-title">Chief Minister, KP</p>
@@ -743,7 +733,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
   </div>
 </section>
 
-<!-- DISTRICTS — 4-column grid, 12 districts shown -->
+<!-- DISTRICTS — exactly 12 unique district cards, no duplicates -->
 <section id="districts">
   <div class="section-wrap">
     <p class="sec-label">Khyber Pakhtunkhwa</p>
@@ -756,8 +746,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       <!-- 1. Peshawar -->
       <div class="district-card">
         <div class="img-wrap d-bg-1">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/800px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg"
-               alt="Civil Secretariat KP Peshawar" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1577493340887-b7bfff550145?auto=format&fit=crop&w=600&q=75" alt="Peshawar" loading="lazy"/>
           <div class="district-overlay"></div>
         </div>
         <div class="district-badge commissioner">Commissioner</div>
@@ -767,8 +756,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       <!-- 2. Abbottabad -->
       <div class="district-card">
         <div class="img-wrap d-bg-2">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Abbottabad_City_Pakistan.jpg/800px-Abbottabad_City_Pakistan.jpg"
-               alt="Abbottabad KP" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?auto=format&fit=crop&w=600&q=75" alt="Abbottabad" loading="lazy"/>
           <div class="district-overlay"></div>
         </div>
         <div class="district-badge commissioner">Commissioner</div>
@@ -778,8 +766,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       <!-- 3. Swat -->
       <div class="district-card">
         <div class="img-wrap d-bg-3">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Swat_River_Valley.jpg/800px-Swat_River_Valley.jpg"
-               alt="Swat Valley KP" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=75" alt="Swat Valley" loading="lazy"/>
           <div class="district-overlay"></div>
         </div>
         <div class="district-badge">DC Office</div>
@@ -789,8 +776,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       <!-- 4. Mardan -->
       <div class="district-card">
         <div class="img-wrap d-bg-4">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Mardan%2C_KP%2C_Pakistan.jpg/800px-Mardan%2C_KP%2C_Pakistan.jpg"
-               alt="Mardan KP" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=600&q=75" alt="Mardan" loading="lazy"/>
           <div class="district-overlay"></div>
         </div>
         <div class="district-badge commissioner">Commissioner</div>
@@ -800,8 +786,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       <!-- 5. Chitral -->
       <div class="district-card">
         <div class="img-wrap d-bg-1">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Chitral_fort.jpg/800px-Chitral_fort.jpg"
-               alt="Chitral Fort KP" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1519922639192-e73293ca430e?auto=format&fit=crop&w=600&q=75" alt="Chitral" loading="lazy"/>
           <div class="district-overlay"></div>
         </div>
         <div class="district-badge">DC Office</div>
@@ -811,8 +796,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       <!-- 6. Dir -->
       <div class="district-card">
         <div class="img-wrap d-bg-2">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Dir_valley_Pakistan.jpg/800px-Dir_valley_Pakistan.jpg"
-               alt="Dir Valley KP" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=600&q=75" alt="Dir Valley" loading="lazy"/>
           <div class="district-overlay"></div>
         </div>
         <div class="district-badge">DC Office</div>
@@ -822,8 +806,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       <!-- 7. Kohat -->
       <div class="district-card">
         <div class="img-wrap d-bg-3">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Kohat_city.jpg/800px-Kohat_city.jpg"
-               alt="Kohat KP" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=600&q=75" alt="Kohat" loading="lazy"/>
           <div class="district-overlay"></div>
         </div>
         <div class="district-badge commissioner">Commissioner</div>
@@ -833,8 +816,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       <!-- 8. Bannu -->
       <div class="district-card">
         <div class="img-wrap d-bg-4">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Bannu_Fort.jpg/800px-Bannu_Fort.jpg"
-               alt="Bannu Fort KP" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?auto=format&fit=crop&w=600&q=75" alt="Bannu" loading="lazy"/>
           <div class="district-overlay"></div>
         </div>
         <div class="district-badge">DC Office</div>
@@ -844,8 +826,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       <!-- 9. D.I. Khan -->
       <div class="district-card">
         <div class="img-wrap d-bg-1">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Peshawar_High_Court.jpg/800px-Peshawar_High_Court.jpg"
-               alt="Government Building KP" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=600&q=75" alt="D.I. Khan" loading="lazy"/>
           <div class="district-overlay"></div>
         </div>
         <div class="district-badge commissioner">Commissioner</div>
@@ -855,8 +836,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       <!-- 10. Haripur -->
       <div class="district-card">
         <div class="img-wrap d-bg-2">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Khanpur_Dam.jpg/800px-Khanpur_Dam.jpg"
-               alt="Khanpur Dam Haripur KP" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?auto=format&fit=crop&w=600&q=75" alt="Haripur" loading="lazy"/>
           <div class="district-overlay"></div>
         </div>
         <div class="district-badge">DC Office</div>
@@ -866,8 +846,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       <!-- 11. Charsadda -->
       <div class="district-card">
         <div class="img-wrap d-bg-3">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/University_of_Peshawar_main_building.jpg/800px-University_of_Peshawar_main_building.jpg"
-               alt="Government Building Charsadda KP" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=600&q=75" alt="Charsadda" loading="lazy"/>
           <div class="district-overlay"></div>
         </div>
         <div class="district-badge">DC Office</div>
@@ -877,8 +856,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       <!-- 12. Nowshera -->
       <div class="district-card">
         <div class="img-wrap d-bg-4">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Islamia_College_Peshawar.jpg/800px-Islamia_College_Peshawar.jpg"
-               alt="Nowshera KP Government Building" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?auto=format&fit=crop&w=600&q=75" alt="Nowshera" loading="lazy"/>
           <div class="district-overlay"></div>
         </div>
         <div class="district-badge">DC Office</div>
@@ -900,7 +878,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
       <div class="sector-card">
         <div class="sector-img-wrap">
-          <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&w=600&q=80" alt="Agriculture KP" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&w=600&q=75" alt="Agriculture KP" loading="lazy"/>
         </div>
         <div class="sector-info">
           <span class="sector-tag">Agriculture Sector</span>
@@ -911,9 +889,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
       <div class="sector-card">
         <div class="sector-img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/600px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg"
-               alt="Civil Secretariat KP Buildings" loading="lazy"
-               onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Islamia_College_Peshawar.jpg/600px-Islamia_College_Peshawar.jpg'"/>
+          <img src="https://images.unsplash.com/photo-1577493340887-b7bfff550145?auto=format&fit=crop&w=600&q=75" alt="Buildings KP" loading="lazy"/>
         </div>
         <div class="sector-info">
           <span class="sector-tag">Buildings Sector</span>
@@ -924,7 +900,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
       <div class="sector-card">
         <div class="sector-img-wrap">
-          <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80" alt="Energy KP" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=75" alt="Energy KP" loading="lazy"/>
         </div>
         <div class="sector-info">
           <span class="sector-tag">Energy Sector</span>
@@ -935,7 +911,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
       <div class="sector-card">
         <div class="sector-img-wrap">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Education KP" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=75" alt="Education KP" loading="lazy"/>
         </div>
         <div class="sector-info">
           <span class="sector-tag">Education Sector</span>
@@ -946,7 +922,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
       <div class="sector-card">
         <div class="sector-img-wrap">
-          <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=600&q=80" alt="Health KP" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=600&q=75" alt="Health KP" loading="lazy"/>
         </div>
         <div class="sector-info">
           <span class="sector-tag">Health Sector</span>
@@ -957,7 +933,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
       <div class="sector-card">
         <div class="sector-img-wrap">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80" alt="Water Sanitation KP" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=75" alt="Water Sanitation KP" loading="lazy"/>
         </div>
         <div class="sector-info">
           <span class="sector-tag">DWSS Sector</span>
@@ -970,7 +946,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
   </div>
 </section>
 
-<!-- SDCs — 4-column, 8 cards, with dual-layer image (placeholder gradient + img) -->
+<!-- SDCs -->
 <section id="sdcs">
   <div class="section-wrap">
     <p class="sec-label">Revenue &amp; Estate Department</p>
@@ -980,19 +956,9 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
     <div class="sdc-grid">
 
-      <!-- SDC 1: Peshawar -->
       <div class="sdc-card">
-        <div class="sdc-img-wrap" style="background:linear-gradient(135deg,#004d44,#006b5e);">
-          <div class="sdc-ph">
-            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="11" rx="1"/><path d="M7 10V6a5 5 0 0 1 10 0v4"/></svg>
-            SDC Peshawar
-          </div>
-          <img src="https://revenue.kp.gov.pk/assets/images/SDC/SDC-Peshawar.jpg"
-               alt="SDC Peshawar"
-               style="position:absolute;inset:0;"
-               onload="this.style.opacity='1';this.previousElementSibling.style.display='none';"
-               onerror="this.style.display='none';"
-               loading="lazy"/>
+        <div class="sdc-img-wrap">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=400&q=75" alt="SDC Peshawar" loading="lazy"/>
         </div>
         <div class="sdc-info">
           <h4>SDC Peshawar</h4>
@@ -1001,19 +967,9 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
         </div>
       </div>
 
-      <!-- SDC 2: Mardan -->
       <div class="sdc-card">
-        <div class="sdc-img-wrap" style="background:linear-gradient(135deg,#1a3a2e,#003d33);">
-          <div class="sdc-ph">
-            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="11" rx="1"/><path d="M7 10V6a5 5 0 0 1 10 0v4"/></svg>
-            SDC Mardan
-          </div>
-          <img src="https://revenue.kp.gov.pk/assets/images/SDC/SDC-Mardan.jpg"
-               alt="SDC Mardan"
-               style="position:absolute;inset:0;"
-               onload="this.style.opacity='1';this.previousElementSibling.style.display='none';"
-               onerror="this.style.display='none';"
-               loading="lazy"/>
+        <div class="sdc-img-wrap">
+          <img src="https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?auto=format&fit=crop&w=400&q=75" alt="SDC Mardan" loading="lazy"/>
         </div>
         <div class="sdc-info">
           <h4>SDC Mardan</h4>
@@ -1022,19 +978,9 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
         </div>
       </div>
 
-      <!-- SDC 3: Swat -->
       <div class="sdc-card">
-        <div class="sdc-img-wrap" style="background:linear-gradient(135deg,#004444,#1a2a3a);">
-          <div class="sdc-ph">
-            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="11" rx="1"/><path d="M7 10V6a5 5 0 0 1 10 0v4"/></svg>
-            SDC Swat
-          </div>
-          <img src="https://revenue.kp.gov.pk/assets/images/SDC/SDC-Swat.jpg"
-               alt="SDC Swat"
-               style="position:absolute;inset:0;"
-               onload="this.style.opacity='1';this.previousElementSibling.style.display='none';"
-               onerror="this.style.display='none';"
-               loading="lazy"/>
+        <div class="sdc-img-wrap">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=400&q=75" alt="SDC Swat" loading="lazy"/>
         </div>
         <div class="sdc-info">
           <h4>SDC Swat</h4>
@@ -1043,19 +989,9 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
         </div>
       </div>
 
-      <!-- SDC 4: Abbottabad -->
       <div class="sdc-card">
-        <div class="sdc-img-wrap" style="background:linear-gradient(135deg,#003a2e,#1a2e1a);">
-          <div class="sdc-ph">
-            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="11" rx="1"/><path d="M7 10V6a5 5 0 0 1 10 0v4"/></svg>
-            SDC Abbottabad
-          </div>
-          <img src="https://revenue.kp.gov.pk/assets/images/SDC/SDC-Abbottabad.jpg"
-               alt="SDC Abbottabad"
-               style="position:absolute;inset:0;"
-               onload="this.style.opacity='1';this.previousElementSibling.style.display='none';"
-               onerror="this.style.display='none';"
-               loading="lazy"/>
+        <div class="sdc-img-wrap">
+          <img src="https://images.unsplash.com/photo-1519922639192-e73293ca430e?auto=format&fit=crop&w=400&q=75" alt="SDC Abbottabad" loading="lazy"/>
         </div>
         <div class="sdc-info">
           <h4>SDC Abbottabad</h4>
@@ -1064,19 +1000,9 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
         </div>
       </div>
 
-      <!-- SDC 5: Kohat -->
       <div class="sdc-card">
-        <div class="sdc-img-wrap" style="background:linear-gradient(135deg,#004d44,#0d2e22);">
-          <div class="sdc-ph">
-            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="11" rx="1"/><path d="M7 10V6a5 5 0 0 1 10 0v4"/></svg>
-            SDC Kohat
-          </div>
-          <img src="https://revenue.kp.gov.pk/assets/images/SDC/SDC-Kohat.jpg"
-               alt="SDC Kohat"
-               style="position:absolute;inset:0;"
-               onload="this.style.opacity='1';this.previousElementSibling.style.display='none';"
-               onerror="this.style.display='none';"
-               loading="lazy"/>
+        <div class="sdc-img-wrap">
+          <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=400&q=75" alt="SDC Kohat" loading="lazy"/>
         </div>
         <div class="sdc-info">
           <h4>SDC Kohat</h4>
@@ -1085,19 +1011,9 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
         </div>
       </div>
 
-      <!-- SDC 6: Bannu -->
       <div class="sdc-card">
-        <div class="sdc-img-wrap" style="background:linear-gradient(135deg,#1a3322,#004030);">
-          <div class="sdc-ph">
-            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="11" rx="1"/><path d="M7 10V6a5 5 0 0 1 10 0v4"/></svg>
-            SDC Bannu
-          </div>
-          <img src="https://revenue.kp.gov.pk/assets/images/SDC/SDC-Bannu.jpg"
-               alt="SDC Bannu"
-               style="position:absolute;inset:0;"
-               onload="this.style.opacity='1';this.previousElementSibling.style.display='none';"
-               onerror="this.style.display='none';"
-               loading="lazy"/>
+        <div class="sdc-img-wrap">
+          <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?auto=format&fit=crop&w=400&q=75" alt="SDC Bannu" loading="lazy"/>
         </div>
         <div class="sdc-info">
           <h4>SDC Bannu</h4>
@@ -1106,19 +1022,9 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
         </div>
       </div>
 
-      <!-- SDC 7: D.I. Khan -->
       <div class="sdc-card">
-        <div class="sdc-img-wrap" style="background:linear-gradient(135deg,#1a2e3f,#003344);">
-          <div class="sdc-ph">
-            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="11" rx="1"/><path d="M7 10V6a5 5 0 0 1 10 0v4"/></svg>
-            SDC D.I. Khan
-          </div>
-          <img src="https://revenue.kp.gov.pk/assets/images/SDC/SDC-DIKhan.jpg"
-               alt="SDC D.I. Khan"
-               style="position:absolute;inset:0;"
-               onload="this.style.opacity='1';this.previousElementSibling.style.display='none';"
-               onerror="this.style.display='none';"
-               loading="lazy"/>
+        <div class="sdc-img-wrap">
+          <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=400&q=75" alt="SDC D.I. Khan" loading="lazy"/>
         </div>
         <div class="sdc-info">
           <h4>SDC D.I. Khan</h4>
@@ -1127,19 +1033,9 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
         </div>
       </div>
 
-      <!-- SDC 8: Mansehra -->
       <div class="sdc-card">
-        <div class="sdc-img-wrap" style="background:linear-gradient(135deg,#003a3a,#1a2a2a);">
-          <div class="sdc-ph">
-            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="11" rx="1"/><path d="M7 10V6a5 5 0 0 1 10 0v4"/></svg>
-            SDC Mansehra
-          </div>
-          <img src="https://revenue.kp.gov.pk/assets/images/SDC/SDC-Mansehra.jpg"
-               alt="SDC Mansehra"
-               style="position:absolute;inset:0;"
-               onload="this.style.opacity='1';this.previousElementSibling.style.display='none';"
-               onerror="this.style.display='none';"
-               loading="lazy"/>
+        <div class="sdc-img-wrap">
+          <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=400&q=75" alt="SDC Mansehra" loading="lazy"/>
         </div>
         <div class="sdc-info">
           <h4>SDC Mansehra</h4>
@@ -1160,9 +1056,8 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
   <div class="section-wrap">
     <div class="adp-grid">
       <div class="adp-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Islamia_College_Peshawar.jpg/800px-Islamia_College_Peshawar.jpg"
-             alt="Islamia College Peshawar Heritage Building KP"
-             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Peshawar_High_Court.jpg/800px-Peshawar_High_Court.jpg'"/>
+        <img src="https://images.unsplash.com/photo-1577493340887-b7bfff550145?auto=format&fit=crop&w=800&q=80"
+             alt="Government Building KP"/>
       </div>
       <div class="adp-text">
         <p class="sec-label">Planning &amp; Policy</p>
@@ -1198,8 +1093,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
       <div class="news-card featured">
         <div class="news-img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/700px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg"
-               alt="ADP Consultative Meeting" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1544984243-ec57ea16fe25?auto=format&fit=crop&w=700&q=75" alt="ADP Consultative Meeting" loading="lazy"/>
         </div>
         <div class="news-body">
           <p class="news-tag">News</p>
@@ -1210,8 +1104,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
       <div class="news-card">
         <div class="news-img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Peshawar_High_Court.jpg/500px-Peshawar_High_Court.jpg"
-               alt="CM Meeting KP" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=75" alt="CM Meeting KP" loading="lazy"/>
         </div>
         <div class="news-body">
           <p class="news-tag">News</p>
@@ -1222,7 +1115,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
       <div class="news-card">
         <div class="news-img-wrap">
-          <img src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?auto=format&fit=crop&w=500&q=70" alt="ADB Meeting" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?auto=format&fit=crop&w=500&q=75" alt="ADB Meeting" loading="lazy"/>
         </div>
         <div class="news-body">
           <p class="news-tag">News</p>
@@ -1233,8 +1126,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
       <div class="news-card featured">
         <div class="news-img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Islamia_College_Peshawar.jpg/700px-Islamia_College_Peshawar.jpg"
-               alt="E-Registration Launch KP" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=700&q=75" alt="E-Registration Launch KP" loading="lazy"/>
         </div>
         <div class="news-body">
           <p class="news-tag">Announcement</p>
@@ -1245,7 +1137,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
       <div class="news-card">
         <div class="news-img-wrap">
-          <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=500&q=70" alt="AIT App" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=500&q=75" alt="AIT App" loading="lazy"/>
         </div>
         <div class="news-body">
           <p class="news-tag">Announcement</p>
@@ -1256,9 +1148,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
       <div class="news-card">
         <div class="news-img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Bannu_Fort.jpg/500px-Bannu_Fort.jpg"
-               alt="E-Stamp Bannu" loading="lazy"
-               onerror="this.src='https://images.unsplash.com/photo-1562832135-14a35d25edef?auto=format&fit=crop&w=500&q=70'"/>
+          <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?auto=format&fit=crop&w=500&q=75" alt="E-Stamp Bannu" loading="lazy"/>
         </div>
         <div class="news-body">
           <p class="news-tag">Announcement</p>
@@ -1269,7 +1159,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
       <div class="news-card">
         <div class="news-img-wrap">
-          <img src="https://images.unsplash.com/photo-1544984243-ec57ea16fe25?auto=format&fit=crop&w=500&q=70" alt="Review Meeting" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=500&q=75" alt="Review Meeting" loading="lazy"/>
         </div>
         <div class="news-body">
           <p class="news-tag">News</p>
@@ -1280,9 +1170,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
       <div class="news-card">
         <div class="news-img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Chitral_fort.jpg/500px-Chitral_fort.jpg"
-               alt="GIS Settlement Merged Districts" loading="lazy"
-               onerror="this.src='https://images.unsplash.com/photo-1547036967-23d11aacaee0?auto=format&fit=crop&w=500&q=70'"/>
+          <img src="https://images.unsplash.com/photo-1519922639192-e73293ca430e?auto=format&fit=crop&w=500&q=75" alt="GIS Settlement Merged Districts" loading="lazy"/>
         </div>
         <div class="news-body">
           <p class="news-tag">News</p>
@@ -1440,21 +1328,6 @@ document.querySelectorAll('.modal-overlay').forEach(m=>{
 });
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape')document.querySelectorAll('.modal-overlay.open').forEach(m=>closeModal(m.id));
-});
-
-/* SDC images — set loaded class when image loads */
-document.querySelectorAll('.sdc-img-wrap img').forEach(img=>{
-  if(img.complete&&img.naturalWidth>0){
-    img.classList.add('loaded');
-    const ph=img.previousElementSibling;
-    if(ph&&ph.classList.contains('sdc-ph'))ph.style.display='none';
-  } else {
-    img.addEventListener('load',function(){
-      this.classList.add('loaded');
-      const ph=this.previousElementSibling;
-      if(ph&&ph.classList.contains('sdc-ph'))ph.style.display='none';
-    });
-  }
 });
 
 /* Scroll reveal */
