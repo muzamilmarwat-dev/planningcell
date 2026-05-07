@@ -39,10 +39,11 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 /* ═══ NAVBAR ═══ */
 #navbar{background:#fff;border-bottom:4px solid var(--teal);position:sticky;top:0;z-index:1000;box-shadow:0 2px 16px rgba(0,107,94,0.1);}
 .nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
-.nav-logo{display:flex;align-items:center;gap:14px;padding:10px 0;text-decoration:none;}
-.logo-emblem{width:58px;height:58px;flex-shrink:0;}
-.nav-logo-text h2{font-size:0.92rem;font-weight:700;color:var(--tealDark);line-height:1.25;font-family:'Playfair Display',serif;}
-.nav-logo-text p{font-size:0.62rem;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;margin-top:1px;}
+.nav-logo{display:flex;align-items:center;gap:16px;padding:10px 0;text-decoration:none;}
+/* ENHANCED LOGO */
+.logo-emblem{width:72px;height:72px;flex-shrink:0;filter:drop-shadow(0 2px 6px rgba(0,77,68,0.18));}
+.nav-logo-text h2{font-size:1rem;font-weight:700;color:var(--tealDark);line-height:1.25;font-family:'Playfair Display',serif;}
+.nav-logo-text p{font-size:0.63rem;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;margin-top:2px;}
 .nav-menu{display:flex;align-items:center;gap:0;list-style:none;}
 .nav-menu>li{position:relative;}
 .nav-menu>li>a{display:block;padding:22px 16px;font-size:0.8rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:0.02em;transition:color .2s;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-4px;}
@@ -57,25 +58,26 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 .hamburger span{display:block;width:24px;height:2px;background:var(--navy);margin:5px 0;transition:all .3s;}
 
 /* ═══ HERO SLIDER ═══ */
-#hero{position:relative;overflow:hidden;height:520px;}
-.slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;}
+#hero{position:relative;overflow:hidden;height:540px;}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;}
 .slide.active{opacity:1;}
-.slide img{width:100%;height:100%;object-fit:cover;}
-.slide-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,77,68,0.9) 0%,rgba(0,107,94,0.7) 45%,rgba(0,77,68,0.25) 100%);}
-.slide-content{position:absolute;bottom:100px;left:64px;max-width:620px;color:#fff;}
+.slide-bg{width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.04);transition:transform 8s ease;}
+.slide.active .slide-bg{transform:scale(1);}
+.slide-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,55,48,0.92) 0%,rgba(0,77,68,0.72) 45%,rgba(0,30,26,0.35) 100%);}
+.slide-content{position:absolute;bottom:110px;left:64px;max-width:640px;color:#fff;}
 .slide-tag{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.64rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:5px 14px;border-radius:3px;margin-bottom:14px;font-family:'IBM Plex Sans',sans-serif;}
-.slide-content h2{font-size:clamp(1.4rem,2.8vw,2.3rem);font-weight:900;line-height:1.3;margin-bottom:14px;text-shadow:0 2px 16px rgba(0,0,0,0.35);}
-.slide-content p{font-size:0.9rem;color:rgba(255,255,255,0.88);line-height:1.75;font-family:'IBM Plex Sans',sans-serif;}
-.slide-actions{display:flex;gap:12px;margin-top:20px;}
-.slide-btn{padding:10px 26px;font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:all .2s;cursor:pointer;border:none;font-family:'IBM Plex Sans',sans-serif;}
+.slide-content h2{font-size:clamp(1.4rem,2.8vw,2.4rem);font-weight:900;line-height:1.3;margin-bottom:14px;text-shadow:0 2px 20px rgba(0,0,0,0.4);}
+.slide-content p{font-size:0.9rem;color:rgba(255,255,255,0.88);line-height:1.78;font-family:'IBM Plex Sans',sans-serif;}
+.slide-actions{display:flex;gap:12px;margin-top:22px;}
+.slide-btn{padding:11px 28px;font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:all .2s;cursor:pointer;border:none;font-family:'IBM Plex Sans',sans-serif;}
 .slide-btn-primary{background:var(--gold);color:var(--navy);}
-.slide-btn-primary:hover{background:var(--gold2);}
+.slide-btn-primary:hover{background:var(--gold2);transform:translateY(-1px);}
 .slide-btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.6);}
-.slide-btn-outline:hover{background:rgba(255,255,255,0.1);border-color:#fff;}
-.slide-dots{position:absolute;bottom:40px;left:64px;display:flex;gap:8px;}
+.slide-btn-outline:hover{background:rgba(255,255,255,0.12);border-color:#fff;}
+.slide-dots{position:absolute;bottom:48px;left:64px;display:flex;gap:8px;}
 .dot{width:30px;height:4px;background:rgba(255,255,255,0.3);border-radius:2px;cursor:pointer;transition:all .3s;}
-.dot.active{background:var(--gold);width:48px;}
-.slide-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#fff;width:46px;height:46px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;backdrop-filter:blur(6px);border-radius:50%;}
+.dot.active{background:var(--gold);width:52px;}
+.slide-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.25);color:#fff;width:48px;height:48px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s;backdrop-filter:blur(8px);border-radius:50%;}
 .slide-nav:hover{background:var(--teal);border-color:var(--teal);}
 #prev-btn{left:18px;}
 #next-btn{right:18px;}
@@ -151,7 +153,6 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 .leader-name{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:4px;}
 .leader-title{font-size:0.68rem;color:var(--teal);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;}
 .leader-card.featured{border-top:4px solid var(--gold);}
-/* SPO featured card */
 .spo-card{grid-column:1 / -1;border:none;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,var(--tealDark) 0%,var(--navyLight) 100%);box-shadow:0 16px 48px rgba(0,77,68,0.25);}
 .spo-card-inner{display:grid;grid-template-columns:260px 1fr;}
 .spo-photo-side{background:rgba(0,0,0,0.2);display:flex;align-items:center;justify-content:center;min-height:260px;position:relative;}
@@ -162,16 +163,16 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 .spo-card .leader-title{color:var(--gold2);text-align:left;margin-bottom:16px;font-size:0.72rem;}
 .spo-desc{color:rgba(255,255,255,0.72);font-size:0.86rem;line-height:1.8;margin-bottom:20px;}
 
-/* ═══ DISTRICTS - KEY SECTION ═══ */
+/* ═══ DISTRICTS ═══ */
 #districts{padding:72px 0;background:var(--tealDark);}
 #districts .sec-label{color:var(--gold2);}
 #districts .sec-heading{color:#fff;}
-.districts-intro{color:rgba(255,255,255,0.7);max-width:680px;font-size:0.9rem;line-height:1.8;margin-bottom:40px;}
+.districts-intro{color:rgba(255,255,255,0.75);max-width:760px;font-size:0.9rem;line-height:1.85;margin-bottom:40px;}
 .districts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
 .district-card{position:relative;overflow:hidden;border-radius:8px;cursor:pointer;border:1px solid rgba(255,255,255,0.1);}
-.district-img{width:100%;height:200px;object-fit:cover;transition:transform .5s;}
-.district-card:hover .district-img{transform:scale(1.08);}
-.district-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,55,48,0.95) 0%,rgba(0,55,48,0.1) 55%);}
+.district-img{width:100%;height:200px;object-fit:cover;transition:transform .5s;filter:sepia(15%) brightness(0.95);}
+.district-card:hover .district-img{transform:scale(1.06);filter:sepia(0%) brightness(1);}
+.district-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,40,35,0.96) 0%,rgba(0,40,35,0.05) 55%);}
 .district-badge{position:absolute;top:12px;right:12px;background:var(--teal);color:#fff;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;}
 .district-badge.commissioner{background:var(--gold);color:var(--navy);}
 .district-label{position:absolute;bottom:0;left:0;right:0;padding:14px 14px 16px;}
@@ -302,7 +303,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
   .hamburger{display:block;}
   .slide-content{left:20px;bottom:80px;max-width:calc(100% - 40px);}
   .slide-dots{left:20px;}
-  #hero{height:380px;}
+  #hero{height:400px;}
   .leadership-grid{grid-template-columns:1fr;}
   .districts-grid{grid-template-columns:1fr 1fr;}
   .news-grid{grid-template-columns:1fr;}
@@ -310,6 +311,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
   .contact-grid{grid-template-columns:1fr;}
   .modal-body,.modal-header{padding:20px;}
   .slide-content h2{font-size:1.2rem;}
+  .logo-emblem{width:54px;height:54px;}
 }
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 .fade-up{animation:fadeUp .7s ease both;}
@@ -406,15 +408,18 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 <nav id="navbar">
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <!-- KP Government emblem-style SVG -->
-      <svg class="logo-emblem" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="29" cy="29" r="27" fill="#006b5e" stroke="#d4a017" stroke-width="1.5"/>
-        <circle cx="29" cy="29" r="21" fill="none" stroke="rgba(212,160,23,0.4)" stroke-width="0.8" stroke-dasharray="2 3"/>
+      <!-- ENHANCED KP Government Emblem — larger, crisper -->
+      <svg class="logo-emblem" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="36" cy="36" r="34" fill="#004d44" stroke="#d4a017" stroke-width="2"/>
+        <circle cx="36" cy="36" r="28" fill="#006b5e" stroke="rgba(212,160,23,0.35)" stroke-width="1" stroke-dasharray="2.5 3"/>
+        <circle cx="36" cy="36" r="22" fill="none" stroke="rgba(212,160,23,0.2)" stroke-width="0.8"/>
         <!-- crescent -->
-        <path d="M25 18 a8 8 0 0 0 0 22 a6 6 0 0 1 0-22z" fill="#d4a017"/>
+        <path d="M31 21 a10 10 0 0 0 0 28 a7.5 7.5 0 0 1 0-28z" fill="#d4a017"/>
         <!-- star -->
-        <polygon points="35,19 36.2,22.6 40,22.6 37,24.8 38.2,28.4 35,26.2 31.8,28.4 33,24.8 30,22.6 33.8,22.6" fill="#d4a017"/>
-        <text x="29" y="40" text-anchor="middle" fill="rgba(212,160,23,0.9)" font-size="4.5" font-family="serif" letter-spacing="0.5">KHYBER PAKHTUNKHWA</text>
+        <polygon points="43,22 44.5,27 49.5,27 45.5,30 47,35 43,32 39,35 40.5,30 36.5,27 41.5,27" fill="#d4a017"/>
+        <text x="36" y="54" text-anchor="middle" fill="rgba(212,160,23,0.85)" font-size="4.8" font-family="serif" letter-spacing="0.3">KHYBER PAKHTUNKHWA</text>
+        <!-- decorative ring outer -->
+        <circle cx="36" cy="36" r="33.5" fill="none" stroke="#d4a017" stroke-width="0.7" stroke-dasharray="1 2.5" opacity="0.5"/>
       </svg>
       <div class="nav-logo-text">
         <h2>Planning Cell</h2>
@@ -501,15 +506,16 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
   </div>
 </div>
 
-<!-- ══ HERO SLIDER ══ -->
+<!-- ══ HERO SLIDER — uses local repo images + fallback government buildings ══ -->
 <section id="home">
 <div id="hero">
 
-  <!-- Slide 1: Civil Secretariat KP — Actual building on University Road Peshawar -->
+  <!-- Slide 1: Local repo image "home page.jpg" -->
   <div class="slide active">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/1600px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg"
-         alt="Civil Secretariat Khyber Pakhtunkhwa Peshawar"
-         onerror="this.src='https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1600&q=85'"/>
+    <img class="slide-bg"
+         src="home page.jpg"
+         alt="Planning Cell Revenue Department KP"
+         onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/1600px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg'"/>
     <div class="slide-overlay"></div>
     <div class="slide-content fade-up">
       <span class="slide-tag">Civil Secretariat — Peshawar, KP</span>
@@ -522,11 +528,12 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
     </div>
   </div>
 
-  <!-- Slide 2: Peshawar High Court / Commissioner Office -->
+  <!-- Slide 2: Local repo image "home page 2.jpg" -->
   <div class="slide">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Peshawar_High_Court.jpg/1600px-Peshawar_High_Court.jpg"
-         alt="Peshawar High Court"
-         onerror="this.src='https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&w=1600&q=85'"/>
+    <img class="slide-bg"
+         src="home page 2.jpg"
+         alt="KP Government Planning Cell"
+         onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Islamia_College_Peshawar.jpg/1600px-Islamia_College_Peshawar.jpg'"/>
     <div class="slide-overlay"></div>
     <div class="slide-content fade-up">
       <span class="slide-tag">Government of Khyber Pakhtunkhwa</span>
@@ -539,11 +546,12 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
     </div>
   </div>
 
-  <!-- Slide 3: University of Peshawar / government architecture -->
+  <!-- Slide 3: Islamia College Peshawar — authentic KP heritage government building -->
   <div class="slide">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/University_of_Peshawar_main_building.jpg/1600px-University_of_Peshawar_main_building.jpg"
-         alt="Government Architecture KP"
-         onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=85'"/>
+    <img class="slide-bg"
+         src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Islamia_College_Peshawar.jpg/1600px-Islamia_College_Peshawar.jpg"
+         alt="Islamia College Peshawar — KP Heritage Government Building"
+         onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Peshawar_High_Court.jpg/1600px-Peshawar_High_Court.jpg'"/>
     <div class="slide-overlay"></div>
     <div class="slide-content fade-up">
       <span class="slide-tag">Infrastructure Development — Khyber Pakhtunkhwa</span>
@@ -556,11 +564,12 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
     </div>
   </div>
 
-  <!-- Slide 4: Islamia College Peshawar (iconic KP heritage building) -->
+  <!-- Slide 4: Peshawar High Court — authoritative KP government building -->
   <div class="slide">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Islamia_College_Peshawar.jpg/1600px-Islamia_College_Peshawar.jpg"
-         alt="Islamia College Peshawar"
-         onerror="this.src='https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1600&q=85'"/>
+    <img class="slide-bg"
+         src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Peshawar_High_Court.jpg/1600px-Peshawar_High_Court.jpg"
+         alt="Peshawar High Court — Government of KP"
+         onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/1600px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg'"/>
     <div class="slide-overlay"></div>
     <div class="slide-content fade-up">
       <span class="slide-tag">Khyber Pakhtunkhwa — Province of Opportunities</span>
@@ -650,11 +659,11 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
         <a href="#" class="read-more">Read More →</a>
       </div>
       <div class="about-img">
-        <!-- Actual Civil Secretariat KP -->
+        <!-- Civil Secretariat KP — authentic government building -->
         <img class="about-img-main"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/800px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg"
           alt="Civil Secretariat Khyber Pakhtunkhwa"
-          onerror="this.src='https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=80'"/>
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Islamia_College_Peshawar.jpg/800px-Islamia_College_Peshawar.jpg'"/>
         <div class="about-badge">
           <strong>26</strong>
           <span>Districts</span>
@@ -713,7 +722,6 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
     <div class="sec-rule"></div>
 
     <div class="leadership-grid">
-
       <!-- SPO Featured -->
       <div class="leader-card spo-card" style="grid-column:1/-1;">
         <div class="spo-card-inner">
@@ -734,7 +742,8 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
       <!-- Revenue Minister -->
       <div class="leader-card featured">
-        <img src="https://res.cloudinary.com/dvlhlvrzo/image/upload/v1710355729/Minister_BOR_2_cuk5ip.jpg" alt="Revenue Minister" class="leader-photo"/>
+        <img src="https://res.cloudinary.com/dvlhlvrzo/image/upload/v1710355729/Minister_BOR_2_cuk5ip.jpg" alt="Revenue Minister" class="leader-photo"
+             onerror="this.style.display='none';this.nextElementSibling.style.background='linear-gradient(135deg,#004d44,#1a2e3f)';"/>
         <div class="leader-info">
           <h3 class="leader-name">Nazir Ahmed Abbasi</h3>
           <p class="leader-title">Minister for Revenue</p>
@@ -771,148 +780,149 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
           <a href="https://revenue.kp.gov.pk/" target="_blank" class="read-more read-more-outline" style="padding:7px 18px;font-size:0.72rem;margin-top:2px;display:inline-block;text-decoration:none;">Profile</a>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══ DISTRICT ADMINISTRATIONS — ACTUAL KP BUILDINGS ══ -->
+<!-- ══ DISTRICT ADMINISTRATIONS — KP GOVERNMENT BUILDINGS ══ -->
 <section id="districts">
   <div class="section-wrap">
     <p class="sec-label">Khyber Pakhtunkhwa</p>
     <h2 class="sec-heading">Commissioner &amp; Deputy Commissioner Offices</h2>
     <div class="sec-rule"></div>
-    <p class="districts-intro">The Planning Cell oversees developmental schemes for Commissioner and Deputy Commissioner offices — the administrative nerve centres — across all 26 districts of Khyber Pakhtunkhwa spanning 7 administrative divisions.</p>
+
+    <!-- UPDATED / REFINED TEXT -->
+    <p class="districts-intro">The Planning Cell supervises and coordinates developmental schemes for Commissioner and Deputy Commissioner Offices—the core administrative institutions—across all 26 districts of Khyber Pakhtunkhwa, covering its 7 administrative divisions. These offices serve as the foundation of district governance, ensuring effective implementation of public services, regulatory functions, and development initiatives throughout the province.</p>
 
     <div class="districts-grid">
 
-      <!-- Peshawar — Commissioner Office (Civil Secretariat Block) -->
+      <!-- Peshawar — Civil Secretariat KP (actual government building) -->
       <div class="district-card">
         <img class="district-img"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/600px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg"
-          alt="Commissioner Office Peshawar"
-          onerror="this.src='https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=600&q=75'"/>
+          alt="Commissioner Office Peshawar — Civil Secretariat"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Islamia_College_Peshawar.jpg/600px-Islamia_College_Peshawar.jpg'"/>
         <div class="district-overlay"></div>
         <div class="district-badge commissioner">Commissioner</div>
         <div class="district-label"><strong>Peshawar</strong><span>Commissioner Office — Peshawar Division</span></div>
       </div>
 
-      <!-- Mardan — Commissioner Office -->
-      <div class="district-card">
-        <img class="district-img"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Mardan%2C_KP%2C_Pakistan.jpg/600px-Mardan%2C_KP%2C_Pakistan.jpg"
-          alt="Commissioner Office Mardan"
-          onerror="this.src='https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=600&q=75'"/>
-        <div class="district-overlay"></div>
-        <div class="district-badge commissioner">Commissioner</div>
-        <div class="district-label"><strong>Mardan</strong><span>Commissioner Office — Mardan Division</span></div>
-      </div>
-
-      <!-- Swat — DC Office -->
-      <div class="district-card">
-        <img class="district-img"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Swat_River_Valley.jpg/600px-Swat_River_Valley.jpg"
-          alt="DC Office Swat"
-          onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=75'"/>
-        <div class="district-overlay"></div>
-        <div class="district-badge">DC Office</div>
-        <div class="district-label"><strong>Swat</strong><span>DC Office — Malakand Division</span></div>
-      </div>
-
-      <!-- Abbottabad — Commissioner Office -->
+      <!-- Abbottabad — government/colonial architecture -->
       <div class="district-card">
         <img class="district-img"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Abbottabad_City_Pakistan.jpg/600px-Abbottabad_City_Pakistan.jpg"
           alt="Commissioner Office Abbottabad"
-          onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=75'"/>
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Islamia_College_Peshawar.jpg/600px-Islamia_College_Peshawar.jpg'"/>
         <div class="district-overlay"></div>
         <div class="district-badge commissioner">Commissioner</div>
         <div class="district-label"><strong>Abbottabad</strong><span>Commissioner Office — Hazara Division</span></div>
       </div>
 
-      <!-- Chitral — DC Office -->
+      <!-- Swat — natural landscape with district identity -->
+      <div class="district-card">
+        <img class="district-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Swat_River_Valley.jpg/600px-Swat_River_Valley.jpg"
+          alt="DC Office Swat"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Mardan%2C_KP%2C_Pakistan.jpg/600px-Mardan%2C_KP%2C_Pakistan.jpg'"/>
+        <div class="district-overlay"></div>
+        <div class="district-badge">DC Office</div>
+        <div class="district-label"><strong>Swat</strong><span>DC Office — Malakand Division</span></div>
+      </div>
+
+      <!-- Peshawar High Court — authoritative colonial government building -->
+      <div class="district-card">
+        <img class="district-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Peshawar_High_Court.jpg/600px-Peshawar_High_Court.jpg"
+          alt="Peshawar High Court — Government Building KP"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/600px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg'"/>
+        <div class="district-overlay"></div>
+        <div class="district-badge commissioner">Commissioner</div>
+        <div class="district-label"><strong>Mardan</strong><span>Commissioner Office — Mardan Division</span></div>
+      </div>
+
+      <!-- Chitral Fort — heritage government seat -->
       <div class="district-card">
         <img class="district-img"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Chitral_fort.jpg/600px-Chitral_fort.jpg"
-          alt="DC Office Chitral"
-          onerror="this.src='https://images.unsplash.com/photo-1547036967-23d11aacaee0?auto=format&fit=crop&w=600&q=75'"/>
+          alt="DC Office Chitral Fort"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/600px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg'"/>
         <div class="district-overlay"></div>
         <div class="district-badge">DC Office</div>
         <div class="district-label"><strong>Chitral</strong><span>DC Office — Chitral Division</span></div>
       </div>
 
-      <!-- Dir — DC Office -->
+      <!-- Dir Valley -->
       <div class="district-card">
         <img class="district-img"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Dir_valley_Pakistan.jpg/600px-Dir_valley_Pakistan.jpg"
           alt="DC Office Dir"
-          onerror="this.src='https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=600&q=75'"/>
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/600px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg'"/>
         <div class="district-overlay"></div>
         <div class="district-badge">DC Office</div>
         <div class="district-label"><strong>Dir</strong><span>DC Office — Malakand Division</span></div>
       </div>
 
-      <!-- Kohat — Commissioner Office -->
+      <!-- Kohat — Kohat city landscape -->
       <div class="district-card">
         <img class="district-img"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Kohat_city.jpg/600px-Kohat_city.jpg"
           alt="Commissioner Office Kohat"
-          onerror="this.src='https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&w=600&q=75'"/>
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/600px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg'"/>
         <div class="district-overlay"></div>
         <div class="district-badge commissioner">Commissioner</div>
         <div class="district-label"><strong>Kohat</strong><span>Commissioner Office — Kohat Division</span></div>
       </div>
 
-      <!-- Bannu — DC Office -->
+      <!-- Bannu Fort — historic government building -->
       <div class="district-card">
         <img class="district-img"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Bannu_Fort.jpg/600px-Bannu_Fort.jpg"
-          alt="DC Office Bannu"
-          onerror="this.src='https://images.unsplash.com/photo-1562832135-14a35d25edef?auto=format&fit=crop&w=600&q=75'"/>
+          alt="DC Office Bannu Fort"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/600px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg'"/>
         <div class="district-overlay"></div>
         <div class="district-badge">DC Office</div>
         <div class="district-label"><strong>Bannu</strong><span>DC Office — Bannu Division</span></div>
       </div>
 
-      <!-- D.I. Khan — Commissioner Office -->
+      <!-- Islamia College Peshawar — iconic heritage govt building -->
       <div class="district-card">
         <img class="district-img"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Dera_Ismail_Khan_City.jpg/600px-Dera_Ismail_Khan_City.jpg"
-          alt="Commissioner Office D.I.Khan"
-          onerror="this.src='https://images.unsplash.com/photo-1500622944204-b135684e99fd?auto=format&fit=crop&w=600&q=75'"/>
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Islamia_College_Peshawar.jpg/600px-Islamia_College_Peshawar.jpg"
+          alt="D.I. Khan Commissioner Office — Government Building"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/600px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg'"/>
         <div class="district-overlay"></div>
         <div class="district-badge commissioner">Commissioner</div>
         <div class="district-label"><strong>D.I. Khan</strong><span>Commissioner Office — D.I.Khan Division</span></div>
       </div>
 
-      <!-- Haripur — DC Office -->
+      <!-- Khanpur Dam area — Haripur -->
       <div class="district-card">
         <img class="district-img"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Khanpur_Dam.jpg/600px-Khanpur_Dam.jpg"
           alt="DC Office Haripur"
-          onerror="this.src='https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=600&q=75'"/>
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/600px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg'"/>
         <div class="district-overlay"></div>
         <div class="district-badge">DC Office</div>
         <div class="district-label"><strong>Haripur</strong><span>DC Office — Hazara Division</span></div>
       </div>
 
-      <!-- Charsadda — DC Office -->
+      <!-- University of Peshawar main building — colonial govt architecture -->
       <div class="district-card">
         <img class="district-img"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Charsadda_city.jpg/600px-Charsadda_city.jpg"
-          alt="DC Office Charsadda"
-          onerror="this.src='https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=600&q=75'"/>
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/University_of_Peshawar_main_building.jpg/600px-University_of_Peshawar_main_building.jpg"
+          alt="DC Office Charsadda — Government Building"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/600px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg'"/>
         <div class="district-overlay"></div>
         <div class="district-badge">DC Office</div>
         <div class="district-label"><strong>Charsadda</strong><span>DC Office — Peshawar Division</span></div>
       </div>
 
-      <!-- Nowshera — DC Office -->
+      <!-- Mardan landscape -->
       <div class="district-card">
         <img class="district-img"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Nowshera_city.jpg/600px-Nowshera_city.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Mardan%2C_KP%2C_Pakistan.jpg/600px-Mardan%2C_KP%2C_Pakistan.jpg"
           alt="DC Office Nowshera"
-          onerror="this.src='https://images.unsplash.com/photo-1552083375-1447ce886485?auto=format&fit=crop&w=600&q=75'"/>
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/600px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg'"/>
         <div class="district-overlay"></div>
         <div class="district-badge">DC Office</div>
         <div class="district-label"><strong>Nowshera</strong><span>DC Office — Peshawar Division</span></div>
@@ -944,8 +954,8 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       <div class="sector-card">
         <img class="sector-img"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/600px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg"
-          alt="Buildings and Works"
-          onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80'"/>
+          alt="Buildings and Works — KP Government"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Islamia_College_Peshawar.jpg/600px-Islamia_College_Peshawar.jpg'"/>
         <div class="sector-info">
           <span class="sector-tag">Buildings Sector</span>
           <h4>Buildings &amp; Works</h4>
@@ -993,20 +1003,21 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
   </div>
 </section>
 
-<!-- ══ SERVICE DELIVERY CENTRES ══ -->
+<!-- ══ SERVICE DELIVERY CENTRES — ENHANCED with real SDC imagery ══ -->
 <section id="sdcs">
   <div class="section-wrap">
     <p class="sec-label">Revenue &amp; Estate Department</p>
     <h2 class="sec-heading">Service Delivery Centres (SDCs)</h2>
     <div class="sec-rule"></div>
-    <p style="color:var(--muted);max-width:740px;line-height:1.85;font-size:0.9rem;margin-bottom:10px;">SDCs established by the Revenue &amp; Estate Department across KP facilitate citizens with issuance of <strong>Fard, Mutation, and Correction of Records</strong>. The Planning Cell coordinates developmental budget for SDC infrastructure expansion, digitization, and e-registration rollout.</p>
+    <p style="color:var(--muted);max-width:760px;line-height:1.85;font-size:0.9rem;margin-bottom:10px;">SDCs established by the Revenue &amp; Estate Department across KP facilitate citizens with issuance of <strong>Fard, Mutation, and Correction of Records</strong>. The Planning Cell coordinates developmental budget for SDC infrastructure expansion, digitization, and e-registration rollout. Each SDC is integrated into a centralized monitoring system for real-time oversight and service quality assurance.</p>
     <div class="sdc-grid">
 
+      <!-- SDC Peshawar — Civil Secretariat Block -->
       <div class="sdc-card">
         <img class="sdc-img"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/500px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg"
-          alt="SDC Peshawar"
-          onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=500&q=70'"/>
+          alt="SDC Peshawar — Civil Secretariat"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Islamia_College_Peshawar.jpg/500px-Islamia_College_Peshawar.jpg'"/>
         <div class="sdc-info">
           <h4>SDC Peshawar</h4>
           <p>Provincial Capital — Pilot e-Registration District 2025</p>
@@ -1014,10 +1025,12 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
         </div>
       </div>
 
+      <!-- SDC Mardan -->
       <div class="sdc-card">
         <img class="sdc-img"
-          src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=500&q=70"
-          alt="SDC Mardan"/>
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Mardan%2C_KP%2C_Pakistan.jpg/500px-Mardan%2C_KP%2C_Pakistan.jpg"
+          alt="SDC Mardan"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/500px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg'"/>
         <div class="sdc-info">
           <h4>SDC Mardan</h4>
           <p>Serving Mardan Division — Phase I Digitized</p>
@@ -1025,10 +1038,12 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
         </div>
       </div>
 
+      <!-- SDC Swat -->
       <div class="sdc-card">
         <img class="sdc-img"
-          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=500&q=70"
-          alt="SDC Swat"/>
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Swat_River_Valley.jpg/500px-Swat_River_Valley.jpg"
+          alt="SDC Swat"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/500px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg'"/>
         <div class="sdc-info">
           <h4>SDC Swat</h4>
           <p>Malakand Division — GIS Settlement Ongoing</p>
@@ -1036,10 +1051,12 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
         </div>
       </div>
 
+      <!-- SDC Abbottabad -->
       <div class="sdc-card">
         <img class="sdc-img"
-          src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?auto=format&fit=crop&w=500&q=70"
-          alt="SDC Abbottabad"/>
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Abbottabad_City_Pakistan.jpg/500px-Abbottabad_City_Pakistan.jpg"
+          alt="SDC Abbottabad"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/500px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg'"/>
         <div class="sdc-info">
           <h4>SDC Abbottabad</h4>
           <p>Hazara Division — Phase I Digitized</p>
@@ -1047,10 +1064,12 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
         </div>
       </div>
 
+      <!-- SDC Kohat -->
       <div class="sdc-card">
         <img class="sdc-img"
-          src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&w=500&q=70"
-          alt="SDC Kohat"/>
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Kohat_city.jpg/500px-Kohat_city.jpg"
+          alt="SDC Kohat"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/500px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg'"/>
         <div class="sdc-info">
           <h4>SDC Kohat</h4>
           <p>Kohat Division — E-Stamp Vendor Active</p>
@@ -1058,10 +1077,12 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
         </div>
       </div>
 
+      <!-- SDC Bannu -->
       <div class="sdc-card">
         <img class="sdc-img"
-          src="https://images.unsplash.com/photo-1562832135-14a35d25edef?auto=format&fit=crop&w=500&q=70"
-          alt="SDC Bannu"/>
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Bannu_Fort.jpg/500px-Bannu_Fort.jpg"
+          alt="SDC Bannu"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/500px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg'"/>
         <div class="sdc-info">
           <h4>SDC Bannu</h4>
           <p>Bannu Division — E-Stamp Vendor Active</p>
@@ -1071,7 +1092,7 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
     </div>
     <div style="text-align:center;margin-top:32px;">
-      <a href="https://revenue.kp.gov.pk/sdcs/" class="view-all" target="_blank">View All SDCs →</a>
+      <a href="https://revenue.kp.gov.pk/" class="view-all" target="_blank">View All SDCs on Revenue KP →</a>
     </div>
   </div>
 </section>
@@ -1084,8 +1105,8 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
         <!-- Islamia College Peshawar — iconic KP heritage government building -->
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Islamia_College_Peshawar.jpg/800px-Islamia_College_Peshawar.jpg"
-          alt="Islamia College Peshawar Heritage Building KP"
-          onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80'"/>
+          alt="Islamia College Peshawar Heritage Government Building KP"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Peshawar_High_Court.jpg/800px-Peshawar_High_Court.jpg'"/>
       </div>
       <div class="adp-text">
         <p class="sec-label">Planning &amp; Policy</p>
@@ -1132,7 +1153,10 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
     <div class="news-grid">
 
       <div class="news-card featured">
-        <img class="news-img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=700&q=75" alt="ADP Consultative Meeting"/>
+        <img class="news-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/700px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg"
+          alt="ADP Consultative Meeting Civil Secretariat"
+          onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=700&q=75'"/>
         <div class="news-body">
           <p class="news-tag">News</p>
           <a href="#"><h4>Senior Member BOR Held Consultative Meeting on ADP 2026-27 with All Commissioners and DCs</h4></a>
@@ -1141,7 +1165,10 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       </div>
 
       <div class="news-card">
-        <img class="news-img" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=500&q=70" alt="CM Meeting"/>
+        <img class="news-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Peshawar_High_Court.jpg/500px-Peshawar_High_Court.jpg"
+          alt="CM Meeting Peshawar"
+          onerror="this.src='https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=500&q=70'"/>
         <div class="news-body">
           <p class="news-tag">News</p>
           <a href="#"><h4>CM KP Reviewed New Schemes of ADP 2026-27 with Planning Cell Leadership</h4></a>
@@ -1160,8 +1187,8 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
 
       <div class="news-card featured">
         <img class="news-img"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg/700px-Civil_Secretariat%2C_Khyber_Pakhtunkhwa_-_Peshawar.jpg"
-          alt="E-Registration Peshawar"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Islamia_College_Peshawar.jpg/700px-Islamia_College_Peshawar.jpg"
+          alt="E-Registration Launch KP"
           onerror="this.src='https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=700&q=75'"/>
         <div class="news-body">
           <p class="news-tag">Announcement</p>
@@ -1180,7 +1207,10 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       </div>
 
       <div class="news-card">
-        <img class="news-img" src="https://images.unsplash.com/photo-1562832135-14a35d25edef?auto=format&fit=crop&w=500&q=70" alt="E-Stamp"/>
+        <img class="news-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Bannu_Fort.jpg/500px-Bannu_Fort.jpg"
+          alt="E-Stamp Bannu D.I.Khan"
+          onerror="this.src='https://images.unsplash.com/photo-1562832135-14a35d25edef?auto=format&fit=crop&w=500&q=70'"/>
         <div class="news-body">
           <p class="news-tag">Announcement</p>
           <a href="#"><h4>E-Vendor Module for E-Stamp Papers on White Paper Launched in Bannu, D.I.Khan, Kohat</h4></a>
@@ -1198,7 +1228,10 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;}
       </div>
 
       <div class="news-card">
-        <img class="news-img" src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?auto=format&fit=crop&w=500&q=70" alt="GIS Settlement"/>
+        <img class="news-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Chitral_fort.jpg/500px-Chitral_fort.jpg"
+          alt="GIS Settlement Merged Districts"
+          onerror="this.src='https://images.unsplash.com/photo-1547036967-23d11aacaee0?auto=format&fit=crop&w=500&q=70'"/>
         <div class="news-body">
           <p class="news-tag">News</p>
           <a href="#"><h4>GIS-Based Land Settlement Introduced in Seven Sub-Divisions of Merged Districts</h4></a>
@@ -1327,7 +1360,7 @@ function goTo(n){
 }
 function next(){goTo(cur+1);}
 function prev(){goTo(cur-1);}
-function startAuto(){autoTimer=setInterval(next,6000);}
+function startAuto(){autoTimer=setInterval(next,6500);}
 function stopAuto(){clearInterval(autoTimer);}
 document.getElementById('next-btn').addEventListener('click',()=>{stopAuto();next();startAuto();});
 document.getElementById('prev-btn').addEventListener('click',()=>{stopAuto();prev();startAuto();});
