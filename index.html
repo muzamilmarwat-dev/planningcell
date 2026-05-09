@@ -1,903 +1,975 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Planning Cell | Revenue & Estate Department KP</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
+<title>Planning Cell – Revenue &amp; Estate Department | Khyber Pakhtunkhwa</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Ccircle cx='36' cy='36' r='34' fill='%23004d44' stroke='%23c99a2e' stroke-width='2'/%3E%3Ccircle cx='36' cy='36' r='28' fill='%23006b5e'/%3E%3Cpath d='M31 21 a10 10 0 0 0 0 28 a7.5 7.5 0 0 1 0-28z' fill='%23c99a2e'/%3E%3Cpolygon points='43,22 44.5,27 49.5,27 45.5,30 47,35 43,32 39,35 40.5,30 36.5,27 41.5,27' fill='%23c99a2e'/%3E%3C/svg%3E"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet"/>
 <style>
-:root {
-  --teal: #005f53;
-  --tealDark: #003d34;
-  --tealMid: #004a40;
-  --gold: #c99a2e;
-  --goldLight: #e4b84a;
-  --white: #fff;
-  --light: #f0f4f2;
-  --text: #18312b;
-  --textMuted: #4a6b62;
-  --shadow: 0 12px 40px rgba(0,0,0,.12);
-  --shadowHover: 0 24px 60px rgba(0,0,0,.2);
-  --radius: 14px;
-  --border: 1px solid rgba(0,95,83,.12);
-}
-
-* { margin:0; padding:0; box-sizing:border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--light);
-  color: var(--text);
-  overflow-x: hidden;
-}
-
-img { max-width: 100%; display: block; }
-
-.wrap { width: min(1360px, 92%); margin: auto; }
-
-/* ── NAVBAR ── */
-nav {
-  background: rgba(255,255,255,.95);
-  backdrop-filter: blur(12px);
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  border-bottom: 3px solid var(--teal);
-  box-shadow: 0 2px 20px rgba(0,0,0,.08);
-}
-
-.nav-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 0;
-  gap: 20px;
-}
-
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  text-decoration: none;
-}
-
-.nav-emblem {
-  width: 48px;
-  height: 48px;
-  background: var(--tealDark);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Cinzel', serif;
-  font-size: 1rem;
-  color: var(--gold);
-  font-weight: 700;
-  flex-shrink: 0;
-  border: 2px solid var(--gold);
-}
-
-.nav-text-wrap { display: flex; flex-direction: column; }
-
-.nav-title {
-  font-family: 'Cinzel', serif;
-  font-size: .95rem;
-  font-weight: 700;
-  color: var(--tealDark);
-  line-height: 1.2;
-}
-
-.nav-subtitle {
-  font-size: .72rem;
-  color: var(--textMuted);
-  font-weight: 500;
-  letter-spacing: .04em;
-}
-
-.nav-links {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-}
-
-.nav-links a {
-  text-decoration: none;
-  font-weight: 600;
-  font-size: .88rem;
-  color: var(--text);
-  padding: 8px 16px;
-  border-radius: 6px;
-  transition: .25s;
-  letter-spacing: .02em;
-}
-
-.nav-links a:hover {
-  background: var(--teal);
-  color: #fff;
-}
-
-/* ── HERO ── */
-#hero {
-  position: relative;
-  height: 90vh;
-  min-height: 560px;
-  overflow: hidden;
-}
-
-.slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 1.2s ease, transform 1.2s ease;
-  transform: scale(1.06);
-}
-
-.slide.active {
-  opacity: 1;
-  transform: scale(1);
-  z-index: 2;
-}
-
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(105deg, rgba(0,30,25,.82) 0%, rgba(0,30,25,.5) 50%, rgba(0,30,25,.15) 100%);
-}
-
-.hero-content {
-  position: absolute;
-  left: 8%;
-  bottom: 16%;
-  max-width: 640px;
-  color: #fff;
-  z-index: 5;
-  animation: fadeUp .9s ease forwards;
-}
-
-.hero-tag {
-  display: inline-block;
-  background: var(--gold);
-  color: #111;
-  font-size: .78rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: 4px;
-  margin-bottom: 18px;
-}
-
-.hero-content h1 {
-  font-family: 'Cinzel', serif;
-  font-size: 3.2rem;
-  line-height: 1.2;
-  margin-bottom: 16px;
-  text-shadow: 0 2px 20px rgba(0,0,0,.4);
-}
-
-.hero-content p {
-  font-size: 1rem;
-  line-height: 1.8;
-  margin-bottom: 28px;
-  color: rgba(255,255,255,.88);
-}
-
-.hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
-
-.btn {
-  padding: 14px 28px;
-  border-radius: 7px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: .9rem;
-  transition: .3s;
-  letter-spacing: .03em;
-}
-
-.btn-primary {
-  background: var(--gold);
-  color: #111;
-  box-shadow: 0 4px 20px rgba(201,154,46,.4);
-}
-
-.btn-primary:hover {
-  background: var(--goldLight);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(201,154,46,.5);
-}
-
-.btn-outline {
-  border: 2px solid rgba(255,255,255,.7);
-  color: #fff;
-}
-
-.btn-outline:hover {
-  background: #fff;
-  color: #111;
-  border-color: #fff;
-}
-
-.slide-dots {
-  position: absolute;
-  bottom: 38px;
-  left: 8%;
-  display: flex;
-  gap: 10px;
-  z-index: 10;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.35);
-  cursor: pointer;
-  transition: .3s;
-  border: 1px solid rgba(255,255,255,.3);
-}
-
-.dot.active {
-  background: var(--gold);
-  transform: scale(1.3);
-  border-color: var(--gold);
-}
-
-.slide-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
-  border: 2px solid rgba(255,255,255,.3);
-  border-radius: 50%;
-  background: rgba(0,0,0,.2);
-  backdrop-filter: blur(10px);
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-  z-index: 20;
-  transition: .3s;
-}
-
-.slide-nav:hover {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: #111;
-}
-
-#prev-btn { left: 20px; }
-#next-btn { right: 20px; }
-
-/* ── STATS BAR ── */
-.stats-bar {
-  background: var(--tealDark);
-  padding: 22px 0;
-}
-
-.stats-inner {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.stat-item {
-  text-align: center;
-  color: #fff;
-}
-
-.stat-num {
-  font-family: 'Cinzel', serif;
-  font-size: 1.9rem;
-  color: var(--gold);
-  font-weight: 700;
-  line-height: 1;
-}
-
-.stat-label {
-  font-size: .78rem;
-  color: rgba(255,255,255,.7);
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  margin-top: 4px;
-}
-
-.stat-divider {
-  width: 1px;
-  height: 40px;
-  background: rgba(255,255,255,.15);
-}
-
-/* ── SECTIONS ── */
-section { padding: 88px 0; }
-
-.section-title {
-  text-align: center;
-  margin-bottom: 56px;
-}
-
-.section-title .eyebrow {
-  display: inline-block;
-  font-size: .76rem;
-  font-weight: 700;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--gold);
-  background: rgba(201,154,46,.1);
-  border: 1px solid rgba(201,154,46,.3);
-  padding: 5px 14px;
-  border-radius: 20px;
-  margin-bottom: 14px;
-}
-
-.section-title h2 {
-  font-family: 'Cinzel', serif;
-  font-size: 2.3rem;
-  color: var(--tealDark);
-  margin-bottom: 12px;
-  line-height: 1.3;
-}
-
-.section-title p {
-  color: var(--textMuted);
-  font-size: .97rem;
-  max-width: 560px;
-  margin: auto;
-  line-height: 1.7;
-}
-
-.title-bar {
-  width: 56px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--gold), var(--goldLight));
-  margin: 16px auto 0;
-  border-radius: 3px;
-}
-
-/* ── TEAM ── */
-#team { background: #fff; }
-
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 28px;
-}
-
-.team-card {
-  background: #fff;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  border: var(--border);
-  transition: .4s cubic-bezier(.25,.8,.25,1);
-  position: relative;
-}
-
-.team-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadowHover);
-}
-
-.team-card-img-wrap {
-  position: relative;
-  overflow: hidden;
-  height: 300px;
-}
-
-.team-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: .5s ease;
-}
-
-.team-card:hover img {
-  transform: scale(1.06);
-}
-
-.img-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,40,32,.7) 0%, transparent 50%);
-  opacity: 0;
-  transition: .4s;
-}
-
-.team-card:hover .img-overlay { opacity: 1; }
-
-.team-badge {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: var(--gold);
-  color: #111;
-  font-size: .7rem;
-  font-weight: 700;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 4px;
-}
-
-.team-content {
-  padding: 24px;
-  border-top: 3px solid var(--teal);
-}
-
-.team-content h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 6px;
-  color: var(--tealDark);
-}
-
-.team-content .role {
-  color: var(--teal);
-  font-weight: 600;
-  font-size: .88rem;
-  margin-bottom: 18px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.role::before {
-  content: '';
-  display: inline-block;
-  width: 10px;
-  height: 2px;
-  background: var(--gold);
-  border-radius: 2px;
-}
-
-.read-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 9px 20px;
-  background: var(--tealDark);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 6px;
-  font-size: .82rem;
-  font-weight: 600;
-  transition: .3s;
-  letter-spacing: .03em;
-}
-
-.read-btn:hover {
-  background: var(--gold);
-  color: #111;
-}
-
-/* ── ADP ── */
-#adp { background: var(--tealDark); position: relative; overflow: hidden; }
-
-#adp::before {
-  content: '';
-  position: absolute;
-  top: -100px;
-  right: -150px;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  background: rgba(201,154,46,.06);
-  pointer-events: none;
-}
-
-#adp::after {
-  content: '';
-  position: absolute;
-  bottom: -80px;
-  left: -100px;
-  width: 380px;
-  height: 380px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.03);
-  pointer-events: none;
-}
-
-#adp .section-title h2,
-#adp .section-title p { color: #fff; }
-
-#adp .section-title .eyebrow {
-  background: rgba(201,154,46,.15);
-  border-color: rgba(201,154,46,.4);
-}
-
-#adp .title-bar { background: linear-gradient(90deg, var(--gold), #fff); }
-
-.adp-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 22px;
-  position: relative;
-  z-index: 1;
-}
-
-.adp-card {
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.1);
-  padding: 36px 28px;
-  text-align: center;
-  border-radius: var(--radius);
-  backdrop-filter: blur(8px);
-  transition: .4s cubic-bezier(.25,.8,.25,1);
-  position: relative;
-  overflow: hidden;
-}
-
-.adp-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--gold), var(--goldLight));
-  transform: scaleX(0);
-  transition: .4s;
-}
-
-.adp-card:hover::before { transform: scaleX(1); }
-
-.adp-card:hover {
-  transform: translateY(-10px);
-  background: rgba(255,255,255,.1);
-  border-color: rgba(201,154,46,.4);
-  box-shadow: 0 20px 50px rgba(0,0,0,.3);
-}
-
-.adp-icon {
-  width: 56px;
-  height: 56px;
-  background: rgba(201,154,46,.15);
-  border: 1px solid rgba(201,154,46,.3);
-  border-radius: 12px;
-  margin: 0 auto 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  transition: .3s;
-}
-
-.adp-card:hover .adp-icon {
-  background: var(--gold);
-  border-color: var(--gold);
-}
-
-.adp-year {
-  font-size: .75rem;
-  color: var(--gold);
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.adp-card h3 {
-  color: #fff;
-  font-size: 1.15rem;
-  margin-bottom: 8px;
-  font-weight: 700;
-}
-
-.adp-desc {
-  color: rgba(255,255,255,.55);
-  font-size: .82rem;
-  margin-bottom: 24px;
-  line-height: 1.6;
-}
-
-.download-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  background: var(--gold);
-  color: #111;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: .85rem;
-  border-radius: 7px;
-  transition: .3s;
-  letter-spacing: .03em;
-}
-
-.download-btn:hover {
-  background: var(--goldLight);
-  transform: scale(1.04);
-  box-shadow: 0 6px 24px rgba(201,154,46,.4);
-}
-
-/* ── SDC ── */
-#sdcs { background: var(--light); }
-
-.sdc-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 26px;
-}
-
-.sdc-card {
-  background: #fff;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  border: var(--border);
-  transition: .4s cubic-bezier(.25,.8,.25,1);
-}
-
-.sdc-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadowHover);
-}
-
-.sdc-img-wrap {
-  position: relative;
-  overflow: hidden;
-  height: 210px;
-}
-
-.sdc-card img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  transition: .55s ease;
-}
-
-.sdc-card:hover img { transform: scale(1.1); }
-
-.sdc-img-tag {
-  position: absolute;
-  bottom: 14px;
-  left: 14px;
-  background: var(--tealDark);
-  color: #fff;
-  font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  padding: 5px 12px;
-  border-radius: 4px;
-}
-
-.sdc-content {
-  padding: 24px;
-  border-top: 3px solid var(--teal);
-}
-
-.sdc-content h3 {
-  color: var(--tealDark);
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.sdc-content p {
-  color: var(--textMuted);
-  font-size: .88rem;
-  line-height: 1.65;
-}
-
-/* ── FOOTER ── */
-footer {
-  background: #001a15;
-  color: rgba(255,255,255,.6);
-  padding: 40px 0 24px;
-}
-
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
-  flex-wrap: wrap;
-  padding-bottom: 30px;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  margin-bottom: 24px;
-}
-
-.footer-brand .nav-title { color: #fff; font-size: 1rem; margin-bottom: 6px; }
-.footer-brand .nav-subtitle { color: rgba(255,255,255,.5); }
-
-.footer-links {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.footer-links a {
-  color: rgba(255,255,255,.55);
-  text-decoration: none;
-  font-size: .85rem;
-  transition: .2s;
-}
-
-.footer-links a:hover { color: var(--gold); }
-
-.footer-copy {
-  text-align: center;
-  font-size: .82rem;
-  color: rgba(255,255,255,.4);
-}
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(36px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ── RESPONSIVE ── */
-@media(max-width: 768px) {
-  .hero-content h1 { font-size: 2rem; }
-  .hero-content { left: 5%; right: 5%; bottom: 14%; }
-  .nav-links { display: none; }
-  #hero { height: 76vh; }
-  .stat-divider { display: none; }
-  .section-title h2 { font-size: 1.8rem; }
+/* ════════════════════════════════════════
+   DESIGN TOKENS
+════════════════════════════════════════ */
+:root{
+  --teal:#005f53;--teal2:#007a6b;--teal3:#009e8c;
+  --tealDark:#003d34;--tealDeep:#002920;
+  --gold:#c99a2e;--gold2:#e6b84a;--goldPale:#fdf3dc;--goldLight:rgba(201,154,46,.15);
+  --navy:#0b1c2c;--navyMid:#162840;
+  --light:#f2f5f3;--lightAlt:#eaf0ee;
+  --white:#ffffff;--text:#1a2e28;--muted:#52706a;--border:#ccd9d5;--red:#c0392b;
+  --sans:'DM Sans',sans-serif;--serif:'Cormorant Garamond',serif;--display:'Cinzel',serif;
+  --radius:6px;
+  --sh-sm:0 2px 12px rgba(0,60,50,.08);
+  --sh-md:0 8px 32px rgba(0,60,50,.13);
+  --sh-lg:0 20px 60px rgba(0,60,50,.18);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:var(--sans);color:var(--text);background:var(--white);overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+
+/* ════════════════════════════════════════
+   TOPBAR
+════════════════════════════════════════ */
+#topbar{background:var(--tealDeep);border-bottom:1px solid rgba(201,154,46,.2);padding:7px 0;}
+.topbar-inner{max-width:1320px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;}
+.tb-links{display:flex;flex-wrap:wrap;}
+.tb-links a{color:rgba(255,255,255,.65);text-decoration:none;font-size:.68rem;font-weight:500;padding:0 11px;border-right:1px solid rgba(255,255,255,.12);transition:color .2s;letter-spacing:.04em;}
+.tb-links a:last-child{border-right:none;}
+.tb-links a:hover{color:var(--gold2);}
+.tb-right{display:flex;align-items:center;gap:18px;font-size:.68rem;color:rgba(255,255,255,.6);}
+.tb-right span{display:flex;align-items:center;gap:5px;}
+.tb-icon{width:14px;height:14px;fill:none;stroke:var(--gold2);stroke-width:2;}
+
+/* ════════════════════════════════════════
+   NAVBAR
+════════════════════════════════════════ */
+#navbar{background:var(--white);border-bottom:3px solid var(--teal);position:sticky;top:0;z-index:1000;box-shadow:var(--sh-sm);transition:box-shadow .3s;}
+.nav-inner{max-width:1320px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.nav-logo{display:flex;align-items:center;gap:14px;padding:10px 0;text-decoration:none;flex-shrink:0;}
+.logo-emblem{width:70px;height:70px;flex-shrink:0;filter:drop-shadow(0 3px 10px rgba(0,60,50,.25));transition:transform .3s;}
+.nav-logo:hover .logo-emblem{transform:rotate(3deg) scale(1.04);}
+.logo-text-wrap{display:flex;flex-direction:column;gap:1px;}
+.logo-main{font-family:var(--display);font-size:1.05rem;font-weight:700;color:var(--tealDark);letter-spacing:.04em;line-height:1.2;}
+.logo-sub{font-family:var(--sans);font-size:.6rem;font-weight:600;color:var(--teal);letter-spacing:.16em;text-transform:uppercase;line-height:1.3;}
+.logo-divider{width:36px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:3px 0;border-radius:1px;}
+.nav-menu{display:flex;align-items:center;list-style:none;gap:0;}
+.nav-menu>li{position:relative;}
+.nav-menu>li>a{display:block;padding:24px 14px;font-size:.78rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:.04em;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-3px;transition:color .2s,border-color .2s;}
+.nav-menu>li>a:hover,.nav-menu>li.active>a{color:var(--teal);border-bottom-color:var(--teal);}
+.dropdown{display:none;position:absolute;top:calc(100% + 3px);left:0;background:var(--white);min-width:240px;box-shadow:var(--sh-lg);border-top:3px solid var(--teal);border-radius:0 0 var(--radius) var(--radius);z-index:500;overflow:hidden;}
+.nav-menu>li:hover .dropdown{display:block;}
+.dropdown a{display:block;padding:10px 20px;font-size:.78rem;font-weight:500;color:var(--text);text-decoration:none;border-bottom:1px solid rgba(0,0,0,.04);transition:all .15s;}
+.dropdown a:hover{background:var(--light);color:var(--teal);padding-left:26px;}
+.nav-cta{background:var(--gold)!important;color:var(--navy)!important;border-radius:var(--radius)!important;padding:9px 20px!important;font-weight:700!important;margin-left:10px;border-bottom:none!important;margin-bottom:0!important;font-size:.75rem!important;letter-spacing:.05em!important;transition:background .2s,transform .2s!important;}
+.nav-cta:hover{background:var(--gold2)!important;transform:translateY(-1px);}
+.hamburger{display:none;cursor:pointer;padding:8px;background:none;border:none;flex-direction:column;gap:5px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:1px;transition:all .3s;}
+
+/* ════════════════════════════════════════
+   TICKER
+════════════════════════════════════════ */
+#ticker{background:linear-gradient(90deg,var(--navy) 0%,var(--navyMid) 100%);padding:10px 0;overflow:hidden;border-bottom:1px solid rgba(201,154,46,.2);}
+.ticker-inner{display:flex;align-items:center;}
+.ticker-label{background:var(--gold);color:var(--navy);font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:5px 20px;white-space:nowrap;flex-shrink:0;min-width:120px;text-align:center;font-family:var(--display);}
+.ticker-track{overflow:hidden;flex:1;padding:0 20px;}
+.ticker-items{display:flex;gap:64px;animation:ticker 50s linear infinite;white-space:nowrap;}
+.ticker-items span{font-size:.74rem;color:rgba(255,255,255,.8);}
+.ticker-items span::before{content:'◆  ';color:var(--gold2);font-size:.5rem;}
+@keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* ════════════════════════════════════════
+   HERO SLIDER — ENHANCED
+════════════════════════════════════════ */
+#hero{position:relative;overflow:hidden;height:600px;background:var(--tealDeep);}
+
+/* Slides */
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease,transform 1.2s ease;transform:scale(1.03);will-change:opacity,transform;}
+.slide.active{opacity:1;transform:scale(1);z-index:1;}
+.slide.exit{opacity:0;transform:scale(0.97);z-index:0;}
+.slide-bg{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+.slide-overlay{position:absolute;inset:0;background:linear-gradient(110deg,rgba(0,41,32,.93) 0%,rgba(0,61,52,.78) 40%,rgba(0,20,16,.4) 100%);}
+.slide-overlay::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 60%,rgba(201,154,46,.06) 100%);}
+
+/* Slide content */
+.slide-content{position:absolute;bottom:130px;left:72px;max-width:660px;color:#fff;opacity:0;transform:translateY(24px);transition:opacity .7s ease .3s,transform .7s ease .3s;}
+.slide.active .slide-content{opacity:1;transform:translateY(0);}
+.slide-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.slide-line{width:32px;height:2px;background:var(--gold);border-radius:1px;}
+.slide-tag-text{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2);font-family:var(--display);}
+.slide-content h2{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.7rem);font-weight:700;line-height:1.28;margin-bottom:14px;text-shadow:0 2px 24px rgba(0,0,0,.35);}
+.slide-content p{font-size:.92rem;color:rgba(255,255,255,.82);line-height:1.85;max-width:540px;}
+.slide-actions{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap;}
+.slide-btn{padding:12px 32px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:var(--radius);transition:all .25s;cursor:pointer;border:none;font-family:var(--sans);display:inline-flex;align-items:center;gap:8px;}
+.slide-btn-primary{background:var(--gold);color:var(--navy);}
+.slide-btn-primary:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,154,46,.4);}
+.slide-btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5);}
+.slide-btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff;}
+
+/* Dots */
+.slide-dots{position:absolute;bottom:56px;left:72px;display:flex;gap:8px;z-index:10;}
+.dot{width:28px;height:3px;background:rgba(255,255,255,.3);border-radius:2px;cursor:pointer;transition:all .35s;border:none;}
+.dot.active{background:var(--gold);width:56px;}
+
+/* Arrows */
+.slide-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.2);color:#fff;width:50px;height:50px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s;backdrop-filter:blur(10px);border-radius:50%;z-index:10;}
+.slide-nav:hover{background:var(--teal);border-color:var(--teal);transform:translateY(-50%) scale(1.08);}
+#prev-btn{left:20px;}
+#next-btn{right:20px;}
+
+/* Slide counter */
+.slide-counter{position:absolute;bottom:56px;right:72px;font-size:.72rem;color:rgba(255,255,255,.5);font-weight:600;z-index:10;letter-spacing:.06em;}
+.slide-counter span{color:var(--gold2);font-size:1rem;font-weight:700;}
+
+/* ════════════════════════════════════════
+   STATS BAR
+════════════════════════════════════════ */
+#statsbar{background:linear-gradient(90deg,var(--tealDark) 0%,var(--teal) 50%,var(--tealDark) 100%);position:relative;overflow:hidden;}
+#statsbar::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.stats-inner{max-width:1320px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:repeat(4,1fr);position:relative;}
+.stat-item{padding:24px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.15);}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-family:var(--serif);font-size:2.2rem;font-weight:800;color:var(--gold2);line-height:1;}
+.stat-label{font-size:.68rem;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:.12em;margin-top:5px;font-weight:600;}
+
+/* ════════════════════════════════════════
+   QUICK LINKS
+════════════════════════════════════════ */
+#quicklinks{background:var(--white);border-bottom:2px solid var(--border);box-shadow:var(--sh-sm);}
+.ql-inner{max-width:1320px;margin:0 auto;padding:0 28px;display:flex;flex-wrap:wrap;}
+.ql-item{display:flex;align-items:center;gap:10px;padding:15px 22px;font-size:.76rem;font-weight:600;color:var(--text);text-decoration:none;border-right:1px solid var(--border);transition:all .2s;letter-spacing:.03em;}
+.ql-item:last-child{border-right:none;}
+.ql-item:hover{background:var(--light);color:var(--teal);}
+.ql-icon{width:30px;height:30px;border-radius:6px;background:var(--light);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;}
+.ql-icon svg{width:16px;height:16px;stroke:var(--teal);fill:none;stroke-width:1.8;}
+.ql-item:hover .ql-icon{background:var(--teal);}
+.ql-item:hover .ql-icon svg{stroke:#fff;}
+
+/* ════════════════════════════════════════
+   SECTION COMMONS
+════════════════════════════════════════ */
+.section-wrap{max-width:1320px;margin:0 auto;padding:0 28px;}
+.sec-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.sec-line{width:28px;height:2px;background:var(--gold);border-radius:1px;}
+.sec-label{font-size:.65rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.18em;font-family:var(--display);}
+.sec-heading{font-family:var(--serif);font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:10px;}
+.sec-rule{width:48px;height:3px;background:linear-gradient(90deg,var(--gold),transparent);margin-bottom:28px;border-radius:2px;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:12px 30px;background:var(--teal);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:var(--radius);border:none;cursor:pointer;font-family:var(--sans);transition:all .25s;}
+.btn-primary:hover{background:var(--tealDark);transform:translateY(-2px);box-shadow:var(--sh-md);}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:10px 26px;background:transparent;color:var(--teal);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:var(--radius);border:2px solid var(--teal);cursor:pointer;font-family:var(--sans);transition:all .25s;}
+.btn-outline:hover{background:var(--teal);color:#fff;}
+.btn-gold{display:inline-flex;align-items:center;gap:8px;padding:10px 26px;background:var(--gold);color:var(--navy);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:var(--radius);border:none;cursor:pointer;font-family:var(--sans);transition:all .25s;}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-1px);}
+.view-all{display:inline-flex;align-items:center;gap:8px;padding:10px 26px;border:2px solid var(--teal);color:var(--teal);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:var(--radius);transition:all .2s;}
+.view-all:hover{background:var(--teal);color:#fff;}
+
+/* ════════════════════════════════════════
+   ABOUT
+════════════════════════════════════════ */
+#about-row{padding:80px 0;background:var(--white);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.about-text p{color:var(--muted);line-height:1.95;margin-bottom:14px;font-size:.92rem;}
+.about-text p strong{color:var(--text);}
+.about-highlights{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0;}
+.about-highlight-item{display:flex;align-items:flex-start;gap:10px;padding:14px;background:var(--light);border-radius:var(--radius);border-left:3px solid var(--teal);}
+.about-highlight-item svg{stroke:var(--teal);flex-shrink:0;margin-top:2px;}
+.about-highlight-item p{font-size:.79rem;color:var(--text);line-height:1.5;margin:0;}
+.about-img{position:relative;}
+.about-img-main{width:100%;height:400px;object-fit:cover;border-radius:var(--radius);position:relative;z-index:1;box-shadow:var(--sh-lg);}
+.about-img::before{content:'';position:absolute;top:-14px;left:-14px;width:100%;height:100%;border:3px solid var(--gold);border-radius:var(--radius);z-index:0;}
+.about-img::after{content:'';position:absolute;bottom:-14px;right:-14px;width:60%;height:50%;background:var(--teal);opacity:.08;border-radius:var(--radius);z-index:0;}
+.about-badge{position:absolute;bottom:-22px;right:-22px;background:linear-gradient(135deg,var(--teal),var(--tealDark));color:#fff;padding:20px 24px;border-radius:var(--radius);z-index:2;text-align:center;box-shadow:var(--sh-lg);border:2px solid rgba(201,154,46,.4);}
+.about-badge strong{display:block;font-size:1.8rem;font-family:var(--serif);font-weight:800;color:var(--gold2);}
+.about-badge span{font-size:.64rem;text-transform:uppercase;letter-spacing:.1em;opacity:.85;}
+
+/* ════════════════════════════════════════
+   FEATURES / MANDATE
+════════════════════════════════════════ */
+#features{background:var(--light);padding:72px 0;}
+.features-intro{max-width:680px;margin-bottom:48px;}
+.features-intro p{color:var(--muted);font-size:.92rem;line-height:1.85;margin-top:8px;}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.feature-card{background:var(--white);border-radius:var(--radius);padding:32px 26px;border:1px solid var(--border);border-top:4px solid var(--teal);transition:all .35s;position:relative;overflow:hidden;}
+.feature-card::before{content:'';position:absolute;bottom:0;right:0;width:80px;height:80px;background:var(--teal);opacity:.04;border-radius:50%;transform:translate(30px,30px);transition:all .35s;}
+.feature-card:hover{transform:translateY(-7px);box-shadow:var(--sh-lg);border-top-color:var(--gold);}
+.feature-card:hover::before{opacity:.08;transform:translate(10px,10px) scale(1.5);}
+.feature-icon{width:52px;height:52px;background:linear-gradient(135deg,var(--teal),var(--teal3));border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;box-shadow:0 4px 16px rgba(0,95,83,.25);}
+.feature-icon svg{stroke:#fff;fill:none;stroke-width:1.8;}
+.feature-card h4{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:10px;}
+.feature-card p{font-size:.82rem;color:var(--muted);line-height:1.78;}
+
+/* ════════════════════════════════════════
+   LEADERSHIP — ENHANCED WITH REAL IMAGES
+════════════════════════════════════════ */
+#leadership{padding:80px 0;background:var(--white);}
+.leadership-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px;}
+
+/* SPO hero card */
+.spo-card{grid-column:1/-1;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,var(--tealDeep) 0%,var(--navyMid) 100%);box-shadow:var(--sh-lg);border:1px solid rgba(201,154,46,.2);position:relative;}
+.spo-card::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c99a2e' fill-opacity='0.04'%3E%3Ccircle cx='40' cy='40' r='40'/%3E%3C/g%3E%3C/svg%3E") 90% center / 360px;pointer-events:none;}
+.spo-inner{display:grid;grid-template-columns:280px 1fr;}
+.spo-photo-side{background:rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center;min-height:280px;padding:40px;position:relative;}
+.spo-photo-side::after{content:'';position:absolute;top:0;right:0;width:2px;height:100%;background:linear-gradient(to bottom,transparent,var(--gold),transparent);}
+.spo-avatar{width:140px;height:140px;border-radius:50%;border:3px solid var(--gold);overflow:hidden;box-shadow:0 0 0 8px rgba(201,154,46,.08);}
+.spo-avatar img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.spo-avatar-icon{width:140px;height:140px;border-radius:50%;border:3px solid var(--gold);background:rgba(201,154,46,.08);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px rgba(201,154,46,.08);}
+.spo-avatar-icon svg{stroke:var(--gold2);fill:none;stroke-width:1.2;}
+.spo-content{padding:40px 44px;display:flex;flex-direction:column;justify-content:center;}
+.spo-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:.6rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;width:fit-content;font-family:var(--display);}
+.spo-name{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:4px;}
+.spo-title{font-size:.7rem;color:var(--gold2);font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px;}
+.spo-desc{color:rgba(255,255,255,.7);font-size:.87rem;line-height:1.85;margin-bottom:22px;}
+
+/* Leader cards */
+.leader-card{background:var(--white);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);text-align:center;transition:all .35s;box-shadow:var(--sh-sm);}
+.leader-card:hover{transform:translateY(-8px);box-shadow:var(--sh-lg);}
+.leader-card.gold-top{border-top:4px solid var(--gold);}
+.leader-photo-wrap{width:100%;height:240px;overflow:hidden;position:relative;background:var(--light);}
+.leader-photo{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .5s;}
+.leader-card:hover .leader-photo{transform:scale(1.05);}
+.leader-photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--tealDeep),var(--navyMid));}
+.leader-photo-placeholder svg{stroke:var(--gold2);fill:none;opacity:.6;}
+.leader-info{padding:18px 16px 22px;}
+.leader-name{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.leader-title{font-size:.66rem;color:var(--teal);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;}
+
+/* ════════════════════════════════════════
+   DISTRICTS
+════════════════════════════════════════ */
+#districts{padding:80px 0;background:var(--tealDeep);position:relative;overflow:hidden;}
+#districts::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(201,154,46,.06) 0%,transparent 70%);}
+#districts .sec-label{color:var(--gold2);}
+#districts .sec-heading{color:#fff;}
+.districts-intro{color:rgba(255,255,255,.7);max-width:780px;font-size:.9rem;line-height:1.9;margin-bottom:44px;}
+.districts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;position:relative;}
+.district-card{position:relative;overflow:hidden;border-radius:var(--radius);cursor:pointer;border:1px solid rgba(255,255,255,.08);transition:all .35s;}
+.district-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,0,.4);}
+.district-img-wrap{position:relative;width:100%;height:195px;}
+.district-img-wrap img{width:100%;height:195px;object-fit:cover;display:block;transition:transform .6s;}
+.district-card:hover .district-img-wrap img{transform:scale(1.07);}
+.district-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,30,24,.95) 0%,rgba(0,30,24,.1) 55%);}
+.district-badge{position:absolute;top:12px;right:12px;background:var(--teal);color:#fff;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;z-index:2;}
+.district-badge.commissioner{background:var(--gold);color:var(--navy);}
+.district-label{position:absolute;bottom:0;left:0;right:0;padding:14px 14px 16px;z-index:2;}
+.district-label strong{display:block;color:#fff;font-size:.9rem;font-weight:700;font-family:var(--serif);}
+.district-label span{display:block;font-size:.64rem;color:var(--gold2);letter-spacing:.08em;margin-top:2px;text-transform:uppercase;}
+
+/* ════════════════════════════════════════
+   SECTORS
+════════════════════════════════════════ */
+#sectors{padding:80px 0;background:var(--light);}
+.sectors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px;}
+.sector-card{background:var(--white);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);transition:all .35s;box-shadow:var(--sh-sm);}
+.sector-card:hover{transform:translateY(-6px);box-shadow:var(--sh-lg);}
+.sector-img-wrap{width:100%;height:165px;overflow:hidden;}
+.sector-img-wrap img{width:100%;height:165px;object-fit:cover;display:block;transition:transform .5s;}
+.sector-card:hover .sector-img-wrap img{transform:scale(1.06);}
+.sector-info{padding:20px 20px 24px;border-top:3px solid var(--teal);}
+.sector-tag{font-size:.63rem;color:var(--teal);font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:7px;display:block;}
+.sector-info h4{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.sector-info p{font-size:.8rem;color:var(--muted);line-height:1.75;}
+
+/* ════════════════════════════════════════
+   SDC — ENHANCED WITH REAL IMAGES
+════════════════════════════════════════ */
+#sdcs{padding:80px 0;background:var(--white);}
+.sdc-intro{color:var(--muted);max-width:780px;line-height:1.9;font-size:.9rem;margin-bottom:12px;}
+.sdc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px;}
+.sdc-card{border:1px solid var(--border);border-top:3px solid var(--teal);border-radius:var(--radius);overflow:hidden;transition:all .35s;box-shadow:var(--sh-sm);}
+.sdc-card:hover{transform:translateY(-6px);box-shadow:var(--sh-lg);border-top-color:var(--gold);}
+.sdc-img-wrap{width:100%;height:160px;overflow:hidden;position:relative;}
+.sdc-img-wrap img{width:100%;height:160px;object-fit:cover;display:block;transition:transform .5s;}
+.sdc-card:hover .sdc-img-wrap img{transform:scale(1.07);}
+.sdc-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,30,24,.6) 0%,transparent 60%);opacity:0;transition:opacity .35s;}
+.sdc-card:hover .sdc-img-overlay{opacity:1;}
+.sdc-info{padding:14px 16px 18px;}
+.sdc-info h4{font-family:var(--serif);font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.sdc-info p{font-size:.73rem;color:var(--muted);line-height:1.5;}
+.sdc-status{display:inline-block;margin-top:8px;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:3px 10px;border-radius:20px;background:#e3f5f0;color:var(--teal);}
+.sdc-status.phase2{background:var(--goldPale);color:#9a7520;}
+
+/* ════════════════════════════════════════
+   ADP — YEAR-WISE PDF CARDS (NEW)
+════════════════════════════════════════ */
+#adp{padding:80px 0;background:var(--navy);position:relative;overflow:hidden;}
+#adp::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(0,95,83,.35) 0%,transparent 60%);}
+
+/* ADP top text + image */
+.adp-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:64px;}
+.adp-img-wrap{position:relative;}
+.adp-img-wrap img{width:100%;height:400px;object-fit:cover;border-radius:var(--radius);box-shadow:0 24px 64px rgba(0,0,0,.45);}
+.adp-img-wrap::before{content:'';position:absolute;top:-12px;left:-12px;width:100%;height:100%;border:2px solid rgba(201,154,46,.3);border-radius:var(--radius);z-index:0;}
+.adp-text .sec-label{color:var(--gold2);}
+.adp-text .sec-heading{color:#fff;}
+.adp-text p{color:rgba(255,255,255,.7);line-height:1.95;font-size:.91rem;margin-bottom:16px;}
+.adp-blockquote{border-left:4px solid var(--gold);padding:16px 22px;font-style:italic;color:rgba(255,255,255,.82);font-size:.94rem;line-height:1.85;margin:24px 0;background:rgba(255,255,255,.04);border-radius:0 var(--radius) var(--radius) 0;font-family:var(--serif);}
+.adp-info-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px;}
+.adp-info-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:16px 18px;transition:background .2s;}
+.adp-info-card:hover{background:rgba(255,255,255,.1);}
+.adp-info-card h5{color:var(--gold2);font-size:.82rem;font-weight:700;margin-bottom:5px;font-family:var(--serif);}
+.adp-info-card p{color:rgba(255,255,255,.6);font-size:.74rem;line-height:1.65;}
+
+/* ADP PDF cards section */
+.adp-books-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;flex-wrap:wrap;gap:12px;}
+.adp-books-header h3{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--gold2);}
+.adp-books-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+
+.adp-pdf-card{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(201,154,46,.2);
+  border-top:3px solid var(--gold);
+  border-radius:var(--radius);
+  overflow:hidden;
+  transition:all .35s;
+  position:relative;
+  cursor:pointer;
+}
+.adp-pdf-card:hover{
+  transform:translateY(-6px);
+  background:rgba(255,255,255,.1);
+  box-shadow:0 16px 40px rgba(0,0,0,.4);
+  border-color:var(--gold2);
+}
+
+.adp-pdf-preview{
+  width:100%;height:120px;
+  background:linear-gradient(135deg,rgba(0,60,45,.8),rgba(11,28,44,.9));
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:8px;position:relative;overflow:hidden;
+}
+.adp-pdf-preview::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c99a2e' fill-opacity='0.04'%3E%3Crect x='0' y='0' width='40' height='40'/%3E%3C/g%3E%3C/svg%3E");
+}
+.adp-pdf-icon{position:relative;z-index:1;}
+.adp-pdf-icon svg{stroke:var(--gold2);fill:none;stroke-width:1.5;}
+.adp-pdf-year-tag{
+  position:relative;z-index:1;
+  background:var(--gold);color:var(--navy);
+  font-family:var(--display);
+  font-size:.65rem;font-weight:700;
+  letter-spacing:.1em;padding:4px 12px;border-radius:20px;
+}
+.adp-pdf-info{padding:16px 16px 18px;}
+.adp-pdf-info h4{
+  font-family:var(--serif);font-size:1rem;font-weight:700;
+  color:#fff;margin-bottom:4px;line-height:1.3;
+}
+.adp-pdf-info p{font-size:.72rem;color:rgba(255,255,255,.55);line-height:1.5;margin-bottom:14px;}
+.adp-pdf-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.adp-dl-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 16px;background:var(--gold);color:var(--navy);
+  font-size:.68rem;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;text-decoration:none;
+  border-radius:var(--radius);border:none;cursor:pointer;
+  font-family:var(--sans);transition:all .2s;flex:1;justify-content:center;
+}
+.adp-dl-btn:hover{background:var(--gold2);transform:translateY(-1px);}
+.adp-dl-btn svg{stroke:var(--navy);fill:none;stroke-width:2;}
+.adp-view-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 14px;background:transparent;color:rgba(255,255,255,.7);
+  font-size:.68rem;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;text-decoration:none;
+  border-radius:var(--radius);border:1px solid rgba(255,255,255,.2);
+  cursor:pointer;font-family:var(--sans);transition:all .2s;
+}
+.adp-view-btn:hover{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.4);}
+.adp-view-btn svg{stroke:currentColor;fill:none;stroke-width:2;}
+
+/* Latest ADP badge */
+.adp-latest-badge{
+  position:absolute;top:10px;left:10px;
+  background:var(--red);color:#fff;
+  font-size:.55rem;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;padding:3px 9px;border-radius:20px;
+  font-family:var(--display);z-index:2;
+}
+
+/* ════════════════════════════════════════
+   NEWS
+════════════════════════════════════════ */
+#news{padding:80px 0;background:var(--light);}
+.news-section-header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:40px;}
+.news-layout{display:grid;grid-template-columns:1fr 340px;gap:26px;}
+.news-panel{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--white);box-shadow:var(--sh-sm);}
+.news-panel-header{background:var(--tealDark);color:#fff;padding:11px 20px;display:flex;align-items:center;justify-content:space-between;}
+.news-panel-header h3{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-family:var(--display);}
+.news-panel-header a{font-size:.65rem;color:var(--gold2);text-decoration:none;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:color .2s;}
+.news-panel-header a:hover{color:#fff;}
+.news-featured{display:grid;grid-template-columns:270px 1fr;border-bottom:1px solid var(--border);}
+.news-feat-img{width:100%;height:100%;min-height:165px;object-fit:cover;display:block;}
+.news-feat-body{padding:18px 22px;display:flex;flex-direction:column;justify-content:center;}
+.news-feat-tag{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--red);margin-bottom:7px;}
+.news-feat-body h4{font-family:var(--serif);font-size:1.08rem;font-weight:700;color:var(--navy);line-height:1.38;margin-bottom:8px;}
+.news-feat-body h4 a{text-decoration:none;color:inherit;}
+.news-feat-body h4 a:hover{color:var(--teal);}
+.news-feat-date{font-size:.67rem;color:var(--muted);}
+.news-feat-desc{font-size:.8rem;color:var(--muted);line-height:1.72;margin-top:9px;}
+.read-link{display:inline-flex;align-items:center;gap:5px;color:var(--teal);font-size:.72rem;font-weight:700;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;margin-top:10px;transition:color .2s;}
+.read-link:hover{color:var(--gold);}
+.news-grid-sm{display:grid;grid-template-columns:1fr 1fr 1fr;}
+.news-grid-sm+.news-grid-sm{border-top:1px solid var(--border);}
+.news-sm-item{padding:14px 16px;border-right:1px solid #f0f0f0;text-decoration:none;display:block;transition:background .15s;}
+.news-sm-item:last-child{border-right:none;}
+.news-sm-item:hover{background:var(--light);}
+.news-sm-tag{font-size:.6rem;font-weight:700;text-transform:uppercase;color:var(--teal);margin-bottom:5px;}
+.news-sm-title{font-size:.77rem;font-weight:600;color:var(--navy);line-height:1.45;margin-bottom:4px;}
+.news-sm-date{font-size:.63rem;color:var(--muted);}
+.news-sidebar{display:flex;flex-direction:column;gap:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--sh-sm);border:1px solid var(--border);}
+.news-sidebar-header{background:var(--teal);color:#fff;padding:11px 18px;}
+.news-sidebar-header h3{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-family:var(--display);}
+.news-sidebar-item{display:flex;gap:14px;padding:14px 16px;border-bottom:1px solid var(--border);background:var(--white);text-decoration:none;transition:background .15s;}
+.news-sidebar-item:last-child{border-bottom:none;}
+.news-sidebar-item:hover{background:var(--light);}
+.sidebar-date-badge{flex-shrink:0;text-align:center;background:var(--light);border-radius:4px;padding:6px 8px;min-width:42px;border-top:2px solid var(--teal);}
+.sidebar-date-badge .day{font-family:var(--serif);font-size:1.1rem;font-weight:800;color:var(--teal);line-height:1;}
+.sidebar-date-badge .month{font-size:.55rem;font-weight:700;text-transform:uppercase;color:var(--muted);letter-spacing:.08em;}
+.sidebar-tag{font-size:.58rem;font-weight:700;text-transform:uppercase;color:var(--gold);margin-bottom:3px;}
+.sidebar-title{font-size:.76rem;font-weight:600;color:var(--navy);line-height:1.42;}
+
+/* ════════════════════════════════════════
+   PARTNERS
+════════════════════════════════════════ */
+#partners{padding:46px 0;background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.partners-label{text-align:center;font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:28px;font-family:var(--display);}
+.partners-row{display:flex;justify-content:center;flex-wrap:wrap;gap:52px;align-items:center;opacity:.5;filter:grayscale(100%);transition:opacity .3s;}
+.partners-row:hover{opacity:.7;}
+.partners-row img{height:36px;object-fit:contain;}
+
+/* ════════════════════════════════════════
+   CONTACT
+════════════════════════════════════════ */
+#contact-section{padding:80px 0;background:var(--navyMid);}
+.contact-grid{display:grid;grid-template-columns:2fr 1.2fr 1.2fr;gap:52px;}
+.contact-col h4{font-family:var(--serif);color:#fff;font-size:1rem;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid rgba(201,154,46,.4);font-weight:700;}
+.contact-col p,.contact-col a{color:rgba(255,255,255,.6);font-size:.83rem;line-height:1.85;text-decoration:none;display:block;transition:color .2s;}
+.contact-col a:hover{color:var(--gold2);}
+.contact-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;}
+.contact-icon{color:var(--gold2);flex-shrink:0;margin-top:3px;}
+.contact-icon svg{fill:none;stroke:currentColor;stroke-width:2;}
+.map-frame{width:100%;height:190px;border:0;margin-top:16px;border-radius:var(--radius);opacity:.85;}
+.quicklinks-list{list-style:none;}
+.quicklinks-list li{margin-bottom:9px;}
+.quicklinks-list a{color:rgba(255,255,255,.6);font-size:.8rem;text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:7px;}
+.quicklinks-list a::before{content:'◆';color:var(--gold);font-size:.4rem;}
+.quicklinks-list a:hover{color:var(--gold2);}
+.qa-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.qa-item{display:flex;flex-direction:column;align-items:center;gap:7px;padding:14px 8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);text-decoration:none;color:rgba(255,255,255,.6);font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;text-align:center;transition:all .2s;}
+.qa-item:hover{background:var(--teal);color:#fff;border-color:var(--teal);}
+.qa-item svg{fill:none;stroke:var(--gold2);stroke-width:1.8;}
+.qa-item:hover svg{stroke:#fff;}
+.portals-box{margin-top:22px;padding:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);}
+.portals-label{color:var(--gold2);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;font-family:var(--display);}
+.portals-box a{color:rgba(255,255,255,.6)!important;margin-top:5px;}
+.portals-box a::before{content:'▸ ';color:var(--gold);}
+.portals-box a:hover{color:var(--gold2)!important;}
+
+/* ════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════ */
+#footerbar{background:var(--navy);border-top:3px solid var(--teal);padding:18px 0;text-align:center;}
+#footerbar p{color:rgba(255,255,255,.45);font-size:.72rem;line-height:1.7;}
+#footerbar strong{color:var(--gold2);}
+#footerbar a{color:var(--gold2);text-decoration:none;}
+#footerbar a:hover{color:#fff;}
+
+/* ════════════════════════════════════════
+   MODALS
+════════════════════════════════════════ */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,20,16,.9);z-index:9000;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
+.modal-overlay.open{display:flex;}
+.modal-box{background:var(--white);border-radius:8px;max-width:760px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 40px 100px rgba(0,0,0,.6);}
+.modal-header{background:linear-gradient(135deg,var(--tealDeep),var(--navyMid));padding:32px 36px 26px;border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:2;}
+.modal-header h3{font-family:var(--serif);color:#fff;font-size:1.3rem;font-weight:700;margin-bottom:4px;}
+.modal-header p{color:var(--gold2);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}
+.modal-close{position:absolute;top:18px;right:20px;background:rgba(255,255,255,.1);border:none;color:#fff;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.modal-close:hover{background:rgba(255,255,255,.25);}
+.modal-body{padding:32px 36px;}
+.modal-body p{color:var(--muted);font-size:.9rem;line-height:2;margin-bottom:16px;}
+
+/* ════════════════════════════════════════
+   ANIMATIONS
+════════════════════════════════════════ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+@media(max-width:1100px){
+  .districts-grid,.sdc-grid{grid-template-columns:repeat(3,1fr);}
+  .leadership-grid{grid-template-columns:repeat(2,1fr);}
+  .news-layout{grid-template-columns:1fr;}
+  .news-sidebar{display:none;}
+  .contact-grid{grid-template-columns:1fr 1fr;}
+  .adp-books-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:900px){
+  .about-grid,.adp-grid,.features-grid,.sectors-grid{grid-template-columns:1fr;}
+  .stats-inner{grid-template-columns:repeat(2,1fr);}
+  .districts-grid{grid-template-columns:repeat(2,1fr);}
+  .spo-inner{grid-template-columns:1fr;}
+  .spo-photo-side{min-height:160px;}
+  .adp-books-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:680px){
+  .nav-menu{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--white);padding:12px 0;box-shadow:var(--sh-lg);border-top:2px solid var(--teal);}
+  .nav-menu.open{display:flex;}
+  .hamburger{display:flex;}
+  #hero{height:460px;}
+  .slide-content{left:24px;bottom:100px;max-width:calc(100% - 48px);}
+  .slide-dots{left:24px;bottom:60px;}
+  .slide-counter{display:none;}
+  .slide-content h2{font-size:1.3rem;}
+  .logo-main{font-size:.85rem;}
+  .logo-emblem{width:54px;height:54px;}
+  .districts-grid{grid-template-columns:1fr 1fr;}
+  .news-featured{grid-template-columns:1fr;}
+  .news-feat-img{max-height:200px;}
+  .news-grid-sm{grid-template-columns:1fr;}
+  .news-sm-item{border-right:none;border-bottom:1px solid #f0f0f0;}
+  .news-sm-item:last-child{border-bottom:none;}
+  .leadership-grid{grid-template-columns:1fr;}
+  .sdc-grid{grid-template-columns:1fr 1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .about-highlights{grid-template-columns:1fr;}
+  .adp-books-grid{grid-template-columns:1fr 1fr;}
+  .slide-actions{flex-direction:column;gap:8px;}
+  .slide-btn{text-align:center;justify-content:center;}
+}
+@media(max-width:480px){
+  .adp-books-grid{grid-template-columns:1fr;}
+  .sdc-grid{grid-template-columns:1fr;}
+  #hero{height:400px;}
 }
 </style>
 </head>
 <body>
 
-<!-- ── NAVBAR ── -->
-<nav>
-  <div class="wrap nav-inner">
-    <a href="#hero" class="nav-brand">
-      <div class="nav-emblem">KP</div>
-      <div class="nav-text-wrap">
-        <span class="nav-title">Planning Cell — Revenue & Estate Dept.</span>
-        <span class="nav-subtitle">Government of Khyber Pakhtunkhwa</span>
-      </div>
-    </a>
-    <div class="nav-links">
-      <a href="#hero">Home</a>
-      <a href="#team">Team</a>
-      <a href="#adp">ADP</a>
-      <a href="#sdcs">SDCs</a>
+<!-- ══════ MODALS ══════ -->
+<div class="modal-overlay" id="modal-smbr">
+  <div class="modal-box">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-smbr')">✕</button>
+      <h3>Mr. Zahir Shah</h3>
+      <p>Senior Member Board of Revenue — Khyber Pakhtunkhwa</p>
     </div>
-  </div>
-</nav>
-
-<!-- ── HERO ── -->
-<section id="hero">
-
-  <div class="slide active">
-    <img src="home page.jpg" alt="Planning Cell KP">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <div class="hero-tag">Government of Khyber Pakhtunkhwa</div>
-      <h1>Planning Cell Revenue &amp; Estate Department KP</h1>
-      <p>Transparent governance, digital transformation and modern land record services across Khyber Pakhtunkhwa — building a future of accountability and public service excellence.</p>
-      <div class="hero-buttons">
-        <a href="#adp" class="btn btn-primary">Explore ADP</a>
-        <a href="#team" class="btn btn-outline">Leadership Team</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="slide">
-    <img src="home page 2.jpg" alt="Service Delivery Centers KP">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <div class="hero-tag">Digital Governance Initiative</div>
-      <h1>Modern Service Delivery &amp; Public Facilitation</h1>
-      <p>Integrated planning and digital public services for efficient governance and citizen facilitation across all 35 districts of KP.</p>
-      <div class="hero-buttons">
-        <a href="#sdcs" class="btn btn-primary">View SDCs</a>
-        <a href="#adp" class="btn btn-outline">Download ADP</a>
-      </div>
-    </div>
-  </div>
-
-  <button class="slide-nav" id="prev-btn" aria-label="Previous slide">&#10094;</button>
-  <button class="slide-nav" id="next-btn" aria-label="Next slide">&#10095;</button>
-
-  <div class="slide-dots">
-    <div class="dot active"></div>
-    <div class="dot"></div>
-  </div>
-
-</section>
-
-<!-- ── STATS BAR ── -->
-<div class="stats-bar">
-  <div class="wrap stats-inner">
-    <div class="stat-item">
-      <div class="stat-num">35</div>
-      <div class="stat-label">Districts</div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item">
-      <div class="stat-num">12+</div>
-      <div class="stat-label">SDC Centers</div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item">
-      <div class="stat-num">4</div>
-      <div class="stat-label">ADP Cycles</div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item">
-      <div class="stat-num">100%</div>
-      <div class="stat-label">Digital Records</div>
+    <div class="modal-body">
+      <p>The Revenue &amp; Estate Department, Khyber Pakhtunkhwa has undertaken a transformative initiative for the computerization of land records across the province, aimed at improving service delivery and enhancing public convenience. Under this initiative, modern technologies are being incorporated into the land record management system to ensure efficiency, transparency, and accuracy.</p>
+      <p>The integration of digitized land records into a centralized database will enable real-time updates from a single platform and allow seamless connectivity with various service gateways. At the same time, manual settlement of land records continues in several districts to ensure completeness and reliability of data.</p>
+      <p>In addition, a GIS-based land settlement approach has recently been introduced in seven sub-divisions of the newly merged districts to develop fully digitized and spatially accurate records. A similar settlement initiative is also underway in the districts of Lower Dir, Upper Dir, and Sub-Tehsil Kalam in District Swat.</p>
     </div>
   </div>
 </div>
 
-<!-- ── TEAM ── -->
-<section id="team">
-  <div class="wrap">
-    <div class="section-title">
-      <div class="eyebrow">Government Leadership</div>
-      <h2>Leadership Team</h2>
-      <p>Revenue &amp; Estate Department — Government of Khyber Pakhtunkhwa</p>
-      <div class="title-bar"></div>
+<div class="modal-overlay" id="modal-minister">
+  <div class="modal-box">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-minister')">✕</button>
+      <h3>Nazir Ahmed Abbasi</h3>
+      <p>Minister for Revenue — Government of Khyber Pakhtunkhwa</p>
     </div>
+    <div class="modal-body">
+      <p>It is a matter of great responsibility and commitment to serve the people of Khyber Pakhtunkhwa through the Revenue &amp; Estate Department. Our foremost priority is to ensure transparent, efficient, and accessible revenue administration across the province.</p>
+      <p>The Government of Khyber Pakhtunkhwa is actively pursuing reforms aimed at modernizing land records, strengthening institutional capacity, and improving service delivery mechanisms. Initiatives such as digitization of land records, GIS-based settlement, and the establishment of Service Delivery Centers are significant steps towards enhancing transparency and public convenience.</p>
+      <p>We remain dedicated to addressing public concerns, minimizing disputes, and ensuring that land ownership records are accurate, secure, and easily accessible. Through continuous innovation and coordinated efforts, the department strives to build public trust and contribute to sustainable development in the province.</p>
+    </div>
+  </div>
+</div>
 
-    <div class="team-grid">
+<div class="modal-overlay" id="modal-dlr">
+  <div class="modal-box">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-dlr')">✕</button>
+      <h3>Mr. Basharat Ahmad</h3>
+      <p>Director Land Record — Khyber Pakhtunkhwa</p>
+    </div>
+    <div class="modal-body">
+      <p>At the Directorate of Land Records, our core objective is to establish a modern, secure, and fully digitized land administration system that promotes transparency, efficiency, and citizen-focused service delivery across the province.</p>
+      <p>We are implementing advanced solutions such as end-to-end e-registration, GIS-based cadastral mapping, and integrated Service Delivery Centers (SDCs) to ensure timely and reliable access to land-related services.</p>
+      <p>Under Phase-I of the Land Record Computerization Project, all seven districts at divisional headquarters have been successfully digitized. Building on this progress, Phase-II aims to complete digitization in thirteen additional districts by 30th June 2026.</p>
+    </div>
+  </div>
+</div>
 
-      <div class="team-card">
-        <div class="team-card-img-wrap">
-          <img src="https://muzamilmarwat-dev.github.io/planningcell/Nazir Ahmed Abbasi.jpg" alt="Nazir Ahmed Abbasi — Minister for Revenue">
-          <div class="img-overlay"></div>
-          <span class="team-badge">Minister</span>
+<div class="modal-overlay" id="modal-spo">
+  <div class="modal-box">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-spo')">✕</button>
+      <h3>Muhammad Hamid Khan</h3>
+      <p>Senior Planning Officer — Head of Planning Cell</p>
+    </div>
+    <div class="modal-body">
+      <p>The Planning Cell, Revenue &amp; Estate Department is committed to ensuring that every developmental scheme of District Administrations across Khyber Pakhtunkhwa is planned, executed, and monitored with the highest standards of accountability and transparency.</p>
+      <p>As the Head of the Planning Cell under the Board of Revenue, our mandate is to bridge the gap between district-level development needs and provincial resource allocation — ensuring that public investment reaches citizens effectively and equitably.</p>
+      <p>We are actively working to strengthen institutional frameworks, improve project appraisal processes, and establish robust monitoring and evaluation systems that hold all schemes to measurable outcomes. The Planning Cell remains dedicated to serving the people of Khyber Pakhtunkhwa through good governance and evidence-based planning.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ TOPBAR ══════ -->
+<div id="topbar">
+  <div class="topbar-inner">
+    <div class="tb-links">
+      <a href="#">Downloads</a><a href="#">Public Complaints</a><a href="#">Newsletter</a>
+      <a href="#">Employees Welfare</a><a href="#">Public Notice</a><a href="#">Trainings</a>
+      <a href="#">Publications</a><a href="#">Tenders</a><a href="#">Right to Information</a>
+    </div>
+    <div class="tb-right">
+      <span><svg class="tb-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.58 1.22h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.18A16 16 0 0 0 14.2 15.5l1.46-1.46a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+92-91-9210328</span>
+      <span><svg class="tb-icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>planningcell@revenue.kp.gov.pk</span>
+      <span>⏰ Mon–Fri 9am–5pm</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ NAVBAR ══════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <svg class="logo-emblem" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="38" fill="#003d34" stroke="#c99a2e" stroke-width="2"/>
+        <circle cx="40" cy="40" r="32" fill="#005f53" stroke="#c99a2e" stroke-width="0.8" stroke-dasharray="3 4" opacity="0.6"/>
+        <path d="M34 23 a13 13 0 0 0 0 34 a10 10 0 0 1 0-34z" fill="#c99a2e"/>
+        <polygon points="48,22 49.8,28.2 56.2,28.2 51,32.2 52.8,38.4 48,34.4 43.2,38.4 45,32.2 39.8,28.2 46.2,28.2" fill="#c99a2e"/>
+        <path id="arcText" d="M 14 52 A 28 28 0 0 0 66 52" fill="none"/>
+        <text fill="rgba(212,184,74,0.8)" font-size="4.5" font-family="serif" letter-spacing="0.5"><textPath href="#arcText" startOffset="10%">KHYBER PAKHTUNKHWA</textPath></text>
+        <circle cx="29" cy="58" r="1.5" fill="#c99a2e" opacity="0.7"/>
+        <circle cx="51" cy="58" r="1.5" fill="#c99a2e" opacity="0.7"/>
+        <circle cx="40" cy="40" r="37.5" fill="none" stroke="#c99a2e" stroke-width="0.5" stroke-dasharray="1.5 3" opacity="0.4"/>
+      </svg>
+      <div class="logo-text-wrap">
+        <div class="logo-main">Planning Cell</div>
+        <div class="logo-divider"></div>
+        <div class="logo-sub">Revenue &amp; Estate Dept — KP</div>
+      </div>
+    </a>
+    <button class="hamburger" id="ham-btn" aria-label="Toggle Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="nav-menu">
+      <li class="active"><a href="#home">Home</a></li>
+      <li>
+        <a href="#about-row">About ▾</a>
+        <div class="dropdown">
+          <a href="#" onclick="openModal('modal-spo');return false;">SPO Message</a>
+          <a href="#" onclick="openModal('modal-smbr');return false;">Senior Member BOR Message</a>
+          <a href="#" onclick="openModal('modal-minister');return false;">Minister's Message</a>
+          <a href="#">Sections</a><a href="#">Organogram</a>
+          <a href="#leadership">Our Team</a>
+          <a href="#about-row">About Planning Cell</a>
+          <a href="#contact-section">Contact Us</a>
         </div>
-        <div class="team-content">
-          <h3>Nazir Ahmed Abbasi</h3>
-          <div class="role">Minister for Revenue &amp; Estate</div>
-          <a href="#" class="read-btn">&#9654; Read Message</a>
+      </li>
+      <li>
+        <a href="#adp">ADP ▾</a>
+        <div class="dropdown">
+          <a href="#adp">Annual Development Programme</a>
+          <a href="#">ADP Guidelines</a><a href="#">ADP Policy</a>
+          <a href="#">Scheme Appraisal</a><a href="#">PSDP Projects</a>
+        </div>
+      </li>
+      <li>
+        <a href="#news">Media ▾</a>
+        <div class="dropdown">
+          <a href="#">Focal Persons</a><a href="#news">News &amp; Events</a>
+          <a href="#">Notifications</a><a href="#">Publications</a>
+          <a href="#">Foreign Trainings</a><a href="#">Right to Information</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">Downloads ▾</a>
+        <div class="dropdown">
+          <a href="#">Documents &amp; Forms</a><a href="#">Policy Documents</a>
+          <a href="#">Archives</a><a href="#">Annual Reports</a>
+        </div>
+      </li>
+      <li><a href="#">Jobs</a></li>
+      <li><a href="#">Tenders</a></li>
+      <li><a href="#" class="nav-cta">Apply for Job</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══════ TICKER ══════ -->
+<div id="ticker">
+  <div class="ticker-inner">
+    <div class="ticker-label">Latest Updates</div>
+    <div class="ticker-track">
+      <div class="ticker-items">
+        <span>AIT (Agriculture Income Tax) Mobile App Now Available for Download</span>
+        <span>E-Registration System launched in District Peshawar — First in KP's History</span>
+        <span>E-Vendor Module for E-Stamp Papers launched in Bannu, D.I.Khan, Kohat</span>
+        <span>ADP 2026-27 Consultative Meeting held under Chairmanship of Senior Member BOR</span>
+        <span>GIS-based Land Settlement introduced in Seven Sub-Divisions of Merged Districts</span>
+        <span>Final Merit List of Computer Operators &amp; Junior Clerks released on BOR website</span>
+        <span>Phase-II Land Record Digitization targets 13 additional districts by June 2026</span>
+        <span>AIT (Agriculture Income Tax) Mobile App Now Available for Download</span>
+        <span>E-Registration System launched in District Peshawar — First in KP's History</span>
+        <span>E-Vendor Module for E-Stamp Papers launched in Bannu, D.I.Khan, Kohat</span>
+        <span>ADP 2026-27 Consultative Meeting held under Chairmanship of Senior Member BOR</span>
+        <span>GIS-based Land Settlement introduced in Seven Sub-Divisions of Merged Districts</span>
+        <span>Final Merit List of Computer Operators &amp; Junior Clerks released on BOR website</span>
+        <span>Phase-II Land Record Digitization targets 13 additional districts by June 2026</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ HERO SLIDER — ENHANCED ══════ -->
+<section id="home">
+<div id="hero">
+
+  <!-- Slide 1 -->
+  <div class="slide active">
+    <img class="slide-bg"
+      src="https://raw.githubusercontent.com/PlanningCellKP/PlanningCellKP.github.io/main/home%20page.jpg"
+      onerror="this.src='https://images.unsplash.com/photo-1577493340887-b7bfff550145?auto=format&fit=crop&w=1600&q=80'"
+      alt="Planning Cell KP — Civil Secretariat Peshawar"/>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <div class="slide-eyebrow"><div class="slide-line"></div><span class="slide-tag-text">Civil Secretariat — Peshawar, KP</span></div>
+      <h2>Revenue &amp; Estate Department — Board of Revenue, Khyber Pakhtunkhwa</h2>
+      <p>Planning Cell is the front-line institutional unit mandated to plan, coordinate and monitor all developmental schemes of District Administrations across KP's 26 districts and 7 divisions.</p>
+      <div class="slide-actions">
+        <a href="#about-row" class="slide-btn slide-btn-primary">Learn More →</a>
+        <a href="#contact-section" class="slide-btn slide-btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="slide">
+    <img class="slide-bg"
+      src="https://raw.githubusercontent.com/PlanningCellKP/PlanningCellKP.github.io/main/home%20page%202.jpg"
+      onerror="this.src='https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1600&q=80'"
+      alt="Government of KP — Planning Cell"/>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <div class="slide-eyebrow"><div class="slide-line"></div><span class="slide-tag-text">Government of Khyber Pakhtunkhwa</span></div>
+      <h2>Planning Cell Oversees Developmental Schemes of All 26 District Administrations</h2>
+      <p>Ensuring transparent, efficient, and evidence-based public investment across every district of Khyber Pakhtunkhwa under the Board of Revenue framework.</p>
+      <div class="slide-actions">
+        <a href="#districts" class="slide-btn slide-btn-primary">View Districts →</a>
+        <a href="#adp" class="slide-btn slide-btn-outline">ADP 2026-27</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="slide">
+    <img class="slide-bg"
+      src="https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?auto=format&fit=crop&w=1600&q=80"
+      alt="Infrastructure Development KP"/>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <div class="slide-eyebrow"><div class="slide-line"></div><span class="slide-tag-text">Infrastructure Development — KP</span></div>
+      <h2>Investment in Infrastructure — Creating Jobs &amp; Driving Sustainable Development</h2>
+      <p>Planning Cell coordinates developmental budgets across Agriculture, Education, Health, Energy, Buildings &amp; Works, and Water &amp; Sanitation sectors across the province.</p>
+      <div class="slide-actions">
+        <a href="#sectors" class="slide-btn slide-btn-primary">Sectoral Focus →</a>
+        <a href="#news" class="slide-btn slide-btn-outline">Latest News</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4 -->
+  <div class="slide">
+    <img class="slide-bg"
+      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1600&q=80"
+      alt="Khyber Pakhtunkhwa Province"/>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <div class="slide-eyebrow"><div class="slide-line"></div><span class="slide-tag-text">Khyber Pakhtunkhwa — Province of Opportunities</span></div>
+      <h2>Priority Focus: Basic Services &amp; Public Infrastructure for the Citizens of KP</h2>
+      <p>Established under the Board of Revenue to serve all Districts, with a mandate for good governance, digital reform, and citizen-centric service delivery across KP.</p>
+      <div class="slide-actions">
+        <a href="#sdcs" class="slide-btn slide-btn-primary">Service Centres →</a>
+        <a href="#leadership" class="slide-btn slide-btn-outline">Our Team</a>
+      </div>
+    </div>
+  </div>
+
+  <button id="prev-btn" class="slide-nav" aria-label="Previous slide">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button id="next-btn" class="slide-nav" aria-label="Next slide">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+  <div class="slide-dots" id="slide-dots">
+    <button class="dot active" data-idx="0" aria-label="Slide 1"></button>
+    <button class="dot" data-idx="1" aria-label="Slide 2"></button>
+    <button class="dot" data-idx="2" aria-label="Slide 3"></button>
+    <button class="dot" data-idx="3" aria-label="Slide 4"></button>
+  </div>
+  <div class="slide-counter"><span id="cur-slide">1</span> / 4</div>
+</div>
+</section>
+
+<!-- ══════ STATS BAR ══════ -->
+<div id="statsbar">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-num">26</div><div class="stat-label">Districts Covered</div></div>
+    <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">Divisions Administered</div></div>
+    <div class="stat-item"><div class="stat-num">100+</div><div class="stat-label">Active ADP Schemes</div></div>
+    <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">SDCs Operational</div></div>
+  </div>
+</div>
+
+<!-- ══════ QUICK LINKS ══════ -->
+<div id="quicklinks">
+  <div class="ql-inner">
+    <a href="#" class="ql-item"><div class="ql-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>Sections</a>
+    <a href="#" class="ql-item"><div class="ql-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>Organogram</a>
+    <a href="#leadership" class="ql-item"><div class="ql-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>Our Team</a>
+    <a href="#adp" class="ql-item"><div class="ql-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>ADP 2026-27</a>
+    <a href="#" class="ql-item"><div class="ql-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>Publications</a>
+    <a href="#" class="ql-item"><div class="ql-icon"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>Downloads</a>
+    <a href="#" class="ql-item"><div class="ql-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>Jobs &amp; Tenders</a>
+    <a href="#" class="ql-item"><div class="ql-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>PSDP Portal</a>
+  </div>
+</div>
+
+<!-- ══════ ABOUT ══════ -->
+<section id="about-row">
+  <div class="section-wrap">
+    <div class="about-grid">
+      <div>
+        <div class="sec-eyebrow"><div class="sec-line"></div><span class="sec-label">About Planning Cell</span></div>
+        <h2 class="sec-heading">Planning Cell<br/>Revenue &amp; Estate Department, KP</h2>
+        <div class="sec-rule"></div>
+        <p>The <strong>Planning Cell, Revenue &amp; Estate Department</strong> is a dedicated institutional unit established under the <strong>Board of Revenue, Government of Khyber Pakhtunkhwa</strong>. Its core mandate is to oversee, plan, coordinate, and monitor all developmental schemes undertaken by the District Administrations across the 26 districts of Khyber Pakhtunkhwa.</p>
+        <p>In pursuance of the Rules of Business of the Government of KP, the Planning Cell operates as the principal planning authority within the Revenue &amp; Estate Department — interfacing with district-level administrations, the Board of Revenue, and other provincial departments to ensure aligned and effective public investment throughout the province.</p>
+        <p>The Cell is responsible for the preparation, appraisal, approval, execution oversight, and evaluation of developmental schemes — ensuring transparency, fiscal discipline, and delivery of public services to citizens. It also coordinates with the Planning Commission of Pakistan and development partners including ADB, World Bank, USAID, and UNDP.</p>
+        <div class="about-highlights">
+          <div class="about-highlight-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><p>Plan &amp; appraise district-level development schemes across all 26 districts</p></div>
+          <div class="about-highlight-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><p>Coordinate ADP preparation with Commissioner &amp; DC offices</p></div>
+          <div class="about-highlight-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><p>Monitor &amp; evaluate physical and financial progress of public projects</p></div>
+          <div class="about-highlight-item"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><p>Liaise with P&amp;D, development partners &amp; Planning Commission of Pakistan</p></div>
+        </div>
+        <a href="#" class="btn-primary" style="margin-top:8px;">Read More →</a>
+      </div>
+      <div class="about-img">
+        <img class="about-img-main"
+          src="https://raw.githubusercontent.com/PlanningCellKP/PlanningCellKP.github.io/main/home%20page.jpg"
+          onerror="this.src='https://images.unsplash.com/photo-1577493340887-b7bfff550145?auto=format&fit=crop&w=800&q=80'"
+          alt="Planning Cell KP"/>
+        <div class="about-badge"><strong>26</strong><span>Districts</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FEATURES / MANDATE ══════ -->
+<section id="features">
+  <div class="section-wrap">
+    <div class="features-intro">
+      <div class="sec-eyebrow"><div class="sec-line"></div><span class="sec-label">Our Mandate</span></div>
+      <h2 class="sec-heading">What Planning Cell Does</h2>
+      <div class="sec-rule"></div>
+      <p>The Planning Cell serves as the institutional bridge between district-level administrations and the provincial revenue framework. Below are the six core functions that define our operational mandate across all 26 districts of Khyber Pakhtunkhwa.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><h4>Scheme Appraisal &amp; Approval</h4><p>The Cell reviews, appraises, and recommends developmental schemes from all 26 District Administrations before forwarding to the Board of Revenue and P&amp;D Department for formal approval under PDWP/DDWP frameworks — ensuring due diligence and fiscal responsibility.</p></div>
+      <div class="feature-card"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><h4>ADP Coordination</h4><p>Planning Cell prepares and coordinates the Annual Development Programme (ADP) for Revenue &amp; Estate Department, ensuring district-level priorities are aligned with provincial development goals, resource allocations, and the Government's overall strategic vision.</p></div>
+      <div class="feature-card"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><h4>Monitoring &amp; Evaluation</h4><p>Regular monitoring visits to all districts to track physical and financial progress of developmental projects. The Cell ensures compliance with approved PC-I/PC-II documents, timely completion of schemes, and corrective action where required.</p></div>
+      <div class="feature-card"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h4>Project Reporting</h4><p>Timely compilation and submission of quarterly progress reports to the Board of Revenue, P&amp;D Department, and other relevant authorities. Maintains comprehensive institutional documentation and project history for accountability and audit purposes.</p></div>
+      <div class="feature-card"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Capacity Development</h4><p>Coordinating training programmes for planning officers across District Administrations. Facilitating foreign trainings and knowledge-sharing sessions with ADB, World Bank, and other development partners to enhance institutional capacity in project management and governance.</p></div>
+      <div class="feature-card"><div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><h4>Digital Reform Coordination</h4><p>Coordinating with Directorate of Land Records on digitization of land records, e-registration rollout, SDC infrastructure expansion, and GIS-based land settlement across all KP districts including the newly merged tribal districts.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ LEADERSHIP — ENHANCED WITH REAL IMAGES ══════ -->
+<section id="leadership">
+  <div class="section-wrap">
+    <div class="sec-eyebrow"><div class="sec-line"></div><span class="sec-label">Leadership</span></div>
+    <h2 class="sec-heading">Our Team</h2>
+    <div class="sec-rule"></div>
+    <div class="leadership-grid">
+
+      <!-- SPO full-width card -->
+      <div class="spo-card">
+        <div class="spo-inner">
+          <div class="spo-photo-side">
+            <!-- Real image from revenue.kp.gov.pk -->
+            <div class="spo-avatar">
+              <img src="https://revenue.kp.gov.pk/uploads/hamid.jpg"
+                onerror="this.parentElement.innerHTML='<div class=\'spo-avatar-icon\'><svg width=\'54\' height=\'54\' fill=\'none\' stroke=\'#d4a017\' stroke-width=\'1.2\' viewBox=\'0 0 24 24\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg></div>'"
+                alt="Muhammad Hamid Khan — SPO"/>
+            </div>
+          </div>
+          <div class="spo-content">
+            <span class="spo-badge">★ Head of Planning Cell</span>
+            <div class="spo-name">Muhammad Hamid Khan</div>
+            <div class="spo-title">Senior Planning Officer</div>
+            <p class="spo-desc">Leads the Planning Cell with extensive expertise in developmental planning, public finance, and inter-departmental coordination. Responsible for overseeing all schemes of District Administrations across Khyber Pakhtunkhwa under the Board of Revenue framework. Coordinates with P&amp;D Department, development partners including ADB and World Bank, and district-level administrations to ensure transparent and result-oriented public investment across KP.</p>
+            <button class="btn-gold" onclick="openModal('modal-spo')">Read Full Message →</button>
+          </div>
         </div>
       </div>
 
-      <div class="team-card">
-        <div class="team-card-img-wrap">
-          <img src="https://muzamilmarwat-dev.github.io/planningcell/Zahir Shah.jpg" alt="Zahir Shah — Senior Member BOR">
-          <div class="img-overlay"></div>
-          <span class="team-badge">Sr. Member BOR</span>
+      <!-- Chief Minister KP -->
+      <div class="leader-card gold-top">
+        <div class="leader-photo-wrap">
+          <img class="leader-photo"
+            src="https://revenue.kp.gov.pk/uploads/cm.jpg"
+            onerror="this.src='https://kp.gov.pk/uploads/cm_photo.jpg'"
+            alt="Chief Minister KP — Muhammad Sohail Afridi"/>
         </div>
-        <div class="team-content">
-          <h3>Zahir Shah</h3>
-          <div class="role">Senior Member Board of Revenue</div>
-          <a href="#" class="read-btn">&#9654; Read Message</a>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <div class="team-card-img-wrap">
-          <img src="https://muzamilmarwat-dev.github.io/planningcell/Basharat Ahmad.jpg" alt="Basharat Ahmad — Director Land Record">
-          <div class="img-overlay"></div>
-          <span class="team-badge">Director</span>
-        </div>
-        <div class="team-content">
-          <h3>Basharat Ahmad</h3>
-          <div class="role">Director Land Record</div>
-          <a href="#" class="read-btn">&#9654; Read Message</a>
+        <div class="leader-info">
+          <div class="leader-name">Muhammad Sohail Afridi</div>
+          <div class="leader-title">Chief Minister, KP</div>
+          <a href="https://kp.gov.pk/" target="_blank" class="btn-outline" style="padding:7px 18px;font-size:.7rem;margin-top:4px;display:inline-flex;text-decoration:none;">Profile</a>
         </div>
       </div>
 
-      <div class="team-card">
-        <div class="team-card-img-wrap">
-          <img src="https://muzamilmarwat-dev.github.io/planningcell/Muhammad Sohail Afridi.jpg" alt="Muhammad Sohail Afridi — Chief Minister KP">
-          <div class="img-overlay"></div>
-          <span class="team-badge">Chief Minister</span>
+      <!-- Minister for Revenue -->
+      <div class="leader-card gold-top">
+        <div class="leader-photo-wrap">
+          <img class="leader-photo"
+            src="https://revenue.kp.gov.pk/uploads/minister.jpg"
+            onerror="this.src='https://revenue.kp.gov.pk/uploads/nazir_abbasi.jpg'"
+            alt="Nazir Ahmed Abbasi — Minister for Revenue"/>
         </div>
-        <div class="team-content">
-          <h3>Muhammad Sohail Afridi</h3>
-          <div class="role">Chief Minister, Khyber Pakhtunkhwa</div>
-          <a href="#" class="read-btn">&#9654; Read Message</a>
+        <div class="leader-info">
+          <div class="leader-name">Nazir Ahmed Abbasi</div>
+          <div class="leader-title">Minister for Revenue</div>
+          <button class="btn-outline" onclick="openModal('modal-minister')" style="padding:7px 18px;font-size:.7rem;margin-top:4px;">Read Message</button>
+        </div>
+      </div>
+
+      <!-- Senior Member BOR -->
+      <div class="leader-card gold-top">
+        <div class="leader-photo-wrap">
+          <img class="leader-photo"
+            src="https://revenue.kp.gov.pk/uploads/smbr.jpg"
+            onerror="this.src='https://revenue.kp.gov.pk/uploads/zahir_shah.jpg'"
+            alt="Zahir Shah — Senior Member BOR"/>
+        </div>
+        <div class="leader-info">
+          <div class="leader-name">Mr. Zahir Shah</div>
+          <div class="leader-title">Senior Member BOR</div>
+          <button class="btn-outline" onclick="openModal('modal-smbr')" style="padding:7px 18px;font-size:.7rem;margin-top:4px;">Read Message</button>
+        </div>
+      </div>
+
+      <!-- Director Land Record -->
+      <div class="leader-card gold-top">
+        <div class="leader-photo-wrap">
+          <img class="leader-photo"
+            src="https://revenue.kp.gov.pk/uploads/dlr.jpg"
+            onerror="this.src='https://revenue.kp.gov.pk/uploads/basharat.jpg'"
+            alt="Basharat Ahmad — Director Land Record"/>
+        </div>
+        <div class="leader-info">
+          <div class="leader-name">Mr. Basharat Ahmad</div>
+          <div class="leader-title">Director Land Record</div>
+          <button class="btn-outline" onclick="openModal('modal-dlr')" style="padding:7px 18px;font-size:.7rem;margin-top:4px;">Read Message</button>
         </div>
       </div>
 
@@ -905,179 +977,542 @@ footer {
   </div>
 </section>
 
-<!-- ── ADP ── -->
-<section id="adp">
-  <div class="wrap">
-    <div class="section-title">
-      <div class="eyebrow">Development Planning</div>
-      <h2>Annual Development Programme</h2>
-      <p>Download year-wise development programme documents for Revenue &amp; Estate Department KP</p>
-      <div class="title-bar"></div>
+<!-- ══════ DISTRICTS ══════ -->
+<section id="districts">
+  <div class="section-wrap">
+    <div class="sec-eyebrow"><div class="sec-line" style="background:var(--gold)"></div><span class="sec-label">Khyber Pakhtunkhwa</span></div>
+    <h2 class="sec-heading">Commissioner &amp; Deputy Commissioner Offices</h2>
+    <div class="sec-rule"></div>
+    <p class="districts-intro">The Planning Cell supervises and coordinates developmental schemes for Commissioner and Deputy Commissioner Offices across all <strong style="color:var(--gold2);">26 districts</strong> of Khyber Pakhtunkhwa, covering its 7 administrative divisions.</p>
+    <div class="districts-grid">
+      <div class="district-card"><div class="district-img-wrap"><img src="https://images.unsplash.com/photo-1577493340887-b7bfff550145?auto=format&fit=crop&w=600&q=75" alt="Peshawar" loading="lazy"/><div class="district-overlay"></div></div><div class="district-badge commissioner">Commissioner</div><div class="district-label"><strong>Peshawar</strong><span>Peshawar Division</span></div></div>
+      <div class="district-card"><div class="district-img-wrap"><img src="https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?auto=format&fit=crop&w=600&q=75" alt="Abbottabad" loading="lazy"/><div class="district-overlay"></div></div><div class="district-badge commissioner">Commissioner</div><div class="district-label"><strong>Abbottabad</strong><span>Hazara Division</span></div></div>
+      <div class="district-card"><div class="district-img-wrap"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=75" alt="Swat" loading="lazy"/><div class="district-overlay"></div></div><div class="district-badge">DC Office</div><div class="district-label"><strong>Swat</strong><span>Malakand Division</span></div></div>
+      <div class="district-card"><div class="district-img-wrap"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=600&q=75" alt="Mardan" loading="lazy"/><div class="district-overlay"></div></div><div class="district-badge commissioner">Commissioner</div><div class="district-label"><strong>Mardan</strong><span>Mardan Division</span></div></div>
+      <div class="district-card"><div class="district-img-wrap"><img src="https://images.unsplash.com/photo-1519922639192-e73293ca430e?auto=format&fit=crop&w=600&q=75" alt="Chitral" loading="lazy"/><div class="district-overlay"></div></div><div class="district-badge">DC Office</div><div class="district-label"><strong>Chitral</strong><span>Malakand Division</span></div></div>
+      <div class="district-card"><div class="district-img-wrap"><img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=600&q=75" alt="Dir" loading="lazy"/><div class="district-overlay"></div></div><div class="district-badge">DC Office</div><div class="district-label"><strong>Dir</strong><span>Malakand Division</span></div></div>
+      <div class="district-card"><div class="district-img-wrap"><img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=600&q=75" alt="Kohat" loading="lazy"/><div class="district-overlay"></div></div><div class="district-badge commissioner">Commissioner</div><div class="district-label"><strong>Kohat</strong><span>Kohat Division</span></div></div>
+      <div class="district-card"><div class="district-img-wrap"><img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?auto=format&fit=crop&w=600&q=75" alt="Bannu" loading="lazy"/><div class="district-overlay"></div></div><div class="district-badge">DC Office</div><div class="district-label"><strong>Bannu</strong><span>Bannu Division</span></div></div>
+      <div class="district-card"><div class="district-img-wrap"><img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=600&q=75" alt="D.I. Khan" loading="lazy"/><div class="district-overlay"></div></div><div class="district-badge commissioner">Commissioner</div><div class="district-label"><strong>D.I. Khan</strong><span>D.I.Khan Division</span></div></div>
+      <div class="district-card"><div class="district-img-wrap"><img src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?auto=format&fit=crop&w=600&q=75" alt="Haripur" loading="lazy"/><div class="district-overlay"></div></div><div class="district-badge">DC Office</div><div class="district-label"><strong>Haripur</strong><span>Hazara Division</span></div></div>
+      <div class="district-card"><div class="district-img-wrap"><img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=600&q=75" alt="Charsadda" loading="lazy"/><div class="district-overlay"></div></div><div class="district-badge">DC Office</div><div class="district-label"><strong>Charsadda</strong><span>Peshawar Division</span></div></div>
+      <div class="district-card"><div class="district-img-wrap"><img src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?auto=format&fit=crop&w=600&q=75" alt="Nowshera" loading="lazy"/><div class="district-overlay"></div></div><div class="district-badge">DC Office</div><div class="district-label"><strong>Nowshera</strong><span>Peshawar Division</span></div></div>
     </div>
+    <p style="color:rgba(255,255,255,.45);font-size:.76rem;margin-top:20px;text-align:center;">Showing 12 of 26 districts. Planning Cell covers all districts across Peshawar, Mardan, Malakand, Hazara, Kohat, Bannu &amp; D.I.Khan Divisions.</p>
+  </div>
+</section>
 
-    <div class="adp-grid">
-
-      <div class="adp-card">
-        <div class="adp-icon">📄</div>
-        <div class="adp-year">FY 2019–2020</div>
-        <h3>ADP 2019-20</h3>
-        <p class="adp-desc">Annual Development Programme for Revenue &amp; Estate Department, Fiscal Year 2019-20.</p>
-        <a href="https://muzamilmarwat-dev.github.io/planningcell/ADP-2019-20 Final.pdf" class="download-btn" target="_blank" rel="noopener">
-          ⬇ Download PDF
-        </a>
-      </div>
-
-      <div class="adp-card">
-        <div class="adp-icon">📄</div>
-        <div class="adp-year">FY 2020–2021</div>
-        <h3>ADP 2020-21</h3>
-        <p class="adp-desc">Annual Development Programme for Revenue &amp; Estate Department, Fiscal Year 2020-21.</p>
-        <a href="https://muzamilmarwat-dev.github.io/planningcell/ADP 2020-21.pdf" class="download-btn" target="_blank" rel="noopener">
-          ⬇ Download PDF
-        </a>
-      </div>
-
-      <div class="adp-card">
-        <div class="adp-icon">📄</div>
-        <div class="adp-year">FY 2022–2023</div>
-        <h3>ADP 2022-23</h3>
-        <p class="adp-desc">Annual Development Programme for Revenue &amp; Estate Department, Fiscal Year 2022-23.</p>
-        <a href="https://muzamilmarwat-dev.github.io/planningcell/ADP-2022-23.pdf" class="download-btn" target="_blank" rel="noopener">
-          ⬇ Download PDF
-        </a>
-      </div>
-
-      <div class="adp-card">
-        <div class="adp-icon">📄</div>
-        <div class="adp-year">FY 2024–2025</div>
-        <h3>ADP 2024-25</h3>
-        <p class="adp-desc">Annual Development Programme for Revenue &amp; Estate Department, Fiscal Year 2024-25.</p>
-        <a href="https://muzamilmarwat-dev.github.io/planningcell/ADPBook-2024-25.pdf" class="download-btn" target="_blank" rel="noopener">
-          ⬇ Download PDF
-        </a>
-      </div>
-
+<!-- ══════ SECTORS ══════ -->
+<section id="sectors">
+  <div class="section-wrap">
+    <div class="sec-eyebrow"><div class="sec-line"></div><span class="sec-label">Development Areas</span></div>
+    <h2 class="sec-heading">Sectoral Focus Areas</h2>
+    <div class="sec-rule"></div>
+    <div class="sectors-grid">
+      <div class="sector-card"><div class="sector-img-wrap"><img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&w=600&q=75" alt="Agriculture KP" loading="lazy"/></div><div class="sector-info"><span class="sector-tag">Agriculture Sector</span><h4>Agriculture</h4><p>Enabling KP to meet food security challenges through a vibrant agricultural sector that promotes productivity, value addition, and farm-to-market linkages across districts. Planning Cell coordinates all district-level agricultural development schemes.</p></div></div>
+      <div class="sector-card"><div class="sector-img-wrap"><img src="https://images.unsplash.com/photo-1577493340887-b7bfff550145?auto=format&fit=crop&w=600&q=75" alt="Buildings KP" loading="lazy"/></div><div class="sector-info"><span class="sector-tag">Buildings Sector</span><h4>Buildings &amp; Works</h4><p>Constructing and maintaining residential and office accommodation facilities for District Administration offices and government service centres across all 26 districts of Khyber Pakhtunkhwa.</p></div></div>
+      <div class="sector-card"><div class="sector-img-wrap"><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=75" alt="Energy KP" loading="lazy"/></div><div class="sector-info"><span class="sector-tag">Energy Sector</span><h4>Energy &amp; Power</h4><p>Developing KP's immense potential in Hydel Power Generation and Alternate Energy to contribute significantly in mitigating the energy crisis and powering economic growth across the province.</p></div></div>
+      <div class="sector-card"><div class="sector-img-wrap"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=75" alt="Education KP" loading="lazy"/></div><div class="sector-info"><span class="sector-tag">Education Sector</span><h4>Education</h4><p>Improving educational infrastructure across districts with a particular focus on primary and secondary schools in underserved communities and newly merged areas of Khyber Pakhtunkhwa.</p></div></div>
+      <div class="sector-card"><div class="sector-img-wrap"><img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=600&q=75" alt="Health KP" loading="lazy"/></div><div class="sector-info"><span class="sector-tag">Health Sector</span><h4>Health</h4><p>Providing adequate healthcare infrastructure through BHUs, RHCs, and District Headquarter Hospitals. Planning Cell coordinates Health Card programme development and healthcare delivery improvements.</p></div></div>
+      <div class="sector-card"><div class="sector-img-wrap"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=75" alt="Water Sanitation KP" loading="lazy"/></div><div class="sector-info"><span class="sector-tag">DWSS Sector</span><h4>Water &amp; Sanitation</h4><p>Providing adequate and safe water supply and extending sanitation coverage to un-served and underserved communities across the province — including newly merged districts of Khyber Pakhtunkhwa.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ── SDCs ── -->
+<!-- ══════ SDC — ENHANCED WITH REAL IMAGES ══════ -->
 <section id="sdcs">
-  <div class="wrap">
-    <div class="section-title">
-      <div class="eyebrow">Citizen Services</div>
-      <h2>Service Delivery Centers</h2>
-      <p>Modern citizen facilitation centers providing integrated digital land record services across Khyber Pakhtunkhwa</p>
-      <div class="title-bar"></div>
-    </div>
-
+  <div class="section-wrap">
+    <div class="sec-eyebrow"><div class="sec-line"></div><span class="sec-label">Revenue &amp; Estate Department</span></div>
+    <h2 class="sec-heading">Service Delivery Centres (SDCs)</h2>
+    <div class="sec-rule"></div>
+    <p class="sdc-intro">SDCs established by the Revenue &amp; Estate Department across KP facilitate citizens with issuance of <strong>Fard, Mutation, and Correction of Records</strong>. The Planning Cell coordinates developmental budget for SDC infrastructure expansion, digitization, and e-registration rollout. Each SDC is integrated into a centralized monitoring system for real-time oversight and service quality assurance across all divisions.</p>
     <div class="sdc-grid">
-
       <div class="sdc-card">
         <div class="sdc-img-wrap">
-          <img src="https://revenue.kp.gov.pk/sdcs/wp-content/uploads/sites/7/2024/03/sdc1.jpg" alt="Peshawar SDC">
-          <span class="sdc-img-tag">Peshawar</span>
+          <img src="https://revenue.kp.gov.pk/uploads/sdcs/peshawar_sdc.jpg"
+            onerror="this.src='https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=400&q=75'"
+            alt="SDC Peshawar" loading="lazy"/>
+          <div class="sdc-img-overlay"></div>
         </div>
-        <div class="sdc-content">
-          <h3>Peshawar SDC</h3>
-          <p>Integrated digital land record services and citizen facilitation. Serving residents of Peshawar with efficient public delivery.</p>
-        </div>
+        <div class="sdc-info"><h4>SDC Peshawar</h4><p>Provincial Capital — Pilot e-Registration District 2025</p><span class="sdc-status">✓ E-Registration Live</span></div>
       </div>
-
       <div class="sdc-card">
         <div class="sdc-img-wrap">
-          <img src="https://revenue.kp.gov.pk/sdcs/wp-content/uploads/sites/7/2024/03/sdc2.jpg" alt="Mardan SDC">
-          <span class="sdc-img-tag">Mardan</span>
+          <img src="https://revenue.kp.gov.pk/uploads/sdcs/mardan_sdc.jpg"
+            onerror="this.src='https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?auto=format&fit=crop&w=400&q=75'"
+            alt="SDC Mardan" loading="lazy"/>
+          <div class="sdc-img-overlay"></div>
         </div>
-        <div class="sdc-content">
-          <h3>Mardan SDC</h3>
-          <p>Modern land services and public support facilities. Providing streamlined record management and citizen assistance.</p>
-        </div>
+        <div class="sdc-info"><h4>SDC Mardan</h4><p>Serving Mardan Division — Phase I Digitized</p><span class="sdc-status">✓ Operational</span></div>
       </div>
-
       <div class="sdc-card">
         <div class="sdc-img-wrap">
-          <img src="https://revenue.kp.gov.pk/sdcs/wp-content/uploads/sites/7/2024/03/sdc3.jpg" alt="Swat SDC">
-          <span class="sdc-img-tag">Swat</span>
+          <img src="https://revenue.kp.gov.pk/uploads/sdcs/swat_sdc.jpg"
+            onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=400&q=75'"
+            alt="SDC Swat" loading="lazy"/>
+          <div class="sdc-img-overlay"></div>
         </div>
-        <div class="sdc-content">
-          <h3>Swat SDC</h3>
-          <p>Efficient digital governance and land administration. Dedicated to transparent and timely service for Swat residents.</p>
-        </div>
+        <div class="sdc-info"><h4>SDC Swat</h4><p>Malakand Division — GIS Settlement Ongoing</p><span class="sdc-status">✓ Operational</span></div>
       </div>
-
       <div class="sdc-card">
         <div class="sdc-img-wrap">
-          <img src="https://revenue.kp.gov.pk/sdcs/wp-content/uploads/sites/7/2024/03/sdc4.jpg" alt="Abbottabad SDC">
-          <span class="sdc-img-tag">Abbottabad</span>
+          <img src="https://revenue.kp.gov.pk/uploads/sdcs/abbottabad_sdc.jpg"
+            onerror="this.src='https://images.unsplash.com/photo-1519922639192-e73293ca430e?auto=format&fit=crop&w=400&q=75'"
+            alt="SDC Abbottabad" loading="lazy"/>
+          <div class="sdc-img-overlay"></div>
         </div>
-        <div class="sdc-content">
-          <h3>Abbottabad SDC</h3>
-          <p>Technology-enabled citizen service delivery center. Offering comprehensive land and revenue services for Hazara division.</p>
-        </div>
+        <div class="sdc-info"><h4>SDC Abbottabad</h4><p>Hazara Division — Phase I Digitized</p><span class="sdc-status">✓ Operational</span></div>
       </div>
-
+      <div class="sdc-card">
+        <div class="sdc-img-wrap">
+          <img src="https://revenue.kp.gov.pk/uploads/sdcs/kohat_sdc.jpg"
+            onerror="this.src='https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=400&q=75'"
+            alt="SDC Kohat" loading="lazy"/>
+          <div class="sdc-img-overlay"></div>
+        </div>
+        <div class="sdc-info"><h4>SDC Kohat</h4><p>Kohat Division — E-Stamp Vendor Active</p><span class="sdc-status">✓ E-Stamp Live</span></div>
+      </div>
+      <div class="sdc-card">
+        <div class="sdc-img-wrap">
+          <img src="https://revenue.kp.gov.pk/uploads/sdcs/bannu_sdc.jpg"
+            onerror="this.src='https://images.unsplash.com/photo-1547036967-23d11aacaee0?auto=format&fit=crop&w=400&q=75'"
+            alt="SDC Bannu" loading="lazy"/>
+          <div class="sdc-img-overlay"></div>
+        </div>
+        <div class="sdc-info"><h4>SDC Bannu</h4><p>Bannu Division — E-Stamp Vendor Active</p><span class="sdc-status">✓ E-Stamp Live</span></div>
+      </div>
+      <div class="sdc-card">
+        <div class="sdc-img-wrap">
+          <img src="https://revenue.kp.gov.pk/uploads/sdcs/dikhan_sdc.jpg"
+            onerror="this.src='https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=400&q=75'"
+            alt="SDC D.I. Khan" loading="lazy"/>
+          <div class="sdc-img-overlay"></div>
+        </div>
+        <div class="sdc-info"><h4>SDC D.I. Khan</h4><p>D.I.Khan Division — Phase II In Progress</p><span class="sdc-status phase2">⏳ Phase II</span></div>
+      </div>
+      <div class="sdc-card">
+        <div class="sdc-img-wrap">
+          <img src="https://revenue.kp.gov.pk/uploads/sdcs/mansehra_sdc.jpg"
+            onerror="this.src='https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=400&q=75'"
+            alt="SDC Mansehra" loading="lazy"/>
+          <div class="sdc-img-overlay"></div>
+        </div>
+        <div class="sdc-info"><h4>SDC Mansehra</h4><p>Hazara Division — Phase II In Progress</p><span class="sdc-status phase2">⏳ Phase II</span></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <a href="https://revenue.kp.gov.pk/sdcs/" class="view-all" target="_blank">View All SDCs on Revenue KP →</a>
     </div>
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
-<footer>
-  <div class="wrap">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="nav-title">Planning Cell — Revenue &amp; Estate Department</div>
-        <div class="nav-subtitle">Government of Khyber Pakhtunkhwa</div>
+<!-- ══════ ADP — YEAR-WISE PDF CARDS (NEW) ══════ -->
+<section id="adp">
+  <div class="section-wrap">
+
+    <!-- Top intro + image -->
+    <div class="adp-grid">
+      <div class="adp-img-wrap" style="position:relative;z-index:1;">
+        <img src="https://raw.githubusercontent.com/PlanningCellKP/PlanningCellKP.github.io/main/home%20page%202.jpg"
+          onerror="this.src='https://images.unsplash.com/photo-1577493340887-b7bfff550145?auto=format&fit=crop&w=800&q=80'"
+          alt="Planning Cell KP ADP"/>
       </div>
-      <div class="footer-links">
-        <a href="#hero">Home</a>
-        <a href="#team">Leadership</a>
-        <a href="#adp">ADP Downloads</a>
-        <a href="#sdcs">SDCs</a>
-        <a href="https://revenue.kp.gov.pk" target="_blank" rel="noopener">Official Portal</a>
+      <div class="adp-text">
+        <div class="sec-eyebrow"><div class="sec-line" style="background:var(--gold)"></div><span class="sec-label">Planning &amp; Policy</span></div>
+        <h2 class="sec-heading">Annual Development Programme</h2>
+        <div class="sec-rule"></div>
+        <p>In pursuance of the Rules of Business of the Government of Khyber Pakhtunkhwa, the Planning Cell is mandated to prepare, coordinate and oversee the Annual Development Programme (ADP) for the Revenue &amp; Estate Department — encompassing all developmental schemes of District Administrations across the province.</p>
+        <blockquote class="adp-blockquote">"The Planning Cell serves as the institutional hub for developmental governance — bridging district-level administration with the provincial revenue framework to ensure accountable, transparent and result-oriented public investment across KP."</blockquote>
+        <p>ADP 2026-27 has been formulated following extensive consultative meetings with all Commissioners, Deputy Commissioners, and Line Departments under the chairmanship of the Senior Member BOR.</p>
+        <div class="adp-info-cards">
+          <div class="adp-info-card"><h5>DDWP Approval</h5><p>Schemes up to Rs. 40 million approved at District Development Working Party level with full documentation.</p></div>
+          <div class="adp-info-card"><h5>PDWP Approval</h5><p>Larger schemes forwarded to Provincial Development Working Party with complete PC-I documentation.</p></div>
+          <div class="adp-info-card"><h5>PC-I / PC-II</h5><p>Full project appraisal documents prepared and reviewed by Planning Cell before formal submission.</p></div>
+          <div class="adp-info-card"><h5>PSDP Projects</h5><p>Federal PSDP projects monitored and coordinated in liaison with NEC and Planning Commission.</p></div>
+        </div>
       </div>
     </div>
-    <div class="footer-copy">
-      &copy; 2026 Planning Cell — Revenue &amp; Estate Department, Government of Khyber Pakhtunkhwa. All rights reserved.
+
+    <!-- ADP Year-wise PDF Download Cards -->
+    <div style="margin-top:64px;position:relative;z-index:1;">
+      <div class="adp-books-header">
+        <div>
+          <div class="sec-eyebrow"><div class="sec-line" style="background:var(--gold)"></div><span class="sec-label" style="color:var(--gold2);">Document Library</span></div>
+          <h3 style="font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--gold2);margin-top:4px;">ADP Books — Year-Wise Archive</h3>
+        </div>
+        <a href="#" class="btn-gold" style="align-self:flex-end;">View ADP Guidelines →</a>
+      </div>
+
+      <div class="adp-books-grid">
+
+        <!-- ADP 2025-26 — LATEST -->
+        <div class="adp-pdf-card">
+          <div class="adp-latest-badge">Latest</div>
+          <div class="adp-pdf-preview">
+            <div class="adp-pdf-icon"><svg width="36" height="36" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div class="adp-pdf-year-tag">2025 – 26</div>
+          </div>
+          <div class="adp-pdf-info">
+            <h4>ADP Book 2025-26</h4>
+            <p>Annual Development Programme — Full Final Version. Revenue &amp; Estate Dept, KP.</p>
+            <div class="adp-pdf-actions">
+              <a href="1778317893517_ADPBook-2025-26-Full-Final-Version__1_.pdf" download class="adp-dl-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download PDF
+              </a>
+              <a href="1778317893517_ADPBook-2025-26-Full-Final-Version__1_.pdf" target="_blank" class="adp-view-btn">
+                <svg width="13" height="13" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>View
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADP 2024-25 -->
+        <div class="adp-pdf-card">
+          <div class="adp-pdf-preview">
+            <div class="adp-pdf-icon"><svg width="36" height="36" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="adp-pdf-year-tag">2024 – 25</div>
+          </div>
+          <div class="adp-pdf-info">
+            <h4>ADP Book 2024-25</h4>
+            <p>Annual Development Programme. Revenue &amp; Estate Department, Government of KP.</p>
+            <div class="adp-pdf-actions">
+              <a href="1778317893517_ADPBook-2024-25.pdf" download class="adp-dl-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download PDF
+              </a>
+              <a href="1778317893517_ADPBook-2024-25.pdf" target="_blank" class="adp-view-btn">
+                <svg width="13" height="13" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>View
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADP 2023-24 -->
+        <div class="adp-pdf-card">
+          <div class="adp-pdf-preview">
+            <div class="adp-pdf-icon"><svg width="36" height="36" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="adp-pdf-year-tag">2023 – 24</div>
+          </div>
+          <div class="adp-pdf-info">
+            <h4>ADP Book 2023-24</h4>
+            <p>Annual Development Programme. Revenue &amp; Estate Department, Government of KP.</p>
+            <div class="adp-pdf-actions">
+              <a href="1778317893520_ADPBook_2023-24.pdf" download class="adp-dl-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download PDF
+              </a>
+              <a href="1778317893520_ADPBook_2023-24.pdf" target="_blank" class="adp-view-btn">
+                <svg width="13" height="13" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>View
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADP 2022-23 -->
+        <div class="adp-pdf-card">
+          <div class="adp-pdf-preview">
+            <div class="adp-pdf-icon"><svg width="36" height="36" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="adp-pdf-year-tag">2022 – 23</div>
+          </div>
+          <div class="adp-pdf-info">
+            <h4>ADP Book 2022-23</h4>
+            <p>Annual Development Programme. Revenue &amp; Estate Department, Government of KP.</p>
+            <div class="adp-pdf-actions">
+              <a href="1778317893520_ADP-2022-23.pdf" download class="adp-dl-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download PDF
+              </a>
+              <a href="1778317893520_ADP-2022-23.pdf" target="_blank" class="adp-view-btn">
+                <svg width="13" height="13" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>View
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADP 2021-22 -->
+        <div class="adp-pdf-card">
+          <div class="adp-pdf-preview">
+            <div class="adp-pdf-icon"><svg width="36" height="36" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="adp-pdf-year-tag">2021 – 22</div>
+          </div>
+          <div class="adp-pdf-info">
+            <h4>ADP Book 2021-22</h4>
+            <p>Overall Annual Development Programme Book. Revenue &amp; Estate Department, KP.</p>
+            <div class="adp-pdf-actions">
+              <a href="1778317893519_Overall_ADP_2021-22_Book.pdf" download class="adp-dl-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download PDF
+              </a>
+              <a href="1778317893519_Overall_ADP_2021-22_Book.pdf" target="_blank" class="adp-view-btn">
+                <svg width="13" height="13" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>View
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADP 2020-21 -->
+        <div class="adp-pdf-card">
+          <div class="adp-pdf-preview">
+            <div class="adp-pdf-icon"><svg width="36" height="36" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="adp-pdf-year-tag">2020 – 21</div>
+          </div>
+          <div class="adp-pdf-info">
+            <h4>ADP Book 2020-21</h4>
+            <p>Annual Development Programme. Revenue &amp; Estate Department, Government of KP.</p>
+            <div class="adp-pdf-actions">
+              <a href="1778317893519_ADP_2020-21.pdf" download class="adp-dl-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download PDF
+              </a>
+              <a href="1778317893519_ADP_2020-21.pdf" target="_blank" class="adp-view-btn">
+                <svg width="13" height="13" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>View
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADP 2019-20 -->
+        <div class="adp-pdf-card">
+          <div class="adp-pdf-preview">
+            <div class="adp-pdf-icon"><svg width="36" height="36" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="adp-pdf-year-tag">2019 – 20</div>
+          </div>
+          <div class="adp-pdf-info">
+            <h4>ADP Book 2019-20</h4>
+            <p>Annual Development Programme — Final Edition. Revenue &amp; Estate Department, KP.</p>
+            <div class="adp-pdf-actions">
+              <a href="1778317893518_ADP-2019-20_Final.pdf" download class="adp-dl-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download PDF
+              </a>
+              <a href="1778317893518_ADP-2019-20_Final.pdf" target="_blank" class="adp-view-btn">
+                <svg width="13" height="13" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>View
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADP 2026-27 Coming Soon -->
+        <div class="adp-pdf-card" style="opacity:.75;">
+          <div class="adp-pdf-preview" style="background:linear-gradient(135deg,rgba(0,61,52,.9),rgba(11,28,44,.95));">
+            <div class="adp-pdf-icon"><svg width="36" height="36" viewBox="0 0 24 24" stroke="rgba(201,154,46,.5)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            <div class="adp-pdf-year-tag" style="background:rgba(201,154,46,.3);color:rgba(255,255,255,.7);">2026 – 27</div>
+          </div>
+          <div class="adp-pdf-info">
+            <h4 style="color:rgba(255,255,255,.5);">ADP Book 2026-27</h4>
+            <p>Under preparation — ADP 2026-27 is currently being finalized following consultative meetings with all Commissioners and DCs.</p>
+            <div class="adp-pdf-actions">
+              <span style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:rgba(255,255,255,.05);color:rgba(255,255,255,.4);font-size:.68rem;font-weight:700;border-radius:var(--radius);letter-spacing:.06em;text-transform:uppercase;width:100%;justify-content:center;border:1px solid rgba(255,255,255,.1);">⏳ Coming Soon</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /adp-books-grid -->
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════ NEWS ══════ -->
+<section id="news">
+  <div class="section-wrap">
+    <div class="news-section-header">
+      <div>
+        <div class="sec-eyebrow"><div class="sec-line"></div><span class="sec-label">Media Centre</span></div>
+        <h2 class="sec-heading">Latest News &amp; Events</h2>
+        <div class="sec-rule"></div>
+      </div>
+      <a href="#" class="view-all">View All News →</a>
+    </div>
+    <div class="news-layout">
+      <div class="news-panel">
+        <div class="news-panel-header"><h3>Latest News &amp; Events</h3><a href="#">View All →</a></div>
+        <div class="news-featured">
+          <img class="news-feat-img" src="https://images.unsplash.com/photo-1544984243-ec57ea16fe25?auto=format&fit=crop&w=500&q=75" alt="ADP Meeting"/>
+          <div class="news-feat-body">
+            <p class="news-feat-tag">◆ News</p>
+            <h4><a href="#">Senior Member BOR Held Consultative Meeting on ADP 2026-27 with All Commissioners and DCs</a></h4>
+            <p class="news-feat-date">📅 March 19, 2026</p>
+            <p class="news-feat-desc">The Senior Member Board of Revenue presided over a comprehensive consultative session reviewing priorities for the upcoming Annual Development Programme cycle across all seven divisions of Khyber Pakhtunkhwa.</p>
+            <a href="#" class="read-link">Read Full Story →</a>
+          </div>
+        </div>
+        <div class="news-grid-sm">
+          <a href="#" class="news-sm-item"><p class="news-sm-tag">Announcement</p><p class="news-sm-title">E-Registration (E-Registry) System Launched in District Peshawar — First in KP's History</p><span class="news-sm-date">December 17, 2025</span></a>
+          <a href="#" class="news-sm-item"><p class="news-sm-tag">Announcement</p><p class="news-sm-title">Agriculture Income Tax (AIT) Mobile App Now Available for Download on Android &amp; iOS</p><span class="news-sm-date">April 7, 2026</span></a>
+          <a href="#" class="news-sm-item"><p class="news-sm-tag">News</p><p class="news-sm-title">GIS-Based Land Settlement Introduced in Seven Sub-Divisions of Merged Districts</p><span class="news-sm-date">March 5, 2026</span></a>
+        </div>
+        <div class="news-grid-sm">
+          <a href="#" class="news-sm-item"><p class="news-sm-tag">News</p><p class="news-sm-title">CM KP Reviewed New Schemes of ADP 2026-27 with Planning Cell Leadership</p><span class="news-sm-date">April 8, 2026</span></a>
+          <a href="#" class="news-sm-item"><p class="news-sm-tag">Announcement</p><p class="news-sm-title">E-Vendor Module for E-Stamp Papers Launched in Bannu, D.I.Khan, Kohat</p><span class="news-sm-date">February 10, 2026</span></a>
+          <a href="#" class="news-sm-item"><p class="news-sm-tag">News</p><p class="news-sm-title">Review Meeting on ADB Portfolio Held at Civil Secretariat Peshawar under SMBR</p><span class="news-sm-date">March 13, 2026</span></a>
+        </div>
+      </div>
+      <div class="news-sidebar">
+        <div class="news-sidebar-header"><h3>Announcements</h3></div>
+        <a href="#" class="news-sidebar-item"><div class="sidebar-date-badge"><div class="day">08</div><div class="month">Apr</div></div><div><p class="sidebar-tag">News</p><p class="sidebar-title">CM KP Reviewed New Schemes of ADP 2026-27 with Planning Cell Leadership</p></div></a>
+        <a href="#" class="news-sidebar-item"><div class="sidebar-date-badge"><div class="day">07</div><div class="month">Apr</div></div><div><p class="sidebar-tag">Announcement</p><p class="sidebar-title">AIT Mobile App Now Available for Download on Android &amp; iOS</p></div></a>
+        <a href="#" class="news-sidebar-item"><div class="sidebar-date-badge"><div class="day">19</div><div class="month">Mar</div></div><div><p class="sidebar-tag">News</p><p class="sidebar-title">ADP 2026-27 Consultative Meeting held under Senior Member BOR</p></div></a>
+        <a href="#" class="news-sidebar-item"><div class="sidebar-date-badge"><div class="day">13</div><div class="month">Mar</div></div><div><p class="sidebar-tag">News</p><p class="sidebar-title">ADB Portfolio Review Meeting at Civil Secretariat Peshawar</p></div></a>
+        <a href="#" class="news-sidebar-item"><div class="sidebar-date-badge"><div class="day">05</div><div class="month">Mar</div></div><div><p class="sidebar-tag">News</p><p class="sidebar-title">GIS-Based Land Settlement in 7 Sub-Divisions of Merged Districts</p></div></a>
+        <a href="#" class="news-sidebar-item"><div class="sidebar-date-badge"><div class="day">10</div><div class="month">Feb</div></div><div><p class="sidebar-tag">Announcement</p><p class="sidebar-title">E-Vendor Module Launched in Bannu, D.I.Khan &amp; Kohat</p></div></a>
+        <a href="#" class="news-sidebar-item"><div class="sidebar-date-badge"><div class="day">17</div><div class="month">Dec</div></div><div><p class="sidebar-tag">Announcement</p><p class="sidebar-title">E-Registry Launched in Peshawar — First of Its Kind in KP</p></div></a>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;"><a href="#" class="view-all">View All News &amp; Events →</a></div>
+  </div>
+</section>
+
+<!-- ══════ PARTNERS ══════ -->
+<div id="partners">
+  <div class="section-wrap">
+    <p class="partners-label">Development Partners &amp; Multilateral Agencies</p>
+    <div class="partners-row">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/USAID_logo.svg/200px-USAID_logo.svg.png" alt="USAID"/>
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/United_Nations_Development_Programme_logo.svg/200px-United_Nations_Development_Programme_logo.svg.png" alt="UNDP"/>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Logo_of_UNICEF.svg/200px-Logo_of_UNICEF.svg.png" alt="UNICEF"/>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/ADB_logo_2021.svg/200px-ADB_logo_2021.svg.png" alt="ADB"/>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/GIZ_logo_2022.svg/200px-GIZ_logo_2022.svg.png" alt="GIZ"/>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/World_Bank_logo.svg/200px-World_Bank_logo.svg.png" alt="World Bank"/>
     </div>
   </div>
-</footer>
+</div>
 
+<!-- ══════ CONTACT ══════ -->
+<section id="contact-section">
+  <div class="section-wrap">
+    <div class="sec-eyebrow"><div class="sec-line" style="background:var(--gold)"></div><span class="sec-label" style="color:var(--gold2);">Get In Touch</span></div>
+    <h2 class="sec-heading" style="color:#fff;">Contact Planning Cell</h2>
+    <div class="sec-rule" style="margin-bottom:44px;"></div>
+    <div class="contact-grid">
+      <div class="contact-col">
+        <h4>Planning Cell — Revenue &amp; Estate Department</h4>
+        <div class="contact-item"><span class="contact-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><p>Board of Revenue, Block-C, Civil Secretariat<br/>Peshawar, Khyber Pakhtunkhwa, Pakistan</p></div>
+        <div class="contact-item"><span class="contact-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.58 1.22h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.18A16 16 0 0 0 14.2 15.5l1.46-1.46a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><p>+92-91-9210328</p></div>
+        <div class="contact-item"><span class="contact-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><p>planningcell@revenue.kp.gov.pk</p></div>
+        <div class="contact-item"><span class="contact-icon"><svg width="16" height="16" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><p>Mon – Fri: 9:00 am – 5:00 pm (PST)</p></div>
+        <iframe class="map-frame" src="https://maps.google.com/maps?q=Board+of+Revenue+Civil+Secretariat+Peshawar&t=m&z=14&output=embed&iwloc=near" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="contact-col">
+        <h4>Quick Links</h4>
+        <ul class="quicklinks-list">
+          <li><a href="#about-row">About Planning Cell</a></li>
+          <li><a href="#adp">Annual Development Programme</a></li>
+          <li><a href="#">ADP Guidelines &amp; Policy</a></li>
+          <li><a href="#">Organogram</a></li>
+          <li><a href="#leadership">Our Team</a></li>
+          <li><a href="#">Publications &amp; Reports</a></li>
+          <li><a href="#">Jobs &amp; Tenders</a></li>
+          <li><a href="#">Foreign Trainings</a></li>
+          <li><a href="#">Right to Information</a></li>
+          <li><a href="https://revenue.kp.gov.pk/" target="_blank">Revenue &amp; Estate Department</a></li>
+          <li><a href="https://kp.gov.pk/" target="_blank">Government of KP Portal</a></li>
+          <li><a href="https://www.pc.gov.pk/" target="_blank">Planning Commission of Pakistan</a></li>
+        </ul>
+      </div>
+      <div class="contact-col">
+        <h4>Quick Access</h4>
+        <div class="qa-grid">
+          <a href="#adp" class="qa-item"><svg width="18" height="18" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>ADP</a>
+          <a href="#" class="qa-item"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Jobs</a>
+          <a href="#" class="qa-item"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Training</a>
+          <a href="#news" class="qa-item"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/></svg>News</a>
+          <a href="#" class="qa-item"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Pubs</a>
+          <a href="#" class="qa-item"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Sections</a>
+          <a href="#" class="qa-item"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Organo</a>
+          <a href="#" class="qa-item"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Tenders</a>
+        </div>
+        <div class="portals-box" style="margin-top:22px;">
+          <p class="portals-label">Useful Portals</p>
+          <a href="https://revenue.kp.gov.pk" target="_blank">Revenue KP — revenue.kp.gov.pk</a>
+          <a href="https://kp.gov.pk" target="_blank">KP Government — kp.gov.pk</a>
+          <a href="https://www.pc.gov.pk" target="_blank">Planning Commission — pc.gov.pk</a>
+          <a href="https://kpra.gov.pk" target="_blank">KP Revenue Authority — kpra.gov.pk</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<div id="footerbar">
+  <p>Copyright © 2026 <strong>Planning Cell, Revenue &amp; Estate Department, Government of Khyber Pakhtunkhwa</strong>. All Rights Reserved.<br/>
+  <a href="https://revenue.kp.gov.pk" target="_blank">Board of Revenue, KP</a> &nbsp;|&nbsp;
+  <a href="https://kp.gov.pk" target="_blank">KP Government Portal</a> &nbsp;|&nbsp;
+  <a href="https://www.pc.gov.pk" target="_blank">Planning Commission of Pakistan</a></p>
+</div>
+
+<!-- ══════ SCRIPTS ══════ -->
 <script>
-const slides   = document.querySelectorAll('.slide');
-const dots     = document.querySelectorAll('.dot');
-const nextBtn  = document.getElementById('next-btn');
-const prevBtn  = document.getElementById('prev-btn');
-let currentSlide = 0;
-let autoTimer;
+/* ── Hamburger ── */
+document.getElementById('ham-btn').addEventListener('click',function(){
+  document.getElementById('nav-menu').classList.toggle('open');
+});
 
-function showSlide(index) {
-  slides.forEach(s => s.classList.remove('active'));
-  dots.forEach(d => d.classList.remove('active'));
-  slides[index].classList.add('active');
-  dots[index].classList.add('active');
-  currentSlide = index;
+/* ── Hero Slider ── */
+const slides = document.querySelectorAll('.slide');
+const dots   = document.querySelectorAll('.dot');
+const counter = document.getElementById('cur-slide');
+let cur = 0, autoTimer;
+
+function goTo(n){
+  slides[cur].classList.remove('active');
+  dots[cur].classList.remove('active');
+  cur = (n + slides.length) % slides.length;
+  slides[cur].classList.add('active');
+  dots[cur].classList.add('active');
+  if(counter) counter.textContent = cur + 1;
 }
+function next(){ goTo(cur + 1); }
+function prev(){ goTo(cur - 1); }
+function startAuto(){ autoTimer = setInterval(next, 7000); }
+function stopAuto(){ clearInterval(autoTimer); }
 
-function nextSlide() {
-  showSlide((currentSlide + 1) % slides.length);
-}
+document.getElementById('next-btn').addEventListener('click',()=>{ stopAuto(); next(); startAuto(); });
+document.getElementById('prev-btn').addEventListener('click',()=>{ stopAuto(); prev(); startAuto(); });
+dots.forEach(d => d.addEventListener('click',()=>{ stopAuto(); goTo(+d.dataset.idx); startAuto(); }));
 
-function prevSlide() {
-  showSlide((currentSlide - 1 + slides.length) % slides.length);
-}
+/* Touch / swipe support for hero */
+let touchStartX = 0;
+document.getElementById('hero').addEventListener('touchstart',e=>{ touchStartX = e.touches[0].clientX; }, {passive:true});
+document.getElementById('hero').addEventListener('touchend',e=>{
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  if(Math.abs(dx) > 50){ stopAuto(); dx < 0 ? next() : prev(); startAuto(); }
+});
+startAuto();
 
-function resetTimer() {
-  clearInterval(autoTimer);
-  autoTimer = setInterval(nextSlide, 5500);
-}
+/* ── Navbar scroll shadow ── */
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').style.boxShadow =
+    window.scrollY > 10 ? '0 4px 28px rgba(0,95,83,.16)' : '0 2px 12px rgba(0,95,83,.08)';
+});
 
-nextBtn.addEventListener('click', () => { nextSlide(); resetTimer(); });
-prevBtn.addEventListener('click', () => { prevSlide(); resetTimer(); });
-dots.forEach((dot, i) => dot.addEventListener('click', () => { showSlide(i); resetTimer(); }));
+/* ── Smooth scroll ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    const h = this.getAttribute('href');
+    if(h==='#'||!h) return;
+    const tgt = document.querySelector(h);
+    if(tgt){ e.preventDefault(); window.scrollTo({top:tgt.offsetTop-88,behavior:'smooth'}); }
+  });
+});
 
-autoTimer = setInterval(nextSlide, 5500);
+/* ── Modals ── */
+function openModal(id){ document.getElementById(id).classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal(id){ document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }
+document.querySelectorAll('.modal-overlay').forEach(m=>{
+  m.addEventListener('click',function(e){ if(e.target===this) closeModal(this.id); });
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') document.querySelectorAll('.modal-overlay.open').forEach(m=>closeModal(m.id));
+});
+
+/* ── Scroll reveal ── */
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(el=>{
+    if(el.isIntersecting){
+      el.target.style.animation='fadeUp 0.6s ease both';
+      obs.unobserve(el.target);
+    }
+  });
+},{threshold:0.07});
+document.querySelectorAll(
+  '.feature-card,.sector-card,.district-card,.sdc-card,.leader-card,.adp-info-card,.adp-pdf-card,.news-sm-item,.news-sidebar-item'
+).forEach(el=>obs.observe(el));
 </script>
-
 </body>
 </html>
